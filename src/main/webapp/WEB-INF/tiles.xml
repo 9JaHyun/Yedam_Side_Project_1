@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+<!-- Customer Page-->
+  <definition name="customer" template="/WEB-INF/customerViews/layout/template.jsp">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="header" value="/WEB-INF/customerViews/layout/header.jsp" />
+    <put-attribute name="menu" value="/WEB-INF/customerViews/layout/menu.jsp" />
+    <put-attribute name="body" value=""/>
+    <put-attribute name="footer" value="/WEB-INF/customerViews/layout/footer.jsp" />
+  </definition>
+
+  <definition name="WILDCARD:*/*" extends="customer">
+    <put-attribute name="body" value="/WEB-INF/customerViews/{1}/{2}.jsp" />
+  </definition>
+
+<!--  Shop Manager Page-->
+  <definition name="manager" template="/WEB-INF/managerViews/layout/template.jsp">
+    <put-attribute name="title" value="매장 관리" />
+    <put-attribute name="header" value="/WEB-INF/managerViews/layout/header.jsp" />
+    <put-attribute name="menu" value="/WEB-INF/managerViews/layout/menu.jsp" />
+    <put-attribute name="body" value=""/>
+    <put-attribute name="footer" value="/WEB-INF/managerViews/layout/footer.jsp" />
+  </definition>
+
+  <definition name="WILDCARD:*/*" extends="manager">
+    <put-attribute name="body" value="/WEB-INF/managerViews/{1}/{2}.jsp" />
+  </definition>
+</tiles-definitions>
