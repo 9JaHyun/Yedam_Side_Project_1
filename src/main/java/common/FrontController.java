@@ -1,6 +1,7 @@
 package common;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletConfig;
@@ -31,11 +32,18 @@ public class FrontController extends HttpServlet {
         if (commandMap.get(commandPath) == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
-        String filePath = fullPath(commandMap.get(commandPath).exec(request, response));
+        
+        String filePath = commandMap.get(commandPath).exec(request, response);
+        if(!filePath.endsWith(".do")) {
+			if(filePath.startsWith("ajax:")) {
+				// ajax 처리
+				PrintWriter out = response.getWriter();
+				out.print(filePath.substring(5));
+				return;
+			} else {
+				filePath = filePath + ".tiles";
+			}
+		}
         request.getRequestDispatcher(filePath).forward(request, response);
-    }
-
-    private String fullPath(String path) {
-        return "/WEB-INF/" + path + "tiles";
     }
 }
