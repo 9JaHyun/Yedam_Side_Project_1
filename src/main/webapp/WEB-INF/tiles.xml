@@ -7,13 +7,12 @@
   <definition name="customer" template="/WEB-INF/customerViews/layout/template.jsp">
     <put-attribute name="title" value="Tiles tutorial homepage" />
     <put-attribute name="header" value="/WEB-INF/customerViews/layout/header.jsp" />
-    <put-attribute name="menu" value="/WEB-INF/customerViews/layout/menu.jsp" />
     <put-attribute name="body" value=""/>
     <put-attribute name="footer" value="/WEB-INF/customerViews/layout/footer.jsp" />
   </definition>
 
-  <definition name="WILDCARD:*/*" extends="customer">
-    <put-attribute name="body" value="/WEB-INF/customerViews/{1}/{2}.jsp" />
+  <definition name="WILDCARD:*/*/*" extends="customer">
+    <put-attribute name="body" value="/WEB-INF/{1}/{2}/{3}.jsp" />
   </definition>
 
 <!--  Shop Manager Page-->
