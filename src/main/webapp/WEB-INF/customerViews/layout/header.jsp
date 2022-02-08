@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- header -->
 <header>
-    <a href="/">
+    <a href="main.do">
       <h2 class="fs-4">EatGo</h2>
     </a>
     <div>

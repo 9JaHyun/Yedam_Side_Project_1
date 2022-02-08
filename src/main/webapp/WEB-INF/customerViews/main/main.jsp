@@ -12,7 +12,7 @@
 
         <!-- 검색화면 -->
         <div class="main__search">
-            <form action="searchResult.html" class="search__form">
+            <form action="searchRestaurant.do" method="post" class="search__form">
 
                 <div class="input-group">
                     <div class="input-group-text">지역</div>
@@ -25,8 +25,8 @@
                 </div>
 
                 <div class="input-group">
-                    <div class="input-group-text">가게명</div>
-                    <input type="text" placeholder="ex)역전우동" class="form-control">
+                    <div class="input-group-text">식당명</div>
+                    <input type="text" placeholder="ex)홍콩반점" class="form-control">
                 </div>
 
                 <div class="input-group">
@@ -52,14 +52,20 @@
         <div class="list-container">
             <h4 class="fw-bold">인기 음식점</h4>
             <div class="grid-4">
+            
                 <div class="card">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+                    <div class="card-img">
+                      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="...">
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title fw-bold">한옥집</h5>
+                        <h5 class="card-title fw-bold">
+                          <a href="restaurantDetail.html" style="color:black; text-decoration: none; outline: none;">한옥집</a>
+                        </h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="btn btn-primary">예약하기</a>
                     </div>
                 </div>
+                
             </div>
         </div>
         
