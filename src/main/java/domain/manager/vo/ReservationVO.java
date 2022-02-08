@@ -11,5 +11,5 @@ public class ReservationVO {
 	private long memberId;
 	private long restaurantId;
 	private Date orderTime;
-	private Date orderCount;
+	private int orderCount;
 }
