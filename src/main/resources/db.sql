@@ -47,7 +47,7 @@ CREATE TABLE menu(
 );
 
 CREATE TABLE manager(
-    manger_id number primary key,
+    manager_id number primary key,
     restaurant_id number,
     login_id varchar2(100),
     password varchar2(100),
