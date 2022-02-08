@@ -19,6 +19,7 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="co/micol/prj/member/service/member-map.xml" />
+<!--		Mapper 생성 후 꼭 추가! -->
+		<mapper resource="" />
 	</mappers>
 </configuration>
