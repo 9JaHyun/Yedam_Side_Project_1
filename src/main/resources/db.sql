@@ -38,7 +38,7 @@ CREATE TABLE RESERVATION(
 CREATE TABLE menu(
     menu_id number primary key,
     restaurant_id number,
-    menu varchar2(200),
+    name varchar2(200),
     cost number,
     picture varchar2(2000),
     CONSTRAINT fk_menu_restaurant_id
