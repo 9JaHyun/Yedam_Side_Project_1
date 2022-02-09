@@ -9,31 +9,31 @@
 
                 <div class="input-group">
                     <div class="input-group-text">지역</div>
-                    <select name="" id="" class="form-select">
+                    <select name="area" id="area" class="form-select">
                       <option value="1">서울</option>
-                      <option value="1">대구</option>
-                      <option value="1">광주</option>
-                      <option value="1">부산</option>
+                      <option value="2">대구</option>
+                      <option value="3">광주</option>
+                      <option value="4">부산</option>
                   </select>
                 </div>
 
                 <div class="input-group">
                     <div class="input-group-text">식당명</div>
-                    <input type="text" placeholder="ex)홍콩반점" class="form-control">
+                    <input name="name" type="text" placeholder="ex)홍콩반점" class="form-control">
                 </div>
 
                 <div class="input-group">
                     <div class="input-group-text">날짜</div>
-                    <input type="date" class="form-control"/>
+                    <input name="date" type="date" class="form-control" />
                 </div>
 
                 <div class="input-group">
                     <div class="input-group-text">인원</div>
-                    <select name="" id="" class="form-select">
-                        <option value="1">-</option>
-                        <option value="1">2명</option>
-                        <option value="1">3명</option>
-                        <option value="1">4명</option>
+                    <select name="personnel" id="personnel" class="form-select">
+                        <option value="all">-</option>
+                        <option value="2">2명</option>
+                        <option value="3">3명</option>
+                        <option value="4">4명</option>
                     </select>
                 </div>
 

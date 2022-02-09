@@ -5,7 +5,6 @@ import java.sql.Date;
 import lombok.Data;
 
 @Data
-
 public class MemberVO {
 	private long memberId;
 	private String memberName;

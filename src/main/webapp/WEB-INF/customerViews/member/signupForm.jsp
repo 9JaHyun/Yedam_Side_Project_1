@@ -14,7 +14,7 @@
 			</div>
 			<div class='col-6'>
 				아이디<br> 
-				<input class='form-control' type='text' id='id' name='id' placeholder='ID'>
+				<input class='form-control' type='text' id='loginId' name='loginId' placeholder='ID'>
 			</div>
 			<div class='form-group'>
 				<div class='col-6'>
@@ -28,11 +28,11 @@
 			</div>
 			<div class='col-6'>
 				이름<br>
-				<input class='form-control' type='text' id='name' name='name' placeholder='이름을 입력하세요'>
+				<input class='form-control' type='text' id='memberName' name='memberName' placeholder='이름을 입력하세요'>
 			</div>
 			<div class='col-6'>
 				이메일<br>
-				<input class='form-control' type='email' id='mail' name='mail' placeholder='이메일을 입력하세요'>
+				<input class='form-control' type='email' id='email' name='email' placeholder='이메일을 입력하세요'>
 			</div>
 			<div class='col-6'>
 				전화번호<br>
