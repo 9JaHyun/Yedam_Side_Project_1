@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div align='center'>
-		<form id='frm' action='signup.do' method='post' onsubmit='return inputCheck()' style='width: 300px'>
+		<form id='frm' action='managerSignup.do' method='post' style='width: 300px'>
 			<div>
 				<h1>점주 회원가입</h1>
 			</div>

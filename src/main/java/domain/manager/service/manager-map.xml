@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.manager.service.ManagerMapper">
+<select id="managerList" resultType="domain.manager.vo.ManagerVO">
+select * from manager
+</select>
+
+<select id="managerSelect" resultType="domain.manager.vo.ManagerVO" parameterType="domain.manager.vo.ManagerVO">
+SELECT * FROM MANAGER WHERE login_id = #{loginId}
+<if test="password != null">
+AND PASSWORD = #{password}
+</if>
+</select>
+
+<insert id="managerInsert" parameterType="domain.manager.vo.ManagerVO">
+<selectKey keyProperty="managerId" resultType="long" order="BEFORE">
+			SELECT manager_id_seq.nextval AS manager_id FROM DUAL
+</selectKey>
+insert into manager (manager_id,login_id,password,email,tel)
+values (#{managerId},#{loginId},#{password},#{email},#{tel})
+</insert>
+
+<update id="managerUpdate">
+
+</update>
+
+<delete id="managerDelete">
+
+</delete>
+
+<select id="isIdCheck">
+
+</select>
+
+</mapper>

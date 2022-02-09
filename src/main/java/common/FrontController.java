@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.LoginFormController;
 import command.MainController;
+import command.ManagerSignupController;
 import command.RestaurantDetail;
 import command.SearchRestaurantController;
 import command.ManagerSignupFormController;
@@ -36,6 +37,7 @@ public class FrontController extends HttpServlet {
         commandMap.put("/reserveForm.do", new ReserveFormController()); // 예약화면 페이지
         commandMap.put("/searchRestaurant.do", new SearchRestaurantController());
         commandMap.put("/restaurantDetail.do", new RestaurantDetail());
+        commandMap.put("/managerSignup.do", new ManagerSignupController());
     }
 
     @Override

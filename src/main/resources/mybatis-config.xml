@@ -19,6 +19,7 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="" />
+		<mapper resource="domain/manager/service/manager-map.xml" />
+		<mapper resource="domain/manager/service/restaurant-map.xml" />
 	</mappers>
 </configuration>
