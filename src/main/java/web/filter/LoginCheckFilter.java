@@ -14,7 +14,7 @@ import web.SessionConst;
 
 public class LoginCheckFilter implements Filter {
 
-    private static final String[] whiteList = {"/", "/cMain.do", "/loginForm.do", "/login.do", "/logout.do",
+    private static final String[] whiteList = {"/", "/main.do", "/cMain.do", "/loginForm.do", "/login.do", "/logout.do",
           "/signupForm.do", "/signup.do", "/managerSignupForm.do", "/searchRestaurant.do", "/restaurantDetail.do"};
 
     @Override
