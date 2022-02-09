@@ -9,7 +9,10 @@ public class LoginFormController implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		String redirectURL = request.getParameter("redirectURL");
+		if (redirectURL != null) {
+			request.setAttribute("redirectURL", redirectURL);
+		}
 		return "customerViews/member/loginForm";
 	}
 
