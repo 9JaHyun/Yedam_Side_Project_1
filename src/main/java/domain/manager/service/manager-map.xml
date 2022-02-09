@@ -25,6 +25,6 @@
 		SELECT me.member_name, me.tel, re.order_count, re.order_time
 		FROM member me, reservation re
 		WHERE me.member_id=re.member_id
-		AND me.member_id='1'
+		AND me.member_id= '1'
 	</select> 
 </mapper>
