@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.MainController;
+import command.RestaurantDetail;
 import command.SearchRestaurantController;
 
 @WebServlet(urlPatterns = "*.do")
@@ -25,6 +26,7 @@ public class FrontController extends HttpServlet {
         commandMap = new HashMap<>();
         commandMap.put("/main.do",new MainController());
         commandMap.put("/searchRestaurant.do", new SearchRestaurantController());
+        commandMap.put("/restaurantDetail.do", new RestaurantDetail());
     }
 
     @Override

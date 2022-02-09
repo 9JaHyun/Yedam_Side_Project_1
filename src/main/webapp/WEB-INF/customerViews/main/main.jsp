@@ -1,12 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>EatGO</title>
-</head>
-<body>
 	<!-- main -->
     <div class="main">
 
@@ -59,7 +52,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title fw-bold">
-                          <a href="restaurantDetail.html" style="color:black; text-decoration: none; outline: none;">한옥집</a>
+                          <a href="restaurantDetail.do" style="color:black; text-decoration: none; outline: none;">한옥집</a>
                         </h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="btn btn-primary">예약하기</a>
@@ -70,5 +63,3 @@
         </div>
         
     </div>
-</body>
-</html>
