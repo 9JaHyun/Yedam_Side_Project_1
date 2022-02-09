@@ -8,14 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- header -->
 <header>
-    <a href="main.do">
+    <a href="cMain.do">
       <h2 class="fs-4">EatGo</h2>
     </a>
     <div>
     	<!-- 로그인 전 -->
         <div>
-            <a href="#" class="btn btn-outline-primary me-2 btn-sm">회원가입</a>
-            <a href="#" class="btn btn-primary btn-lg btn-sm">로그인</a>
+            <a href="signupForm.do" class="btn btn-outline-primary me-2 btn-sm">회원가입</a>
+            <a href="loginForm.do" class="btn btn-primary btn-lg btn-sm">로그인</a>
         </div>
         
         <!-- 로그인 후 -->

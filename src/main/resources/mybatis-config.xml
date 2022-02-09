@@ -19,7 +19,6 @@
 		</environment>
 	</environments>
 	<mappers>
-<!--		Mapper 생성 후 꼭 추가! -->
 		<mapper resource="" />
 	</mappers>
 </configuration>
