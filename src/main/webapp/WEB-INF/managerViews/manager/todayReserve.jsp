@@ -21,12 +21,10 @@
 						<c:forEach var="reserve" items="${reserves }" varStatus="status">
 							<tr>
 								<td>${status.count}</td>
+								<td>${reserve.memberName }</td>
 								<td>${reserve.tel}</td>
 								<td>${reserve.orderCount}명</td>
-								<td>
-								<fmt:formatDate value='${reserve.orderTime }' pattern='yyyy년MM월dd일 hh:mm'/>  
-								</td>
-								
+								<td><fmt:formatDate value='${reserve.orderTime }' pattern='yyyy년MM월dd일 hh:mm'/></td>
 							</tr>
 						</c:forEach>
 					</tbody>

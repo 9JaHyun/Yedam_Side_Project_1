@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class ReservationListVO {
 	private long orderId;
+	private String memberName;
 	private long memberId;
 	private long restaurantId;
 	private Date orderTime;

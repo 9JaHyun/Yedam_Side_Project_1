@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.manager.service.ManagerMapper">
-	<resultMap type="domain.manager.vo.ReservationListVO"
-		id="reservation">
+	<resultMap type="domain.manager.vo.ReservationListVO" id="reservation">
 		<id property="orderId" column="order_id" />
+		<result property="memberName" column="member_name" />
 		<result property="memberId" column="member_id" />
 		<result property="restaurantId" column="restaurant_id" />
 		<result property="orderTime" column="order_time" />
@@ -22,7 +22,7 @@
 	</resultMap>
 
 	<select id="todayReserve" resultMap="reservation,member">
-		SELECT me.tel, re.order_count, re.order_time
+		SELECT me.member_name, me.tel, re.order_count, re.order_time
 		FROM member me, reservation re
 		WHERE me.member_id=re.member_id
 		AND me.member_id='1'
