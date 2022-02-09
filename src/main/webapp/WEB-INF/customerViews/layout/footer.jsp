@@ -6,11 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<!-- footer -->
+<footer>
+    <h5>Copyright(c) 2022 All rights reserved, yedam-project</h5>
+</footer>
