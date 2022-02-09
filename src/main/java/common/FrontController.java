@@ -1,5 +1,7 @@
 package common;
 
+import command.LoginController;
+import command.ManagerIndexController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -31,15 +33,19 @@ public class FrontController extends HttpServlet {
         commandMap = new HashMap<>();
 
         commandMap.put("/cMain.do",new MainController()); // customer 메인페이지
-        
+
+        commandMap.put("/login.do", new LoginController());
         commandMap.put("/loginForm.do", new LoginFormController()); // 로그인 화면 페이지
         commandMap.put("/signupForm.do", new SignupFormController()); // 회원가입 페이지
         commandMap.put("/signup.do", new SignupController()); // 회원가입 요청
-        
+
         commandMap.put("/managerSignupForm.do", new ManagerSignupFormController()); // manager 회원가입 페이지
         commandMap.put("/reserveForm.do", new ReserveFormController()); // 예약화면 페이지
         commandMap.put("/searchRestaurant.do", new SearchRestaurantController());
         commandMap.put("/restaurantDetail.do", new RestaurantDetail());
+
+        // Manager
+        commandMap.put("/main.do", new ManagerIndexController());
     }
 
     @Override
@@ -55,6 +61,12 @@ public class FrontController extends HttpServlet {
         }
         
         String filePath = commandMap.get(commandPath).exec(request, response);
+        
+        if (isRedirect(filePath)) {
+            response.sendRedirect(filePath.substring(9));
+            return;
+        }
+        
         if(!filePath.endsWith(".do")) {
 			if(filePath.startsWith("ajax:")) {
 				// ajax 처리
@@ -66,5 +78,10 @@ public class FrontController extends HttpServlet {
 			}
 		}
         request.getRequestDispatcher(filePath).forward(request, response);
+    }
+
+    private boolean isRedirect(String filePath) {
+        String redirect = "redirect:";  // 9
+        return filePath.startsWith(redirect);
     }
 }
