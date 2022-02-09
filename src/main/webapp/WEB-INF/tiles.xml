@@ -5,7 +5,7 @@
 <tiles-definitions>
 <!-- Customer Page-->
   <definition name="customer" template="/WEB-INF/customerViews/layout/template.jsp">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="title" value="EatGo" />
     <put-attribute name="header" value="/WEB-INF/customerViews/layout/header.jsp" />
     <put-attribute name="body" value=""/>
     <put-attribute name="footer" value="/WEB-INF/customerViews/layout/footer.jsp" />

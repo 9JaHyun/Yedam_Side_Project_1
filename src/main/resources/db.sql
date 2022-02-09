@@ -1,32 +1,48 @@
-CREATE TABLE restaurant(
-    restaurant_id number primary key,
-    name varchar2(1000),
-    tel varchar2(1000),
-    reserve_count number,
-    location varchar2(1000),
-    content varchar2(2000),
-    operation_time_start date,
-    operation_time_end date,
-    break_time_start date,
-    break_time_end date
+-- 반드시 상위 순서대로 테이블 생성할것 ! --
+
+CREATE TABLE MEMBER(
+    member_id NUMBER PRIMARY KEY,
+    name VARCHAR2(100),
+    login_id VARCHAR2(1000),
+    password VARCHAR2(1000),
+    email VARCHAR2(1000),
+    tel VARCHAR2(1000),
+    createdAt DATE,
+    updatedAt DATE
 );
 
-CREATE TABLE Member(
-    member_id number primary key,
-    login_id varchar2(1000),
-    password varchar2(1000),
-    email varchar2(1000),
-    tel varchar2(1000),
-    createdAt date,
-    updatedAt date
+CREATE TABLE MANAGER(
+    manager_id NUMBER PRIMARY KEY,
+    login_id VARCHAR2(100),
+    password VARCHAR2(100),
+    email VARCHAR2(100),
+    tel VARCHAR2(100)
 );
 
-CREATE TABLE RESERVATION(
-    order_id number primary key,
-    member_id number,
-    restaurant_id number,
-    order_time date,
-    order_count number,
+CREATE TABLE RESTAURANT(
+    restaurant_id NUMBER PRIMARY KEY,
+    manager_id NUMBER,
+    name VARCHAR2(1000),
+    tel VARCHAR2(1000),
+    reserve_count NUMBER,
+    location VARCHAR2(1000),
+    content VARCHAR2(2000),
+    operation_time_start DATE,
+    operation_time_end DATE,
+    break_time_start DATE,
+    break_time_end DATE,
+    CONSTRAINT fk_restaurant_manager_id
+    FOREIGN KEY(manager_id)
+    REFERENCES manager(manager_id)
+);
+
+CREATE TABLE Reservation(
+    reservation_id NUMBER PRIMARY KEY,
+    member_id NUMBER,
+    restaurant_id NUMBER,
+    reservation_time DATE,
+    reservation_count NUMBER,
+    reservation_content VARCHAR2(1000),
     CONSTRAINT fk_reservation_member_id
     FOREIGN KEY(member_id)
     REFERENCES member(member_id),
@@ -35,58 +51,62 @@ CREATE TABLE RESERVATION(
     REFERENCES restaurant(restaurant_id)
 );
 
-CREATE TABLE menu(
-    menu_id number primary key,
-    restaurant_id number,
-    name varchar2(200),
-    cost number,
-    picture varchar2(2000),
+CREATE TABLE MENU(
+    menu_id NUMBER PRIMARY KEY,
+    restaurant_id NUMBER,
+    manager_id NUMBER,
+    name VARCHAR2(200),
+    cost NUMBER,
+    picture VARCHAR2(2000),
     CONSTRAINT fk_menu_restaurant_id
     FOREIGN KEY(restaurant_id)
-    REFERENCES restaurant(restaurant_id)
+    REFERENCES restaurant(restaurant_id),
+    CONSTRAINT fk_menu_manager_id
+    FOREIGN KEY(manager_id)
+    REFERENCES manager(manager_id)
 );
 
-CREATE TABLE manager(
-    manager_id number primary key,
-    restaurant_id number,
-    login_id varchar2(100),
-    password varchar2(100),
-    email varchar2(100),
-    tel varchar2(100),
-    CONSTRAINT fk_manager_restaurant_id
-    FOREIGN KEY(restaurant_id)
-    REFERENCES restaurant(restaurant_id)
-);
-
-CREATE table address_code(
-    region_id number primary key,
-    restaurant_id number,
-    constraint fk_address_restaurant_id
-    foreign key(restaurant_id)
-    REFERENCES restaurant(restaurant_id)
-);
-
-CREATE table review(
-    review_id number primary key,
-    member_id number,
-    restaurant_id number,
-    content varchar2(2000),
-    rating number,
-    constraint fk_address_member_id
+CREATE table REVIEW(
+    review_id NUMBER PRIMARY KEY,
+    member_id NUMBER,
+    restaurant_id NUMBER,
+    manager_id NUMBER,
+    content VARCHAR2(2000),
+    rating NUMBER,
+    constraint fk_review_member_id
     foreign key(member_id)
     REFERENCES member(member_id),
     constraint fk_review_restaurant_id
     foreign key(restaurant_id)
-    REFERENCES restaurant(restaurant_id)
+    REFERENCES restaurant(restaurant_id),
+    constraint fk_review_manager_id
+    foreign key(manager_id)
+    REFERENCES manager(manager_id)
 );
 
-commit;
+CREATE SEQUENCE member_id_seq
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999999;
 
-drop table member cascade constraints;
-drop table restaurant cascade constraints;
-drop table reservation cascade constraints;
-drop table menu cascade constraints;
-drop table manager cascade constraints;
-drop table address_code cascade constraints;
+CREATE SEQUENCE order_id_seq
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999999;
+
+CREATE SEQUENCE restaurant_id_seq
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999999;
+
+CREATE SEQUENCE menu_id_seq
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999999;
+
+CREATE SEQUENCE manager_id_seq
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999999;
 
 commit;
