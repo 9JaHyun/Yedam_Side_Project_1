@@ -19,6 +19,6 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="co/micol/prj/member/service/member-map.xml" />
+		<mapper resource="domain/manager/service/manager-map.xml" />
 	</mappers>
 </configuration>

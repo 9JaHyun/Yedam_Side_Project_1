@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.MainController;
+import command.todayReserve;
 
 @WebServlet(urlPatterns = "*.do")
 public class FrontController extends HttpServlet {
@@ -23,6 +24,7 @@ public class FrontController extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         commandMap = new HashMap<>();
         commandMap.put("/main.do",new MainController());
+        commandMap.put("/todayReserve.do", new todayReserve());
     }
 
     @Override

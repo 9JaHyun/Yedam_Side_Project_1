@@ -1,0 +1,15 @@
+package domain.manager.vo;
+
+import java.sql.Date;
+
+import lombok.Data;
+
+@Data
+public class ReservationListVO {
+	private long orderId;
+	private long memberId;
+	private long restaurantId;
+	private Date orderTime;
+	private int orderCount;
+	private String tel;
+}
