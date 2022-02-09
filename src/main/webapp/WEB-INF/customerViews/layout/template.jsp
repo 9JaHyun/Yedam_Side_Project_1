@@ -17,6 +17,7 @@
 	<link href="asset/customer/css/style.css" rel="stylesheet">
 	<link href="asset/customer/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<script src="asset/customer/js/bootstrap.bundle.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 <body>
 	<tiles:insertAttribute name="header"/>

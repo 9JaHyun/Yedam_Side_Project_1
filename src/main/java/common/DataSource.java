@@ -13,8 +13,9 @@ public class DataSource {
 
     public static SqlSessionFactory getInstance() {
         String resource = "mybatis-config.xml";
+        InputStream inputStream;
         try {
-            InputStream inputStream = Resources.getResourceAsStream(resource);
+            inputStream = Resources.getResourceAsStream(resource);
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         } catch (IOException e) {
             e.printStackTrace();

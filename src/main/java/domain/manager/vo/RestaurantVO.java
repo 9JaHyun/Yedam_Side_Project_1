@@ -5,7 +5,6 @@ import java.sql.Date;
 import lombok.Data;
 
 @Data
-
 public class RestaurantVO {
 	private long restaurantId;
 	private String name;
