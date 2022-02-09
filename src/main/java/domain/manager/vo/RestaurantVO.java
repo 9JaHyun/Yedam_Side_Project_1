@@ -8,6 +8,7 @@ import lombok.Data;
 
 public class RestaurantVO {
 	private long restaurantId;
+	private long managerId;
 	private String name;
 	private String tel;
 	private int reserve_count;
