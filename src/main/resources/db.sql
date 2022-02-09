@@ -1,5 +1,6 @@
 CREATE TABLE RESTAURANT(
     restaurant_id NUMBER PRIMARY KEY,
+    manager_id NUMBER,
     name VARCHAR2(1000),
     tel VARCHAR2(1000),
     reserve_count NUMBER,
@@ -9,6 +10,9 @@ CREATE TABLE RESTAURANT(
     operation_time_end DATE,
     break_time_start DATE,
     break_time_end DATE
+    CONSTRAINT fk_restaurant_manager_id
+    FOREIGN KEY(manager_id)
+    REFERENCES manager(manager_id)
 );
 
 CREATE TABLE MEMBER(
@@ -49,14 +53,10 @@ CREATE TABLE MENU(
 
 CREATE TABLE MANAGER(
     manager_id NUMBER PRIMARY KEY,
-    restaurant_id NUMBER,
     login_id VARCHAR2(100),
     password VARCHAR2(100),
     email VARCHAR2(100),
-    tel VARCHAR2(100),
-    CONSTRAINT fk_manager_restaurant_id
-    FOREIGN KEY(restaurant_id)
-    REFERENCES restaurant(restaurant_id)
+    tel VARCHAR2(100)
 );
 
 CREATE table ADDRESS_CODE(
