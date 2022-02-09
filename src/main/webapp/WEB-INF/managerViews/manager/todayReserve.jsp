@@ -24,7 +24,7 @@
 								<td>${reserve.tel}</td>
 								<td>${reserve.orderCount}명</td>
 								<td>
-								<fmt:formatDate value='${reserve.orderTime }' pattern='yyyy년MM월dd일 hh:mm'/> 
+								<fmt:formatDate value='${reserve.orderTime }' pattern='yyyy년MM월dd일 hh:mm'/>  
 								</td>
 								
 							</tr>
