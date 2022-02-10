@@ -16,8 +16,13 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
+<<<<<<< HEAD
                         <h6 class="mb-0">${user.getLoginId()}</h6>
                         <span>점주님 어서오세요</span>
+=======
+                        <h6 class="mb-0">${loginManager.loginId}</h6>
+                        <span>Admin</span>
+>>>>>>> d25cb0d (docs : ajax 로그인 필터에 안걸리게 수정)
                     </div>
                 </div>
                 <div class="navbar-nav w-100">

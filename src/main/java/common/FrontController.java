@@ -46,7 +46,10 @@ public class FrontController extends HttpServlet {
         if (commandMap.get(commandPath) == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
+<<<<<<< HEAD
         
+=======
+>>>>>>> d25cb0d (docs : ajax 로그인 필터에 안걸리게 수정)
         String filePath = commandMap.get(commandPath).exec(request, response);
         if(!filePath.endsWith(".do")) {
 			if(filePath.startsWith("ajax:")) {
@@ -58,6 +61,7 @@ public class FrontController extends HttpServlet {
 				filePath = filePath + ".tiles";
 			}
 		}
+        System.out.println(filePath);
         request.getRequestDispatcher(filePath).forward(request, response);
     }
 }

@@ -44,5 +44,51 @@
 			</div>
 		</form>
 	</div>
+<<<<<<< HEAD
+=======
+	<script>
+	// 회원가입 필수값 입력했는지 체크
+	function signupCheck(){
+		if($('#idCheckButton').val() != 'YES'){
+			alert('아이디 중복체크를 해주세요');
+			return false;
+		} else if($('#password').val() != $('#repeatPassword').val()){
+			alert('비밀번호가 일치하지 않습니다.')
+			return false;
+		} else if(!$('#memberName').val()){
+			alert('이름을 입력해주세요');
+			return false;
+		} else if(!$('#email').val()){
+			alert('이메일을 입력해주세요');
+			return false;
+		} else if(!$('#tel').val()){
+			alert('전화번호를 입력해주세요');
+			return false;
+		}
+		return true;
+	}
+	// 아이디 중복체크
+	function idCheck(){
+			console.log($('#loginId').val())
+		$.ajax({
+			url:'memberIdCheck.do?id=' + $('#loginId').val(),
+			type:'get',
+			success:function(data){
+				if(data == 1){
+					alert($('#loginId').val()+' 사용 가능한 아이디입니다.');
+					$('#idCheckButton').val('YES');
+				} else if(data == 0){
+					alert($('#loginId').val()+' 이미 존재하는 아이디입니다.');
+					$('#loginId').val('');
+					$('#loginId').focus();
+				}
+			},
+			error:function(data){
+				console.log(data)
+			}
+		})
+	}
+	</script>
+>>>>>>> d25cb0d (docs : ajax 로그인 필터에 안걸리게 수정)
 </body>
 </html>
