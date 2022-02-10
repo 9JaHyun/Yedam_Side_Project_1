@@ -8,13 +8,16 @@
 </head>
 <body>
 	<div align='center'>
-		<form id='frm' action='signup.do' method='post'>
+		<form id='frm' action='signup.do' method='post' onsubmit='return signupCheck()'>
 			<div>
 				<h1>회원가입</h1>
 			</div>
 			<div class='col-6'>
 				아이디<br> 
+				<div class='input-group'>
 				<input class='form-control' type='text' id='loginId' name='loginId' placeholder='ID'>
+				<button class='btn btn-primary' id='idCheckButton' type='button' onclick='idCheck()' value='NO'>중복확인</button>
+				</div>
 			</div>
 			<div class='form-group'>
 				<div class='col-6'>
@@ -44,5 +47,45 @@
 			</div>
 		</form>
 	</div>
+	<script>
+	// 회원가입 필수값 입력했는지 체크
+	function signupCheck(){
+		if($('#idCheckButton').val() != 'YES'){
+			alert('아이디 중복체크를 해주세요');
+			return false;
+		} else if($('#password').val() != $('#repeatPassword').val()){
+			alert('비밀번호가 일치하지 않습니다.')
+			return false;
+		} else if(!$('#memberName').val()){
+			alert('이름을 입력해주세요');
+			return false;
+		} else if(!$('#email').val()){
+			alert('이메일을 입력해주세요');
+			return false;
+		} else if(!$('#tel').val()){
+			alert('전화번호를 입력해주세요');
+			return false;
+		}
+		return true;
+	}
+	// 아이디 중복체크
+	function idCheck(){
+		$.ajax({
+			url:'memberIdCheck.do',
+			data:{'id':$('#loginId').val()},
+			type:'post',
+			success:function(data){
+				if(data == 1){
+					alert($('#loginId').val()+' 사용 가능한 아이디입니다.');
+					$('#idCheckButton').val('YES');
+				} else if(data == 0){
+					alert($('#loginId').val()+' 이미 존재하는 아이디입니다.');
+					$('#loginId').val('');
+					$('#loginId').focus();
+				}
+			}
+		})
+	}
+	</script>
 </body>
 </html>
