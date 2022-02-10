@@ -1,10 +1,10 @@
-package command;
+package web.controller.manager;
 
-import common.Command;
+import common.Controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ManagerIndexController implements Command {
+public class ManagerIndexController implements Controller {
 
     @Override
     public String exec(HttpServletRequest request, HttpServletResponse response) {

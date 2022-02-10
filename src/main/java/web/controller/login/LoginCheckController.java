@@ -1,9 +1,9 @@
-package command;
+package web.controller.login;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import common.Command;
+import common.Controller;
 import domain.manager.service.ManagerService;
 import domain.manager.serviceImpl.ManagerServiceImpl;
 import domain.manager.vo.ManagerVO;
@@ -11,7 +11,7 @@ import domain.member.service.MemberService;
 import domain.member.serviceImpl.MemberServiceImpl;
 import domain.member.vo.MemberVO;
 
-public class LoginCheckController implements Command {
+public class LoginCheckController implements Controller {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {

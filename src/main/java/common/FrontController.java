@@ -1,7 +1,5 @@
 package common;
 
-import command.*;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -14,24 +12,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import command.LoginCheckController;
-import command.LoginController;
-import command.LoginFormController;
-import command.MainController;
-import command.ManagerIdCheckController;
-import command.ManagerSignupController;
-import command.RestaurantDetail;
-import command.SearchRestaurantController;
-import command.SignupController;
-import command.ManagerSignupFormController;
-import command.MemberIdCheckController;
-import command.ReserveFormController;
-import command.SignupFormController;
+import web.controller.login.LoginCheckController;
+import web.controller.login.LoginController;
+import web.controller.login.LoginFormController;
+import web.controller.MainController;
+import web.controller.signup.ManagerIdCheckController;
+import web.controller.manager.ManagerIndexController;
+import web.controller.manager.ManagerSignupController;
+import web.controller.RestaurantDetail;
+import web.controller.SearchRestaurantController;
+import web.controller.signup.SignupController;
+import web.controller.manager.ManagerSignupFormController;
+import web.controller.member.MemberDeleteController;
+import web.controller.signup.MemberIdCheckController;
+import web.controller.reservation.ReserveFormController;
+import web.controller.signup.SignupFormController;
+import web.controller.login.LogoutController;
+import web.controller.member.MemberUpdateController;
+import web.controller.member.MyPageController;
 
 @WebServlet(urlPatterns = "*.do")
 public class FrontController extends HttpServlet {
 
-    private Map<String, Command> commandMap;
+    private Map<String, Controller> commandMap;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
