@@ -8,18 +8,8 @@
             <form action="searchRestaurant.do" method="post" class="search__form">
 
                 <div class="input-group">
-                    <div class="input-group-text">지역</div>
-                    <select name="area" id="area" class="form-select">
-                      <option value="1">서울</option>
-                      <option value="2">대구</option>
-                      <option value="3">광주</option>
-                      <option value="4">부산</option>
-                  </select>
-                </div>
-
-                <div class="input-group">
                     <div class="input-group-text">식당명</div>
-                    <input name="name" type="text" placeholder="ex)홍콩반점" class="form-control">
+                    <input name="name" type="text" placeholder="ex)홍콩반점 동성로점" class="form-control">
                 </div>
 
                 <div class="input-group">
@@ -55,7 +45,7 @@
                           <a href="restaurantDetail.do" style="color:black; text-decoration: none; outline: none;">한옥집</a>
                         </h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">예약하기</a>
+                        <a href="reserveForm.do" class="btn btn-primary">예약하기</a>
                     </div>
                 </div>
                 

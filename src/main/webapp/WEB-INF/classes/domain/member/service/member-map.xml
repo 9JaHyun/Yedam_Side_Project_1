@@ -25,9 +25,8 @@
 		INSERT INTO MEMBER (MEMBER_ID, LOGIN_ID, PASSWORD, NAME, EMAIL, TEL, CREATEDAT, UPDATEDAT)
 		VALUES(member_id_seq.nextval,#{loginId},#{password},#{name},#{email},#{tel},sysdate,sysdate)
 	</insert>
-
-	<delete id="memberDelete"
-		parameterType="domain.member.vo.MemberVO">
+	
+	<delete id="memberDelete" parameterType="domain.member.vo.MemberVO">
 		DELETE FROM MEMBER WHERE MEMBER_ID = #{memberId}
 	</delete>
 	
@@ -42,11 +41,9 @@
 		</set>
 		WHERE MEMBER_ID = #{memberId}
 	</update>
-
-    <select id="isMemberIdcheck" parameterType="String" resultType="boolean">
+	
+	<select id="isIdCheck" parameterType="String" resultType="boolean">
 		SELECT CASE WHEN COUNT(*) = 1 THEN 0 ELSE 1 END AS T
-		FROM
-		MEMBER WHERE LOGIN_ID = #{loginId}
+		FROM MEMBER WHERE LOGIN_ID = #{loginId}
 	</select>
-    
 </mapper>
