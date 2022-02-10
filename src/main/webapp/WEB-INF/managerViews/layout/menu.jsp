@@ -16,21 +16,17 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-<<<<<<< HEAD
-                        <h6 class="mb-0">${user.getLoginId()}</h6>
-                        <span>점주님 어서오세요</span>
-=======
+
                         <h6 class="mb-0">${loginManager.loginId}</h6>
-                        <span>Admin</span>
->>>>>>> d25cb0d (docs : ajax 로그인 필터에 안걸리게 수정)
+                        <span>관리자</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="todayReserve.do?id=${user.getManagerId() }" class="nav-item nav-link active"><i class="fas fa-chart-bar"></i>예약현황</a>
-                    <a href="widget.html" class="nav-item nav-link"><i class="far fa-clipboard"></i>예약기록</a>
-                    <a href="form.html" class="nav-item nav-link"><i class="fas fa-cog"></i>영업시간 설정</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="fas fa-cog"></i>매장정보 설정</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fas fa-cog"></i>(.....)</a>
+                    <a href="todayReserve.do?id=${loginManager.managerId }" class="nav-item nav-link"><i class="fas fa-chart-bar"></i>예약현황</a>
+                    <a href="#" class="nav-item nav-link"><i class="far fa-clipboard"></i>예약기록</a>
+                    <a href="#" class="nav-item nav-link"><i class="fas fa-cog"></i>영업시간 설정</a>
+                    <a href="#" class="nav-item nav-link"><i class="fas fa-cog"></i>매장정보 설정</a>
+                    <a href="#" class="nav-item nav-link"><i class="fas fa-cog"></i>(.....)</a>
                 </div>
             </nav>
         </div>

@@ -12,8 +12,7 @@
 		<result property="restaurantId" column="restaurant_id" />
 		<result property="reservationTime" column="reservation_time" />
 		<result property="reservationCount" column="reservation_count" />
-		<result property="reservationContent"
-			column="reservation_content" />
+		<result property="reservationContent" column="reservation_content" />
 		<result property="tel" column="tel" />
 	</resultMap>
 
@@ -70,8 +69,17 @@
 		(#{managerId},#{loginId},#{password},#{email},#{tel})
 	</insert>
 
-	<update id="managerUpdate" />
 
+	<update id="managerUpdate" parameterType="domain.manager.vo.ManagerVO">
+		UPDATE manager
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="password != null">PASSWORD = #{password},</if>
+			<if test="email != null">EMAIL = #{email},</if>
+			<if test="tel != null">TEL = #{tel},</if>
+		</trim>
+		WHERE manager_ID = #{managerId}
+	</update>
+ 
 	<delete id="managerDelete" />
 
 	<select id="isIdCheck" />

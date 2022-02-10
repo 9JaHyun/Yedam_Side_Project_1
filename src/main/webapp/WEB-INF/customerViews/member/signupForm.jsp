@@ -44,8 +44,6 @@
 			</div>
 		</form>
 	</div>
-<<<<<<< HEAD
-=======
 	<script>
 	// 회원가입 필수값 입력했는지 체크
 	function signupCheck(){
@@ -89,6 +87,5 @@
 		})
 	}
 	</script>
->>>>>>> d25cb0d (docs : ajax 로그인 필터에 안걸리게 수정)
 </body>
 </html>

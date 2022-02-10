@@ -1,14 +1,15 @@
-package command;
+package web.controller.manager;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import common.Command;
+import common.Controller;
 
-public class LoginFormController implements Command {
+public class ManagerSignupFormController implements Controller {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		return "customerViews/member/loginForm";
+		return "customerViews/member/managerSignupForm";
 	}
+
 }

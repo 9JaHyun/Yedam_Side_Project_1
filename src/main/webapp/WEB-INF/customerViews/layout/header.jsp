@@ -1,14 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<<<<<<< HEAD
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
-=======
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- header -->
 <header>
@@ -39,4 +29,3 @@
         </c:if>
     </div>
 </header>
->>>>>>> d25cb0d (docs : ajax 로그인 필터에 안걸리게 수정)

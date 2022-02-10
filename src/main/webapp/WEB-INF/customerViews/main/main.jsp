@@ -1,10 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
-	pageEncoding="UTF-8"%>
 
-<!-- main -->
-<div class="main">
-=======
     pageEncoding="UTF-8"%>
   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	<!-- main -->
@@ -14,7 +8,7 @@
         <!-- 검색화면 -->
         <div class="main__search">
             <form action="searchRestaurant.do" method="post" class="search__form">
->>>>>>> d25cb0d (docs : ajax 로그인 필터에 안걸리게 수정)
+
 
 	<!-- 검색화면 -->
 	<div class="main__search">
