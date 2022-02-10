@@ -27,8 +27,6 @@ public class LoginController implements Command {
         if (redirectParam != null) {
             return "redirect:" + redirectParam;
         }
-        return "customerViews/main/main";
-    }
 		
 		HttpSession session = request.getSession();
 		
