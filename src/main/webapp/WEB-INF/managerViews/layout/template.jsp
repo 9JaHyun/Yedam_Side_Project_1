@@ -49,34 +49,14 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
-        <!-- Spinner End -->
 
-        <!-- Sidebar Start -->
-		<tiles:insertAttribute name="menu"/>        
-        <!-- Sidebar End -->
-
-
-        <!-- Content Start -->
+		<tiles:insertAttribute name="menu"/>
         <div class="content">
-            <!-- Navbar Start -->
             <tiles:insertAttribute name="header"/>
-            <!-- Navbar End -->
-
-
-            <!-- Sale & Revenue Start -->
         	<tiles:insertAttribute name="body"/>
-            
-            <!-- Widgets End -->
-
-
-            <!-- Footer Start -->
             <tiles:insertAttribute name="footer"/>
-            <!-- Footer End -->
         </div>
-        <!-- Content End -->
 
-
-        <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
@@ -90,6 +70,7 @@
     <script src="asset/manager/lib/tempusdominus/js/moment.min.js"></script>
     <script src="asset/manager/lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="asset/manager/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="asset/manager/js/main.js"></script>

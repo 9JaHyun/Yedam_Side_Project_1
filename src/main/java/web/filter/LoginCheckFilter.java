@@ -14,7 +14,7 @@ import web.SessionConst;
 
 public class LoginCheckFilter implements Filter {
 
-    private static final String[] whiteList = {"/", "/cMain.do", "/loginForm.do", "/login.do", "/logout.do",
+    private static final String[] whiteList = {"/", "/main.do", "/cMain.do", "/loginForm.do", "/login.do", "/logout.do",
           "/signupForm.do", "/signup.do", "/managerSignupForm.do", "/searchRestaurant.do", "/restaurantDetail.do"};
 
     @Override
@@ -28,8 +28,7 @@ public class LoginCheckFilter implements Filter {
         try {
             if (!isLoginCheckPath(requestURI)) {
                 HttpSession session = request.getSession(false);
-                if (session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null
-                      || session.getAttribute(SessionConst.LOGIN_MANAGER) == null) {
+                if (isMember(session) && isManager(session)) {
                     response.sendRedirect("/loginForm.do?redirectURL=" + requestURI);
                     return;
                 }
@@ -40,7 +39,15 @@ public class LoginCheckFilter implements Filter {
         }
     }
 
-    public boolean isLoginCheckPath(String requestURI) {
+    private boolean isLoginCheckPath(String requestURI) {
         return PatternMatchUtils.simpleMatch(whiteList, requestURI);
+    }
+
+    private boolean isMember(HttpSession session) {
+        return session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null;
+    }
+
+    private boolean isManager(HttpSession session) {
+        return session == null || session.getAttribute(SessionConst.LOGIN_MANAGER) == null;
     }
 }

@@ -8,6 +8,7 @@ import lombok.Data;
 
 public class ReservationVO {
 	private long reservationId;
+	private long memberId;
 	private long restaurantId;
 	private Date reservationTime;
 	private int orderCount;
