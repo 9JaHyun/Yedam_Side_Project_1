@@ -156,11 +156,11 @@
 		function managerIdCheck(){
 			$.ajax({
 				url : 'managerIdCheck.do',
-				type : 'post',
+				type : 'get',
 				data : {
 					id : $('#login_id').val()
 				},
-				dataType : 'text',
+				contentType : 'x-www-urlencoded; charset=utf-8',
 				success : function(data) {
 					if (data == '1') {
 						alert($('#login_id').val() + "\n 사용할 수 있는 아이디입니다.");

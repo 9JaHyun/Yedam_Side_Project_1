@@ -11,6 +11,7 @@ import domain.manager.vo.ManagerVO;
 import domain.member.service.MemberService;
 import domain.member.serviceImpl.MemberServiceImpl;
 import domain.member.vo.MemberVO;
+import web.SessionConst;
 
 public class LoginController implements Command {
 
@@ -27,8 +28,6 @@ public class LoginController implements Command {
         if (redirectParam != null) {
             return "redirect:" + redirectParam;
         }
-        return "customerViews/main/main";
-    }
 		
 		HttpSession session = request.getSession();
 		
@@ -38,7 +37,7 @@ public class LoginController implements Command {
 			vo.setLoginId(id);
 			vo.setPassword(password);
 			vo = memberDAO.memberSelect(vo);
-			session.setAttribute("user", vo);
+			session.setAttribute(SessionConst.LOGIN_MEMBER, vo);
 			
 		} else if(author.equals("manager")) {
 			ManagerService managerDAO = new ManagerServiceImpl();
@@ -46,9 +45,11 @@ public class LoginController implements Command {
 			vo.setLoginId(id);
 			vo.setPassword(password);
 			vo = managerDAO.managerSelect(vo);
-			session.setAttribute("user", vo);
+			session.setAttribute(SessionConst.LOGIN_MANAGER, vo);
+			return "main.do";
 		}
 		return "cMain.do";
+		
 	}
 
 }
