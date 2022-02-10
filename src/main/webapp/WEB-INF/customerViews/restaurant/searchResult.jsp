@@ -8,18 +8,8 @@
       <form action="searchResult.html" class="search__form">
 
         <div class="input-group">
-          <div class="input-group-text">지역</div>
-          <select name="" id="" class="form-select">
-            <option value="1">서울</option>
-            <option value="1">대구</option>
-            <option value="1">광주</option>
-            <option value="1">부산</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <div class="input-group-text">이름</div>
-          <input type="text" placeholder="짜장면" class="form-control">
+          <div class="input-group-text">식당명</div>
+          <input type="text" placeholder="ex)홍콩반점 동성로점" class="form-control">
         </div>
 
         <div class="input-group">
@@ -59,7 +49,7 @@
                   <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
                 <div>
-                  <a href="#" class="btn btn-primary">예약하기</a>
+                  <a href="reserveForm.do" class="btn btn-primary">예약하기</a>
                 </div>
               </div>
             </div>

@@ -1,7 +1,7 @@
 package common;
 
-import command.LoginController;
-import command.ManagerIndexController;
+import command.*;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -13,15 +13,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import command.LoginFormController;
-import command.MainController;
-import command.RestaurantDetail;
-import command.SearchRestaurantController;
-import command.SignupController;
-import command.ManagerSignupFormController;
-import command.ReserveFormController;
-import command.SignupFormController;
 
 @WebServlet(urlPatterns = "*.do")
 public class FrontController extends HttpServlet {
@@ -38,6 +29,7 @@ public class FrontController extends HttpServlet {
         commandMap.put("/loginForm.do", new LoginFormController()); // 로그인 화면 페이지
         commandMap.put("/signupForm.do", new SignupFormController()); // 회원가입 페이지
         commandMap.put("/signup.do", new SignupController()); // 회원가입 요청
+        commandMap.put("/myPage.do", new MyPageController()); // 회원가입 요청
 
         commandMap.put("/managerSignupForm.do", new ManagerSignupFormController()); // manager 회원가입 페이지
         commandMap.put("/reserveForm.do", new ReserveFormController()); // 예약화면 페이지

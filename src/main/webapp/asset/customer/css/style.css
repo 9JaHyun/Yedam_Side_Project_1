@@ -24,7 +24,7 @@ header {
   justify-content: space-between;
   background-color: #fff;
   border-bottom: 1px solid #e7e7e7;
-  z-index: 1;
+  z-index: 999;
 }
 
 header a {
@@ -59,10 +59,20 @@ footer>h5 {
   padding: 0 16px;
   width: 100%;
   height: 400px;
-  background-color: rgb(112, 112, 112);
+  background: no-repeat center/100% url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.main__search:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .result__search {
@@ -74,14 +84,15 @@ footer>h5 {
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  z-index: 1;
+  z-index: 9;
 }
 
 .search__form {
   width: 1100px;
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr 1fr 0.5fr;
+  grid-template-columns: 2fr 2fr 1fr 0.5fr;
   gap: 8px;
+  z-index: 1;
 }
 
 .list-container {
@@ -214,4 +225,29 @@ footer>h5 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+ul {
+  list-style: none;
+}
+
+.mypage {
+  margin: 24px auto;
+  max-width: 1100px;
+  height: 500px;
+}
+
+.profile_img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #c2c2c2;
+}
+
+.reserve-status-list {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
