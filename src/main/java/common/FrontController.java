@@ -26,10 +26,13 @@ public class FrontController extends HttpServlet {
         commandMap.put("/cMain.do",new MainController()); // customer 메인페이지
 
         commandMap.put("/login.do", new LoginController());
+        commandMap.put("/logout.do", new LogoutController());
         commandMap.put("/loginForm.do", new LoginFormController()); // 로그인 화면 페이지
         commandMap.put("/signupForm.do", new SignupFormController()); // 회원가입 페이지
         commandMap.put("/signup.do", new SignupController()); // 회원가입 요청
-        commandMap.put("/myPage.do", new MyPageController()); // 회원가입 요청
+        commandMap.put("/myPage.do", new MyPageController()); // 마이페이지
+        commandMap.put("/memberUpdate.do", new MemberUpdateController()); // 회원정보 수정
+        commandMap.put("/memberDelete.do", new MemberDeleteController()); // 회원탈퇴
 
         commandMap.put("/managerSignupForm.do", new ManagerSignupFormController()); // manager 회원가입 페이지
         commandMap.put("/reserveForm.do", new ReserveFormController()); // 예약화면 페이지

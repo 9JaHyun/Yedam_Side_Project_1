@@ -18,7 +18,7 @@ public class MyPageController implements common.Command {
         vo.setPassword("1234");
 
         MemberVO result = memberDao.memberSelect(vo);
-        System.out.println(result);
+
         if (result != null) {
             request.setAttribute("member", result);
         } else {

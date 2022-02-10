@@ -67,7 +67,7 @@
 
                     <!-- 정보수정 -->
                     <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-                        <form action="">
+                        <form action="memberUpdate.do" method="post">
                             <div class="d-flex align-items-center" style="margin-bottom: 20px;">
                                 <div class="profile_img"></div>
                                 <div class="col-sm-4">
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">변경사항 저장</button>
-                            <button type="submit" class="btn btn-danger" onclick="handleWithdrawal()">회원탈퇴</button>
+                            <button type="button" class="btn btn-danger" onclick="handleWithdrawal(${member.memberId})">회원탈퇴</button>
                         </form>
                     </div>
 
@@ -113,9 +113,9 @@
 </div>
 
 <script>
-  function handleWithdrawal() {
-    if (confirm('정말 회원탈퇴 하시겠습니까?')) {
-      console.log('회원탈퇴');
+  function handleWithdrawal(memberId) {
+    if (confirm('정말 회원탈퇴 하시겠습니까?' + memberId)) {
+        location.href = 'memberDelete.do?memberId='+memberId;
     }
   }
 
