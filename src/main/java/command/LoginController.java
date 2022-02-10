@@ -22,6 +22,13 @@ public class LoginController implements Command {
 		System.out.println(id);
 		System.out.println(password);
 		System.out.println(author);
+    
+     String redirectParam = request.getParameter("redirectURL");
+        if (redirectParam != null) {
+            return "redirect:" + redirectParam;
+        }
+        return "customerViews/main/main";
+    }
 		
 		HttpSession session = request.getSession();
 		

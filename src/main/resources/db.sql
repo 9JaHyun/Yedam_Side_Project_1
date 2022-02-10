@@ -1,3 +1,5 @@
+-- 반드시 상위 순서대로 테이블 생성할것 ! --
+
 CREATE TABLE MEMBER(
     member_id NUMBER PRIMARY KEY,
     name VARCHAR2(100),
@@ -8,6 +10,7 @@ CREATE TABLE MEMBER(
     createdAt DATE,
     updatedAt DATE
 );
+
 CREATE TABLE MANAGER(
     manager_id NUMBER PRIMARY KEY,
     login_id VARCHAR2(100),
@@ -15,6 +18,7 @@ CREATE TABLE MANAGER(
     email VARCHAR2(100),
     tel VARCHAR2(100)
 );
+
 CREATE TABLE RESTAURANT(
     restaurant_id NUMBER PRIMARY KEY,
     manager_id NUMBER,
@@ -31,6 +35,7 @@ CREATE TABLE RESTAURANT(
     FOREIGN KEY(manager_id)
     REFERENCES manager(manager_id)
 );
+
 CREATE TABLE Reservation(
     reservation_id NUMBER PRIMARY KEY,
     member_id NUMBER,
@@ -59,6 +64,7 @@ CREATE TABLE MENU(
     FOREIGN KEY(manager_id)
     REFERENCES manager(manager_id)
 );
+
 CREATE table REVIEW(
     review_id NUMBER PRIMARY KEY,
     member_id NUMBER,

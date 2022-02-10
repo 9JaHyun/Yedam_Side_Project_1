@@ -46,9 +46,10 @@
 		WHERE MEMBER_ID = #{memberId}
 	</update>
 
-	<select id="isMemberIdcheck" parameterType="String" resultType="boolean">
+    <select id="isMemberIdcheck" parameterType="String" resultType="boolean">
 		SELECT CASE WHEN COUNT(*) = 1 THEN 0 ELSE 1 END AS T
 		FROM
 		MEMBER WHERE LOGIN_ID = #{loginId}
 	</select>
+    
 </mapper>

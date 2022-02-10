@@ -39,6 +39,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+
 	public boolean isMemberIdcheck(String id) {
 		return map.isMemberIdcheck(id);
 	}

@@ -4,6 +4,15 @@
 
   <display-name>Archetype Created Web Application</display-name>
 
+	<filter>
+		<filter-name>LoginCheckFilter</filter-name>
+		<filter-class>web.filter.LoginCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginCheckFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
 	<listener>
 		<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
 	</listener>

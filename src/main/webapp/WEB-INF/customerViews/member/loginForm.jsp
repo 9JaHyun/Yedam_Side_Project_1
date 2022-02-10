@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,12 @@ text-decoration: none;
 </head>
 <body>
 	<div align='center'>
+		<c:if test="${empty redirectURL}">
 		<form id='frm' action='login.do' method='post' onsubmit='return loginCheck()'>
+			</c:if>
+			<c:if test="${!empty redirectURL}">
+			<form id="frm" action="login.do?redirectURL=${redirectURL}" method="post">
+				</c:if>
 			<div>
 				<h1>로그인</h1>
 			</div>
