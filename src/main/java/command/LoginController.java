@@ -23,13 +23,30 @@ public class LoginController implements Command {
 		System.out.println(id);
 		System.out.println(password);
 		System.out.println(author);
+		
+		HttpSession session = request.getSession();
     
-     String redirectParam = request.getParameter("redirectURL");
+		String redirectParam = request.getParameter("redirectURL");
         if (redirectParam != null) {
+        	if(author.equals("customer")) {
+    			MemberService memberDAO = new MemberServiceImpl();
+    			MemberVO vo = new MemberVO();
+    			vo.setLoginId(id);
+    			vo.setPassword(password);
+    			vo = memberDAO.memberSelect(vo);
+    			session.setAttribute(SessionConst.LOGIN_MEMBER, vo);
+    			
+    		} else if(author.equals("manager")) {
+    			ManagerService managerDAO = new ManagerServiceImpl();
+    			ManagerVO vo = new ManagerVO();
+    			vo.setLoginId(id);
+    			vo.setPassword(password);
+    			vo = managerDAO.managerSelect(vo);
+    			session.setAttribute(SessionConst.LOGIN_MANAGER, vo);
+    		}
             return "redirect:" + redirectParam;
         }
 		
-		HttpSession session = request.getSession();
 		
 		if(author.equals("customer")) {
 			MemberService memberDAO = new MemberServiceImpl();

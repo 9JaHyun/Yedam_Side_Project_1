@@ -38,11 +38,11 @@
                         <option value="4">4명</option>
                     </select>
                 </div>
-
+                
                 <input type="submit" value="검색" class="btn btn-primary btn-lg"/>
             </form>
         </div>
-
+		<button class='btn btn-primary' onclick='location.href="addRestaurantForm.do"'>식당추가</button>
         <!-- 인기 리스트 -->
         <div class="list-container">
             <h4 class="fw-bold">인기 음식점</h4>

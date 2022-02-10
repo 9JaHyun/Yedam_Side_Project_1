@@ -29,8 +29,7 @@ public class LoginCheckFilter implements Filter {
         	System.out.println(requestURI);
             if (!isLoginCheckPath(requestURI)) {
                 HttpSession session = request.getSession(false);
-                if (session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null
-                      || session.getAttribute(SessionConst.LOGIN_MANAGER) == null) {
+                if (isMember(session) && isManager(session)) {
                     response.sendRedirect("/loginForm.do?redirectURL=" + requestURI);
                     return;
                 }
@@ -43,5 +42,12 @@ public class LoginCheckFilter implements Filter {
 
     public boolean isLoginCheckPath(String requestURI) {
         return PatternMatchUtils.simpleMatch(whiteList, requestURI);
+    }
+    private boolean isManager(HttpSession session) {
+    	return session == null || session.getAttribute(SessionConst.LOGIN_MANAGER) == null;
+    }
+    
+    private boolean isMember(HttpSession session) {
+    	return session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null;
     }
 }

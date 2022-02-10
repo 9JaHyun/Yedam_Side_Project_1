@@ -59,7 +59,7 @@
                   <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
                 <div>
-                  <a href="#" class="btn btn-primary">예약하기</a>
+                  <a href="reserveForm.do" class="btn btn-primary">예약하기</a>
                 </div>
               </div>
             </div>

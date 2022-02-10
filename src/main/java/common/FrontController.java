@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.AddRestaurantFormController;
 import command.LoginCheckController;
 import command.LoginController;
 import command.LoginFormController;
@@ -54,6 +55,7 @@ public class FrontController extends HttpServlet {
 
         // Manager
         commandMap.put("/main.do", new ManagerIndexController());
+        commandMap.put("/addRestaurantForm.do", new AddRestaurantFormController());
     }
 
     @Override
