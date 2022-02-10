@@ -11,5 +11,5 @@ public interface ManagerMapper {
 	int managerUpdate(ManagerVO vo);
 	int managerDelete(ManagerVO vo);
 	
-	boolean isIdCheck(String id);
+	boolean isManagerIdCheck(String id);
 }

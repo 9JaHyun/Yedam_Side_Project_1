@@ -17,7 +17,7 @@ public class SignupController implements Command {
 		
 		vo.setLoginId(request.getParameter("loginId"));
 		vo.setPassword(request.getParameter("password"));
-		vo.setMemberName(request.getParameter("memberName"));
+		vo.setName(request.getParameter("memberName"));
 		vo.setEmail(request.getParameter("email"));
 		vo.setTel(request.getParameter("tel"));
 		

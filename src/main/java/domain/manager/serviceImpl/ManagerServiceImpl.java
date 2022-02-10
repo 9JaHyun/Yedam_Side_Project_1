@@ -44,9 +44,9 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public boolean isIdCheck(String id) {
+	public boolean isManagerIdCheck(String id) {
 		// TODO Auto-generated method stub
-		return map.isIdCheck(id);
+		return map.isManagerIdCheck(id);
 	}
 
 }

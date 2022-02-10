@@ -11,5 +11,5 @@ public interface MemberMapper {
 	int memberDelete(MemberVO vo);
 	int memberUpdate(MemberVO vo);
 	
-	boolean isIdcheck(String id);
+	boolean isMemberIdcheck(String id);
 }

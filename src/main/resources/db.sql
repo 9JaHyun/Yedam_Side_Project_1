@@ -1,5 +1,3 @@
--- 반드시 상위 순서대로 테이블 생성할것 ! --
-
 CREATE TABLE MEMBER(
     member_id NUMBER PRIMARY KEY,
     name VARCHAR2(100),
@@ -10,7 +8,6 @@ CREATE TABLE MEMBER(
     createdAt DATE,
     updatedAt DATE
 );
-
 CREATE TABLE MANAGER(
     manager_id NUMBER PRIMARY KEY,
     login_id VARCHAR2(100),
@@ -18,9 +15,9 @@ CREATE TABLE MANAGER(
     email VARCHAR2(100),
     tel VARCHAR2(100)
 );
-
 CREATE TABLE RESTAURANT(
     restaurant_id NUMBER PRIMARY KEY,
+    manager_id NUMBER,
     name VARCHAR2(1000),
     tel VARCHAR2(1000),
     reserve_count NUMBER,
@@ -29,16 +26,11 @@ CREATE TABLE RESTAURANT(
     operation_time_start DATE,
     operation_time_end DATE,
     break_time_start DATE,
-<<<<<<< HEAD
-    break_time_end DATE
-=======
     break_time_end DATE,
     CONSTRAINT fk_restaurant_manager_id
     FOREIGN KEY(manager_id)
     REFERENCES manager(manager_id)
->>>>>>> 40c2e65 (feat : update DB.sql)
 );
-
 CREATE TABLE Reservation(
     reservation_id NUMBER PRIMARY KEY,
     member_id NUMBER,
@@ -53,7 +45,6 @@ CREATE TABLE Reservation(
     FOREIGN KEY(restaurant_id)
     REFERENCES restaurant(restaurant_id)
 );
-
 CREATE TABLE MENU(
     menu_id NUMBER PRIMARY KEY,
     restaurant_id NUMBER,
@@ -63,36 +54,11 @@ CREATE TABLE MENU(
     picture VARCHAR2(2000),
     CONSTRAINT fk_menu_restaurant_id
     FOREIGN KEY(restaurant_id)
-<<<<<<< HEAD
-    REFERENCES restaurant(restaurant_id)
-);
-
-CREATE TABLE MANAGER(
-    manager_id NUMBER PRIMARY KEY,
-    restaurant_id NUMBER,
-    login_id VARCHAR2(100),
-    password VARCHAR2(100),
-    email VARCHAR2(100),
-    tel VARCHAR2(100),
-    CONSTRAINT fk_manager_restaurant_id
-    FOREIGN KEY(restaurant_id)
-    REFERENCES restaurant(restaurant_id)
-);
-
-CREATE table ADDRESS_CODE(
-    region_id NUMBER PRIMARY KEY,
-    restaurant_id NUMBER,
-    constraint fk_address_restaurant_id
-    foreign key(restaurant_id)
-    REFERENCES restaurant(restaurant_id)
-=======
     REFERENCES restaurant(restaurant_id),
     CONSTRAINT fk_menu_manager_id
     FOREIGN KEY(manager_id)
     REFERENCES manager(manager_id)
->>>>>>> 40c2e65 (feat : update DB.sql)
 );
-
 CREATE table REVIEW(
     review_id NUMBER PRIMARY KEY,
     member_id NUMBER,

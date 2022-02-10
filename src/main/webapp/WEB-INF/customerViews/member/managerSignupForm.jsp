@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div align='center'>
-		<form id='frm' action='managerSignup.do' method='post' style='width: 300px'>
+		<form id='frm' action='managerSignup.do' method='post' style='width: 300px' onsubmit='return inputCheck()'>
 			<div>
 				<h1>점주 회원가입</h1>
 			</div>
@@ -17,7 +17,7 @@
 				아이디<br>
 				<div class='input-group'>
 				<input class='form-control' type='text' id='login_id' name='login_id' placeholder='ID' required='required'>
-				<button class='btn btn-primary' type='button' id='idKey' onclick='idCheck()' value='NO'>중복검사</button>
+				<button class='btn btn-primary' type='button' id='idKey' onclick='managerIdCheck()' value='NO'>중복검사</button>
 				</div>
 			</div>
 			<br>
@@ -67,9 +67,9 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss='modal'
-								onclick='closeModal()'>Close</button>
-							<button type="button" class="btn btn-primary"
-								onclick='relayout()'>Save changes</button>
+								onclick='closeModal()'>취소</button>
+								<button type="button" class="btn btn-primary" data-bs-dismiss='modal'
+								onclick='closeModal()'>확인</button>
 						</div>
 					</div>
 				</div>
@@ -93,6 +93,8 @@
 				headers : {'Authorization' : 'KakaoAK 44e6578c2e00f67133b8b2c8c3f2bdc8'},
 				success : function(data){
 					if(data.documents.length == 1){
+						$('.modal-body').text('')
+						$('.modal-body').append($('<div>').attr('id','map').css({'width':'100%','height':'350px'}))
 						$('#map').text('')
 						setTimeout(() => {
 							drawMap(data.documents[0]).then((value) => relayout())
@@ -100,7 +102,7 @@
 						$('#x-coordinates').val(data.documents[0].x)
 						$('#y-coordinates').val(data.documents[0].y)
 					} else {
-						$('#map').text('검색 결과 값이 없거나 너무 많습니다.')
+						$('.modal-body').text('검색 결과 값이 없거나 너무 많습니다.')
 					}
 				},
 				error: function(data){
@@ -151,22 +153,22 @@
 			$('#exampleModal').modal('hide');
 		}
 		// 아이디 중복검사
-		function idCheck(){
+		function managerIdCheck(){
 			$.ajax({
-				url : 'idCheck.do',
+				url : 'managerIdCheck.do',
 				type : 'post',
 				data : {
-					id : $('#manager_id').val()
+					id : $('#login_id').val()
 				},
 				dataType : 'text',
 				success : function(data) {
 					if (data == '1') {
-						alert($('#manager_id').val() + "\n 사용할 수 있는 아이디입니다.");
+						alert($('#login_id').val() + "\n 사용할 수 있는 아이디입니다.");
 						$('#idKey').val('YES');
 					} else {
-						alert($('#id').val() + "\n 이미 존재하는 아이디입니다.")
-						$('#manager_id').val("");
-						S('#manager_id').focus();
+						alert($('#login_id').val() + "\n 이미 존재하는 아이디입니다.")
+						$('#login_id').val("");
+						S('#login_id').focus();
 					}
 				},
 				error : function(err) {
@@ -176,14 +178,19 @@
 		}
 		// 입력값 입력여부 확인
 		function inputCheck(){
-			if(('#idKey').val != 'YES'){
+			if($('#idKey').val() != 'YES'){
 				alert('아이디 중복검사를 해주세요')
+				return false;
+			}
+			if($('#password').val() != $('#repeatPassword').val()){
+				alert('비밀번호 확인이 일치하지 않습니다.');
 				return false;
 			}
 			if(!$('#x-coordinates').val()){
 				alert('확인된 점포가 없습니다.')
 				return false;
 			}
+			return true;
 		}
 	</script>
 </body>
