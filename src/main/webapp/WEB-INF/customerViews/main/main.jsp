@@ -5,7 +5,7 @@
 
         <!-- 검색화면 -->
         <div class="main__search">
-            <form action="searchRestaurant.do" method="post" class="search__form">
+            <form action="searchRestaurant.do" method="get" class="search__form">
 
                 <div class="input-group">
                     <div class="input-group-text">식당명</div>
