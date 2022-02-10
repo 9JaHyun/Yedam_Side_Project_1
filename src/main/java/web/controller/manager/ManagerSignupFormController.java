@@ -1,16 +1,16 @@
-package command;
+package web.controller.manager;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import common.Command;
+import common.Controller;
 
-public class SearchRestaurantController implements Command {
+public class ManagerSignupFormController implements Controller {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return "customerViews/restaurant/searchResult";
+		return "customerViews/member/managerSignupForm";
 	}
 
 }

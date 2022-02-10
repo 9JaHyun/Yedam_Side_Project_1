@@ -1,14 +1,14 @@
-package command;
+package web.controller.signup;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import common.Command;
+import common.Controller;
 import domain.member.service.MemberService;
 import domain.member.serviceImpl.MemberServiceImpl;
 import domain.member.vo.MemberVO;
 
-public class SignupController implements Command {
+public class SignupController implements Controller {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {

@@ -1,9 +1,9 @@
-package command;
+package web.controller.manager;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import common.Command;
+import common.Controller;
 import domain.manager.service.ManagerService;
 import domain.manager.service.RestaurantService;
 import domain.manager.serviceImpl.ManagerServiceImpl;
@@ -11,7 +11,7 @@ import domain.manager.serviceImpl.RestaurantServiceImpl;
 import domain.manager.vo.ManagerVO;
 import domain.manager.vo.RestaurantVO;
 
-public class ManagerSignupController implements Command {
+public class ManagerSignupController implements Controller {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
