@@ -19,6 +19,9 @@ public class LoginController implements Command {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String author = request.getParameter("author");
+		System.out.println(id);
+		System.out.println(password);
+		System.out.println(author);
 		
 		HttpSession session = request.getSession();
 		
@@ -32,7 +35,7 @@ public class LoginController implements Command {
 				session.setAttribute("user", vo);
 			} else {
 				request.setAttribute("message", "유저 아이디 또는 비밀번호가 일치하지 않습니다.");
-				return "test/error";
+				return "customerViews/test/error";
 			}
 		} else if(author.equals("manager")) {
 			ManagerService managerDAO = new ManagerServiceImpl();
@@ -44,10 +47,10 @@ public class LoginController implements Command {
 				session.setAttribute("user", vo);
 			} else {
 				request.setAttribute("message", "유저 아이디 또는 비밀번호가 일치하지 않습니다.");
-				return "test/error";
+				return "customerViews/test/error";
 			}
 		}
-		return "main.do";
+		return "cMain.do";
 	}
 
 }

@@ -2,9 +2,9 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
-  
+
 <configuration>
-	<properties resource="/db.properties"/>
+	<properties resource="/db.properties" />
 	<settings>
 		<setting name="jdbcTypeForNull" value="NULL"></setting>
 	</settings>
@@ -22,6 +22,6 @@
 	<mappers>
 		<mapper resource="domain/manager/service/manager-map.xml" />
 		<mapper resource="domain/manager/service/restaurant-map.xml" />
-			<mapper resource="domain/member/service/member-map.xml" />
+		<mapper resource="domain/member/service/member-map.xml" />
 	</mappers>
 </configuration>
