@@ -12,21 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
-import command.MainController;
-import command.todayReserve;
-=======
+import command.LoginCheckController;
 import command.LoginController;
 import command.LoginFormController;
 import command.MainController;
-import command.ManagerSignupController;
-import command.RestaurantDetail;
-import command.SearchRestaurantController;
-import command.SignupController;
-import command.ManagerSignupFormController;
-import command.ReserveFormController;
-import command.SignupFormController;
->>>>>>> 3d96504 (feat: manager와 member의 로그인 기능 구현)
+import command.todayReserve;
 
 @WebServlet(urlPatterns = "*.do")
 public class FrontController extends HttpServlet {
@@ -36,24 +26,13 @@ public class FrontController extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         commandMap = new HashMap<>();
-<<<<<<< HEAD
-        commandMap.put("/main.do",new MainController());
-        commandMap.put("/todayReserve.do", new todayReserve());
-=======
-
+        commandMap.put("/main.do", new MainController());
         commandMap.put("/cMain.do",new MainController()); // customer 메인페이지
-        
         commandMap.put("/loginForm.do", new LoginFormController()); // 로그인 화면 페이지
         commandMap.put("/login.do", new LoginController());
-        commandMap.put("/signupForm.do", new SignupFormController()); // 회원가입 페이지
-        commandMap.put("/signup.do", new SignupController()); // 회원가입 요청
-        commandMap.put("/managerSignupForm.do", new ManagerSignupFormController()); // manager 회원가입 페이지
-        commandMap.put("/managerSignup.do", new ManagerSignupController()); // 매니저 회원가입 요청
-        
-        commandMap.put("/reserveForm.do", new ReserveFormController()); // 예약화면 페이지
-        commandMap.put("/searchRestaurant.do", new SearchRestaurantController());
-        commandMap.put("/restaurantDetail.do", new RestaurantDetail());
->>>>>>> 3d96504 (feat: manager와 member의 로그인 기능 구현)
+        commandMap.put("/todayReserve.do", new todayReserve());
+        commandMap.put("/loginCheck.do", new LoginCheckController());
+
     }
 
     @Override

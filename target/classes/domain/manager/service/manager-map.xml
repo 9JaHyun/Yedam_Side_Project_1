@@ -3,14 +3,17 @@
 
 <mapper namespace="domain.manager.service.ManagerMapper">
 
-	<resultMap type="domain.manager.vo.ReservationListVO" id="reservation">
+	<resultMap type="domain.manager.vo.ReservationListVO"
+		id="reservation">
 		<id property="reservationId" column="reservation_id" />
 		<result property="name" column="name" />
 		<result property="memberId" column="member_id" />
+		<result property="managerId" column="manager_id" />
 		<result property="restaurantId" column="restaurant_id" />
 		<result property="reservationTime" column="reservation_time" />
 		<result property="reservationCount" column="reservation_count" />
-		<result property="reservationContent" column="reservation_content" />
+		<result property="reservationContent"
+			column="reservation_content" />
 		<result property="tel" column="tel" />
 	</resultMap>
 
@@ -25,10 +28,52 @@
 		<result property="updatedAt" column="updatedat" />
 	</resultMap>
 
-	<select id="todayReserve" resultMap="reservation,member">
-		SELECT me.name, me.tel, re.reservation_count, re.reservation_time, re.reservation_content
-		FROM member me, reservation re
-		WHERE me.member_id=re.member_id
-		AND me.member_id= '1'
-	</select> 
+	<resultMap type="domain.manager.vo.ManagerVO" id="managerMap">
+		<id property="managerId" column="manager_id" />
+		<result property="loginId" column="login_id" />
+	</resultMap>
+
+	<select id="managerList"
+		resultType="domain.manager.vo.ManagerVO" resultMap="managerMap">
+		select * from manager
+	</select>
+
+	<select id="managerSelect"
+		resultType="domain.manager.vo.ManagerVO" resultMap="managerMap"
+		parameterType="domain.manager.vo.ManagerVO">
+		SELECT * FROM MANAGER WHERE login_id = #{loginId}
+		<if test="password != null">
+			AND PASSWORD = #{password}
+		</if>
+	</select>
+
+	<select id="todayReserve" parameterType="domain.manager.vo.ManagerVO" resultMap="reservation,member">
+		SELECT mem.member_id, mem.name, mem.tel, res.reservation_count, res.reservation_content, res.reservation_time
+		FROM member mem
+		JOIN reservation res
+		ON mem.member_id = res.member_id
+		JOIN restaurant re
+		ON res.restaurant_id = re.restaurant_id	
+		JOIN manager man
+		ON re.manager_id = man.manager_id
+		WHERE man.manager_id = #{managerId}
+	</select>
+
+	<insert id="managerInsert"
+		parameterType="domain.manager.vo.ManagerVO">
+		<selectKey keyProperty="managerId" resultType="long"
+			order="BEFORE">
+			SELECT manager_id_seq.nextval AS manager_id FROM DUAL
+		</selectKey>
+		insert into manager (manager_id,login_id,password,email,tel)
+		values
+		(#{managerId},#{loginId},#{password},#{email},#{tel})
+	</insert>
+
+	<update id="managerUpdate" />
+
+	<delete id="managerDelete" />
+
+	<select id="isIdCheck" />
+
 </mapper>

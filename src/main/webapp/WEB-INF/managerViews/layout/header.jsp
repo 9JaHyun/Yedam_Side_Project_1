@@ -1,11 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: admin
-  Date: 2022-02-07
-  Time: 오후 2:55
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <title>Title</title>
@@ -18,22 +12,24 @@
 		</a> <a href="#" class="sidebar-toggler flex-shrink-0"> 
 		<i class="fa fa-bars"></i>
 		</a>
+		<c:if test="${not empty user.getLoginId()}">
 		<div class="navbar-nav align-items-center ms-auto">
 			<div class="nav-item dropdown">
 				<a href="#" class="nav-link dropdown-toggle"
 					data-bs-toggle="dropdown"> <img class="rounded-circle me-lg-2"
 					src="asset/manager/img/user.jpg" alt=""
 					style="width: 40px; height: 40px;"> <span
-					class="d-none d-lg-inline-flex">John Doe</span>
+					class="d-none d-lg-inline-flex">${user.getLoginId()}</span>
 				</a>
 				<div
 					class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-					<a href="#" class="dropdown-item">My Profile</a> <a href="#"
-						class="dropdown-item">Settings</a> <a href="#"
-						class="dropdown-item">Log Out</a>
+					<a href="#" class="dropdown-item">내 정보 보기</a> <a href="#"
+						class="dropdown-item">설정</a> <a href="#"
+						class="dropdown-item">로그아웃</a>
 				</div>
 			</div>
 		</div>
+		</c:if>
 	</nav>
 </body>
 </html>

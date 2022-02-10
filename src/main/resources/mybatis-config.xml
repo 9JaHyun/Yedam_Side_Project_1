@@ -2,9 +2,9 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
-  
+
 <configuration>
-	<properties resource="/db.properties"/>
+	<properties resource="/db.properties" />
 	<settings>
 		<setting name="jdbcTypeForNull" value="NULL"></setting>
 	</settings>
@@ -21,10 +21,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="domain/manager/service/manager-map.xml" />
-<<<<<<< HEAD
-=======
 		<mapper resource="domain/manager/service/restaurant-map.xml" />
-			<mapper resource="domain/member/service/member-map.xml" />
->>>>>>> 3d96504 (feat: manager와 member의 로그인 기능 구현)
+		<mapper resource="domain/member/service/member-map.xml" />
 	</mappers>
 </configuration>

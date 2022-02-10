@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.manager.service.RestaurantMapper">
+<select id="restaurantList"></select>
+<select id="selectRestaurant"></select>
+<insert id="insertRestaurant" parameterType="domain.manager.vo.RestaurantVO">
+<selectKey keyProperty="restaurantId" resultType="long" order="BEFORE">
+			SELECT restaurant_id_seq.nextval AS manager_id FROM DUAL
+</selectKey>
+insert into restaurant(restaurant_id,manager_id,name,location)
+values (#{restaurantId},#{managerId},#{name},#{location})
+</insert>
+<update id="updateRestaurant"></update>
+<delete id="deleteRestaurant"></delete>
+<select id="searchRestaurntId" parameterType="String">
+select restaurant_id from restaurant where name = #{name}
+</select>
+</mapper>

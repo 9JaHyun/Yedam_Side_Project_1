@@ -20,7 +20,7 @@
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 
-<<<<<<< HEAD
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -65,53 +65,6 @@
       <version>RELEASE</version>
       <scope>compile</scope>
     </dependency>
-=======
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-core</artifactId>
-			<version>9.0.56</version>
-		</dependency>
-		<!-- DATABASE -->
-		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
-		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc8</artifactId>
-			<version>19.7.0.0</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.5.9</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-extras -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-extras</artifactId>
-			<version>3.0.8</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>RELEASE</version>
-			<scope>compile</scope>
-		</dependency>
->>>>>>> 3d96504 (feat: manager와 member의 로그인 기능 구현)
-
-
 	</dependencies>
 
 	<build>
