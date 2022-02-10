@@ -42,7 +42,6 @@
                 <input type="submit" value="검색" class="btn btn-primary btn-lg"/>
             </form>
         </div>
-		<button class='btn btn-primary' onclick='location.href="addRestaurantForm.do"'>식당추가</button>
         <!-- 인기 리스트 -->
         <div class="list-container">
             <h4 class="fw-bold">인기 음식점</h4>
@@ -57,7 +56,7 @@
                           <a href="restaurantDetail.do" style="color:black; text-decoration: none; outline: none;">한옥집</a>
                         </h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">예약하기</a>
+                        <a href="reserveForm.do" class="btn btn-primary">예약하기</a>
                     </div>
                 </div>
                 

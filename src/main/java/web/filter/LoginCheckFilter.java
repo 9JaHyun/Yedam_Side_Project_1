@@ -14,15 +14,9 @@ import web.SessionConst;
 
 public class LoginCheckFilter implements Filter {
 
-<<<<<<< HEAD
-    private static final String[] whiteList = {"/", "/cMain.do", "/loginForm.do", "/login.do", "/logout.do","/memberIdCheck.do","/managerIdCheck.do",
-    		"/loginCheck.do", "/signupForm.do", "/signup.do", "/managerSignupForm.do", "/searchRestaurant.do", "/restaurantDetail.do"};
-=======
-    private static final String[] whiteList = {"/", "/cMain.do",
-          "/loginForm.do", "/login.do", "/logout.do",
-          "/signupForm.do", "/signup.do", "/managerSignupForm.do",
-          "/searchRestaurant.do", "/restaurantDetail.do"};
->>>>>>> 21687e0 (Refactoring: 패키지 구조 수정)
+	private static final String[] whiteList = { "/", "/cMain.do", "/loginForm.do", "/login.do", "/logout.do",
+			"/memberIdCheck.do", "/managerIdCheck.do", "/loginCheck.do", "/signupForm.do", "/signup.do",
+			"/managerSignupForm.do", "/managerSignup.do", "/searchRestaurant.do", "/restaurantDetail.do" };
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
