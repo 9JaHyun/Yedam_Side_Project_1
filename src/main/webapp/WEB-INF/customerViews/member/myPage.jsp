@@ -67,41 +67,39 @@
 
                     <!-- 정보수정 -->
                     <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-                        <form action="memberUpdate.do" method="post">
+                        <form action="memberUpdate.do" method="post" id="updateMemberForm" name="updateMemberForm">
+                            <input type="text" value="${member.memberId}" name="memberId" id="memberId" hidden>
                             <div class="d-flex align-items-center" style="margin-bottom: 20px;">
                                 <div class="profile_img"></div>
                                 <div class="col-sm-4">
-                                    <input type="text" value="${member.name}" class="form-control fw-bold fs-4" style="margin-left: 20px;" maxlength="100">
+                                    <input type="text" name="name" id="name" value="${member.name}" class="form-control fw-bold fs-4" style="margin-left: 20px;" maxlength="100">
                                 </div>
                             </div>
                             <div style="margin-bottom: 30px;">
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">이메일</span>
-                                    <input type="email" value="${member.email}" class="form-control col-4"></br>
+                                    <span class="input-group-text">이메일</span>
+                                    <input type="email" name="email" id="email" value="${member.email}" class="form-control col-4"><br>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">전화번호</span>
-                                    <input type="text" value="${member.tel}" class="form-control col-4"></br>
+                                    <span class="input-group-text">전화번호</span>
+                                    <input type="text" name="tel" id="password" value="${member.tel}" class="form-control col-4"><br>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">변경사항 저장</button>
-                            <button type="button" class="btn btn-danger" onclick="handleWithdrawal(${member.memberId})">회원탈퇴</button>
+                            <button type="button" class="btn btn-danger" onclick="handleWithdrawal()">회원탈퇴</button>
                         </form>
+
                     </div>
 
                     <!-- 비밀번호 변경 -->
                     <div class="tab-pane fade" id="list-update-pw" role="tabpanel" aria-labelledby="list-update-pw">
-                        <form action="" method="post">
-                            <div class="mb-3 col-4">
-                                <label for="currentPassword" class="form-label">현재 비밀번호</label>
-                                <input type="password" class="form-control" id="currentPassword">
-                            </div>
+                        <form>
                             <div class="mb-3 col-4">
                                 <label for="newPassword1" class="form-label">변결할 비밀번호</label>
                                 <input type="password" class="form-control" id="newPassword1" placeholder="비밀번호" style="margin-bottom: 8px;">
                                 <input type="password" class="form-control" id="newPassword2" placeholder="비밀번호 확인">
                             </div>
-                            <button type="submit" class="btn btn-primary">비밀번호 변경하기</button>
+                            <button type="submit" class="btn btn-primary" onclick="handleUpdatePassword()">비밀번호 변경하기</button>
                         </form>
                     </div>
 
@@ -114,13 +112,58 @@
 
 <script>
   function handleWithdrawal(memberId) {
-    if (confirm('정말 회원탈퇴 하시겠습니까?' + memberId)) {
-        location.href = 'memberDelete.do?memberId='+memberId;
+    if (confirm('정말 회원탈퇴 하시겠습니까?')) {
+        location.href = 'memberDelete.do?memberId=' + $('#memberId').val();
     }
   }
 
   function handleUpdatePassword() {
-    console.log('비밀번호 변경');
+    let pw1 = $("#newPassword1").val();
+    let pw2 = $("#newPassword2").val();
+    if (pw1 === pw2) {
+      $.ajax({
+        url: "memberUpdate.do",
+        type: 'post',
+        data: {
+          "memberId": $("#memberId").val(),
+          "password": pw1
+        },
+        success: function(data){
+          if (data === "success") {
+            alert('비밀번호 변경 완료되었습니다.');
+          } else {
+            alert('비밀번호 변경 실패하였습니다.');
+          }
+        },
+        error: function (data) {
+          alert("서버 에러입니다. 다시 시도 해주세요");
+        }
+      });
+    } else {
+      alert('비밀번호가 일치하지 않습니다.');
+    }
+
   }
 
+  let form = $('#updateMemberForm');
+  form.submit(function(){
+    $.ajax({
+      url: "memberUpdate.do?" + form.serialize(),
+      type: 'post',
+      contentType: "x-www-form-urlencoded; charset=utf-8",
+      success: function(data){
+        if (data === "success") {
+          alert('업데이트 완료되었습니다.');
+          location.href = 'myPage.do';
+        } else {
+          alert('업데이트 실패하였습니다.');
+          location.href = 'myPage.do';
+        }
+      },
+      error: function (data) {
+        alert("서버 에러입니다. 다시 시도 해주세요");
+      }
+    });
+    return false;
+  });
 </script>

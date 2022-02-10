@@ -3,9 +3,12 @@ package command;
 import domain.member.service.MemberService;
 import domain.member.serviceImpl.MemberServiceImpl;
 import domain.member.vo.MemberVO;
+import org.apache.catalina.Session;
+import web.SessionConst;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class MyPageController implements common.Command {
 
@@ -13,9 +16,10 @@ public class MyPageController implements common.Command {
     public String exec(HttpServletRequest request, HttpServletResponse response) {
         MemberService memberDao = new MemberServiceImpl();
         MemberVO vo = new MemberVO();
-        // 임의 회원 값입니다. todo
-        vo.setLoginId("hong");
-        vo.setPassword("1234");
+
+        HttpSession session = request.getSession();
+
+        vo = (MemberVO) session.getAttribute(SessionConst.LOGIN_MEMBER);
 
         MemberVO result = memberDao.memberSelect(vo);
 

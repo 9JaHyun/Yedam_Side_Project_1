@@ -31,12 +31,13 @@
 	</delete>
 	
 	<update id="memberUpdate" parameterType="domain.member.vo.MemberVO">
-		UPDATE MEMBER SET UPDATEDAT = #{sysdate} 
+		UPDATE MEMBER
 		<set>
-			<if test="password != null">PASSWORD = #{password}</if>
-			<if test="name != null">NAME = #{name}</if>
-			<if test="tel != null">TEL = #{tel}</if>
-			<if test="address != null">EMAIL = #{email}</if>
+			UPDATEDAT = sysdate,
+			<if test="password != null">PASSWORD = #{password},</if>
+			<if test="name != null">NAME = #{name},</if>
+			<if test="tel != null">TEL = #{tel},</if>
+			<if test="email != null">EMAIL = #{email},</if>
 		</set>
 		WHERE MEMBER_ID = #{memberId}
 	</update>
