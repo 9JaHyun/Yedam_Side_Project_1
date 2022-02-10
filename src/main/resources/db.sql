@@ -50,7 +50,6 @@ CREATE TABLE Reservation(
     FOREIGN KEY(restaurant_id)
     REFERENCES restaurant(restaurant_id)
 );
-
 CREATE TABLE MENU(
     menu_id NUMBER PRIMARY KEY,
     restaurant_id NUMBER,
