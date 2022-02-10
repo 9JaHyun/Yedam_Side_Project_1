@@ -1,11 +1,11 @@
-package command;
+package web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import common.Command;
+import common.Controller;
 
-public class RestaurantDetail implements Command {
+public class RestaurantDetail implements Controller {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
