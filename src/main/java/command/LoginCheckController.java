@@ -18,9 +18,6 @@ public class LoginCheckController implements Command {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String author = request.getParameter("author");
-		System.out.println(id);
-		System.out.println(password);
-		System.out.println(author);
 		
 		if(author.equals("customer")) {
 			MemberService memberDAO = new MemberServiceImpl();

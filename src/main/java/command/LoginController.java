@@ -19,9 +19,6 @@ public class LoginController implements Command {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String author = request.getParameter("author");
-		System.out.println(id);
-		System.out.println(password);
-		System.out.println(author);
     
      String redirectParam = request.getParameter("redirectURL");
         if (redirectParam != null) {
@@ -36,7 +33,7 @@ public class LoginController implements Command {
 			vo.setLoginId(id);
 			vo.setPassword(password);
 			vo = memberDAO.memberSelect(vo);
-			session.setAttribute("user", vo);
+			session.setAttribute("loginMember", vo);
 			
 		} else if(author.equals("manager")) {
 			ManagerService managerDAO = new ManagerServiceImpl();
@@ -44,7 +41,7 @@ public class LoginController implements Command {
 			vo.setLoginId(id);
 			vo.setPassword(password);
 			vo = managerDAO.managerSelect(vo);
-			session.setAttribute("user", vo);
+			session.setAttribute("loginMember", vo);
 		}
 		return "cMain.do";
 	}

@@ -14,14 +14,14 @@
     </a>
     <div>
     	<!-- 로그인 전 -->
-    	<c:if test='${empty user}'>
+    	<c:if test='${empty loginMember}'>
         <div>
             <a href="signupForm.do" class="btn btn-outline-primary me-2 btn-sm">회원가입</a>
             <a href="loginForm.do" class="btn btn-primary btn-lg btn-sm">로그인</a>
         </div>
         </c:if>
         <!-- 로그인 후 -->
-        <c:if test='${not empty user}'>
+        <c:if test='${not empty loginMember}'>
         <div class="dropdown text-end">
 	        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
 	          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
@@ -29,7 +29,7 @@
 	        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
 	          <li><a class="dropdown-item" href="myPage.do">My Page</a></li>
 	          <li><hr class="dropdown-divider"></li>
-	          <li><a class="dropdown-item" href="#">Sign out</a></li>
+	          <li><a class="dropdown-item" href="logout.do">Sign out</a></li>
 	        </ul>
         </div>
         </c:if>

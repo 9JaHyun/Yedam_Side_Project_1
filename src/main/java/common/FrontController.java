@@ -72,7 +72,7 @@ public class FrontController extends HttpServlet {
         if (commandMap.get(commandPath) == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
-        System.out.println(commandPath);
+
         String filePath = commandMap.get(commandPath).exec(request, response);
         
         if (isRedirect(filePath)) {

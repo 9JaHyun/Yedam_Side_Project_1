@@ -3,7 +3,6 @@ package command;
 import domain.member.service.MemberService;
 import domain.member.serviceImpl.MemberServiceImpl;
 import domain.member.vo.MemberVO;
-import org.apache.catalina.Session;
 import web.SessionConst;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +18,7 @@ public class MyPageController implements common.Command {
 
         HttpSession session = request.getSession();
 
-        vo = (MemberVO) session.getAttribute(SessionConst.LOGIN_MEMBER);
-
-        MemberVO result = memberDao.memberSelect(vo);
+        MemberVO result = (MemberVO) session.getAttribute(SessionConst.LOGIN_MEMBER);
 
         if (result != null) {
             request.setAttribute("member", result);
