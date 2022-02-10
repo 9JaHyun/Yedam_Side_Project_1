@@ -1,6 +1,6 @@
 package domain.manager.vo;
 
-import java.sql.Date;
+import java.sql.Time;
 
 import lombok.Data;
 
@@ -13,8 +13,8 @@ public class RestaurantVO {
 	private int reserve_count;
 	private String location;
 	private String content;
-	private Date operationTimeStart;
-	private Date operationTimeEnd;
-	private Date breakTimeStart;
-	private Date breakTimeEnd;
+	private Time operationTimeStart;
+	private Time operationTimeEnd;
+	private Time breakTimeStart;
+	private Time breakTimeEnd;
 }

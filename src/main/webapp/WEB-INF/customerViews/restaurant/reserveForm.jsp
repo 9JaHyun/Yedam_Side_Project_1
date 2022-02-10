@@ -12,35 +12,37 @@ display:none;
 </style>
 </head>
 <body>
-
-	<div align='center'>
-		<form id='frm' action='reserve.do' method='post' onsubmit='submitCheck()'>
+		<div align='center'>
 			<h1>음식점 이름</h1>
-			<div>
-				예약인원<br>
+		</div>
+		<form id='frm' action='reserve.do' method='post' onsubmit='submitCheck()'>
+			<div class='form-group' style='width:300px; margin:auto'>
+				<label for='people' class='form-label'>예약인원</label>
 				<input class='form-control' type='number' id='people' name='people' min='1' max='4' value='1'>
+				<label for='reserveDate' class='form-label'>예약날짜</label>
+				<input class='form-control' type='date' id='reserveDate' name='reserveDate'>
 			</div>
-			<div>
+			<div class='form-group' style='width:300px; margin:auto'>
 				예약시간<br> 
-				<label class='radio-button btn btn-outline-primary'><input type='radio' name='time' value='07:00'>07:00</label>
-				<label class='radio-button btn btn-outline-primary'><input type='radio' name='time' value='08:00'>08:00</label>							
+				<label class='radio-button btn btn-outline-primary'><input type='radio' name='reserveTime' value='07:00'>07:00</label>
+				<label class='radio-button btn btn-outline-primary'><input type='radio' name='reserveTime' value='08:00'>08:00</label>							
 			</div>
-			<div>
-				전화번호<br> <input class='form-control' type='text' id='tel' name='tel'
-					placeholder='전화번호를 입력해주세요'>
-			</div>
-			<div>
-				예약자 이름<br> <input class='form-control' type='text' id='name' name='name'
-					placeholder='이름을 입력해주세요'>
-			</div>
-			<div>
-				요청사항<br>
+			<div class='form-group' style='width:300px; margin:auto'>
+				<label for='name' class='form-label'>예약자 이름</label>
+				<input class='form-control' type='text' id='name' name='name' placeholder='이름을 입력해주세요'>
+				<label for='tel' class='form-label'>전화번호</label>
+				<input class='form-control' type='text' id='tel' name='tel' placeholder='전화번호를 입력해주세요'>
+				<label for='requested' class='form-label'>요청사항</label>
 				<textarea class='form-control' cols='100' rows='5' id='requested' name='requested'></textarea>
 			</div>
 			<br>
-			<input class='btn btn-primary' type='submit' value='예약하기'>
+			<div align='center'>
+				<input class='btn btn-primary' type='submit' value='예약하기'>
+			</div>
 		</form>
-		<button onclick='location.href="cMain.do"'>홈으로</button>
+		<div align='center'>
+			<button class='btn btn-primary' onclick='location.href="cMain.do"'>홈으로</button>
+		</div>
 		<script>
 			$('.radio-button').on('click', function() {
 					$('.radio-button').removeClass('btn-primary')
@@ -56,6 +58,5 @@ display:none;
 				console.log(document.forms.frm.tel.value)
 			}
 		</script>
-	</div>
 </body>
 </html>
