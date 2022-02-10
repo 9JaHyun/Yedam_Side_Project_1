@@ -6,4 +6,5 @@ import domain.manager.vo.ReservationListVO;
 
 public interface ManagerMapper {
 	public List<ReservationListVO> todayReserve();
+	
 }

@@ -6,11 +6,12 @@ import lombok.Data;
 
 @Data
 public class ReservationListVO {
-	private long orderId;
-	private String memberName;
+	private long reservationId;
+	private String name;
 	private long memberId;
 	private long restaurantId;
-	private Date orderTime;
-	private int orderCount;
+	private Date reservationTime;
+	private int reservationCount;
+	private String reservationContent;
 	private String tel;
 }
