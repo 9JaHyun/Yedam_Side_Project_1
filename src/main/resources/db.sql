@@ -10,6 +10,7 @@ CREATE TABLE MEMBER(
 );
 CREATE TABLE MANAGER(
     manager_id NUMBER PRIMARY KEY,
+    name VARCHAR2(100),
     login_id VARCHAR2(100),
     password VARCHAR2(100),
     email VARCHAR2(100),
@@ -23,10 +24,10 @@ CREATE TABLE RESTAURANT(
     reserve_count NUMBER,
     location VARCHAR2(1000),
     content VARCHAR2(2000),
-    operation_time_start DATE,
-    operation_time_end DATE,
-    break_time_start DATE,
-    break_time_end DATE,
+    operation_time_start VARCHAR2(20),
+    operation_time_end VARCHAR2(20),
+    break_time_start VARCHAR2(20),
+    break_time_end VARCHAR2(20),
     CONSTRAINT fk_restaurant_manager_id
     FOREIGN KEY(manager_id)
     REFERENCES manager(manager_id)

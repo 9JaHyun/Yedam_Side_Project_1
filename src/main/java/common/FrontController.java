@@ -20,10 +20,10 @@ import web.controller.login.LoginController;
 import web.controller.login.LoginFormController;
 import web.controller.login.LogoutController;
 import web.controller.manager.ManagerIndexController;
-import web.controller.manager.ManagerInfoController;
 import web.controller.manager.ManagerSignupController;
 import web.controller.manager.ManagerSignupFormController;
 import web.controller.manager.ManagerUpdateController;
+import web.controller.manager.MyManagerPageController;
 import web.controller.manager.todayReserveController;
 import web.controller.member.MemberDeleteController;
 import web.controller.member.MemberIdCheckController;
@@ -66,7 +66,7 @@ public class FrontController extends HttpServlet {
 		commandMap.put("/managerIdCheck.do", new ManagerIdCheckController()); // 멤버 아이디 중복여부 확인
 		commandMap.put("/managerSignupForm.do", new ManagerSignupFormController()); // manager 회원가입 페이지
 		commandMap.put("/managerSignup.do", new ManagerSignupController()); // 매니저 회원가입 요청
-		commandMap.put("/managerInfo.do", new ManagerInfoController());
+		commandMap.put("/myManagerPage.do", new MyManagerPageController());
 		commandMap.put("/managerUpdate.do", new ManagerUpdateController());
 		commandMap.put("/todayReserve.do", new todayReserveController());
 	}

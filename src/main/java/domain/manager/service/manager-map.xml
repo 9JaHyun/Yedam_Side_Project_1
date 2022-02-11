@@ -72,11 +72,11 @@
 
 	<update id="managerUpdate" parameterType="domain.manager.vo.ManagerVO">
 		UPDATE manager
-		<trim prefix="SET" suffixOverrides=",">
+		<set>
 			<if test="password != null">PASSWORD = #{password},</if>
 			<if test="email != null">EMAIL = #{email},</if>
 			<if test="tel != null">TEL = #{tel},</if>
-		</trim>
+		</set>
 		WHERE manager_ID = #{managerId}
 	</update>
  

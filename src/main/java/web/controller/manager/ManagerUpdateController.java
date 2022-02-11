@@ -15,6 +15,8 @@ public class ManagerUpdateController implements Controller {
 		ManagerService ManagerDao = new ManagerServiceImpl();
         ManagerVO vo = new ManagerVO();
 
+        vo.setManagerId(Long.parseLong(request.getParameter("managerId")));
+        vo.setLoginId(request.getParameter("loginId"));
         vo.setPassword(request.getParameter("password"));
         vo.setEmail(request.getParameter("email"));
         vo.setTel(request.getParameter("tel"));
@@ -24,7 +26,8 @@ public class ManagerUpdateController implements Controller {
         if (result > 0) {
             return "ajax:success";
         } else {
-            return "ajax:fail";
+        	return "ajax:fail";
+            
         }
 	}
 
