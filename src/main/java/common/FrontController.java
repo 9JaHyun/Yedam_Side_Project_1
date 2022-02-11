@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import web.controller.MainController;
-import web.controller.restaurant.RestaurantDetail;
+import web.controller.reservation.CheckAvailableListController;
+import web.controller.reservation.ReserveController;
+import web.controller.restaurant.RestaurantDetailController;
 import web.controller.restaurant.SearchRestaurantController;
 import web.controller.login.LoginCheckController;
 import web.controller.login.LoginController;
@@ -55,10 +57,9 @@ public class FrontController extends HttpServlet {
         commandMap.put("/memberUpdate.do", new MemberUpdateController()); // 회원정보 수정
         commandMap.put("/memberDelete.do", new MemberDeleteController()); // 회원탈퇴
         commandMap.put("/memberIdCheck.do", new MemberIdCheckController()); // 멤버 아이디 중복여부 확인
-        
-        commandMap.put("/reserveForm.do", new ReserveFormController()); // 예약화면 페이지
+
         commandMap.put("/searchRestaurant.do", new SearchRestaurantController());
-        commandMap.put("/restaurantDetail.do", new RestaurantDetail());
+        commandMap.put("/restaurantDetail.do", new RestaurantDetailController());
 
         // Manager
         commandMap.put("/main.do", new ManagerIndexController());
@@ -70,6 +71,11 @@ public class FrontController extends HttpServlet {
         commandMap.put("/addRestaurantForm.do", new AddRestaurantFormController()); // 가게 추가 페이지
         commandMap.put("/addRestaurant.do", new AddRestaurantController()); // 가게 추가기능
         commandMap.put("/updateRestaurantForm.do", new UpdateRestaurantFormController());
+
+        // Reservation
+        commandMap.put("/reserveForm.do", new ReserveFormController()); // 예약화면 페이지
+        commandMap.put("/reserve.do", new ReserveController()); // 예약
+        commandMap.put("/checkAvailableList.do", new CheckAvailableListController());
 
     }
 

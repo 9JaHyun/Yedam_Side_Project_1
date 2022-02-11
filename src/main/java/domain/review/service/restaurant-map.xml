@@ -21,7 +21,7 @@
 
 <insert id="insertRestaurant" parameterType="domain.restaurant.vo.RestaurantVO">
 	<selectKey keyProperty="restaurantId" resultType="long" order="BEFORE">
-		SELECT restaurant_id_seq.nextval AS manager_id FROM DUAL
+		SELECT restaurant_id_seq.nextval AS restaurant_id FROM DUAL
 	</selectKey>
 	insert into restaurant(restaurant_id,manager_id,name,location,reserve_count
 	<if test="tel != null"> ,tel </if>
@@ -72,5 +72,4 @@
 	FROM ( SELECT rs.* FROM  restaurant rs ORDER BY UTL_MATCH.edit_distance_similarity(#{name}, name) desc ) a
 	WHERE ROWNUM <![CDATA[ >= ]]> 1 AND ROWNUM <![CDATA[ <= ]]> 10
 </select>
-
 </mapper>

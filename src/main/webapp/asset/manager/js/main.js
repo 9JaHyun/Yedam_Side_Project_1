@@ -42,10 +42,10 @@
 
 
     // Calender
-    $('#calender').datetimepicker({
-        inline: true,
-        format: 'L'
-    });
+    $('#reservationCalendar').datetimepicker({
+        format: 'L',
+        minDate: today
+    })
 
 
     // Testimonials carousel

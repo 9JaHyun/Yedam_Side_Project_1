@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="domain.reservation.service.ReservationMapper">
+  <insert id="reservationInsert" parameterType="domain.reservation.vo.ReservationVO">
+    <selectKey keyProperty="reservationId" resultType="long" order="BEFORE">
+      SELECT reservation_id_seq.nextval AS reservation_id FROM DUAL
+    </selectKey>
+    insert into reservation(reservation_id, member_id, restaurant_id, reservation_time, personnel,
+    request_content, status)
+    values (#{reservationId}, #{memberId}, #{restaurantId}, #{reservationTime}, #{personnel},
+    #{requestContent}, 'WAITING_FOR_ACCEPT')
+
+  </insert>
+
+  <update id="acceptReservation" parameterType="domain.reservation.vo.ReservationVO">
+    update reservation
+    set status = #{status}
+    where reservation_id = #{reservationId}
+  </update>
+
+  <delete id="reservationDelete" parameterType="domain.reservation.vo.ReservationVO">
+    delete from reservation
+    where reservation_id = #{reservationId}
+  </delete>
+
+  <select id="findByMemberId" parameterType="domain.reservation.vo.ReservationVO" resultType="domain.reservation.vo.ReservationVO">
+    select * from reservation where member_id = #{managerId}
+  </select>
+
+  <select id="reservationSelect" parameterType="domain.reservation.vo.ReservationVO" resultType="domain.reservation.vo.ReservationVO">
+    select * from reservation where reservation_Id = #{reservationId}
+  </select>
+
+  <select id="reservationList" resultType="domain.reservation.vo.ReservationVO">
+    select * from reservation
+  </select>
+</mapper>

@@ -16,38 +16,32 @@ public class RestaurantServiceImpl implements RestaurantService {
 	
 	@Override
 	public List<RestaurantVO> restaurantList() {
-		// TODO Auto-generated method stub
-		return null;
+		return map.restaurantList();
 	}
 
 	@Override
 	public RestaurantVO selectRestaurant(RestaurantVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return map.selectRestaurant(vo);
 	}
 
 	@Override
 	public int insertRestaurant(RestaurantVO vo) {
-		// TODO Auto-generated method stub
 		return map.insertRestaurant(vo);
 	}
 
 	@Override
 	public int updateRestaurant(RestaurantVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return map.updateRestaurant(vo);
 	}
 
 	@Override
 	public int deleteRestaurant(RestaurantVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return map.deleteRestaurant(vo);
 	}
 
 	@Override
-	public List<RestaurantVO> searchRestaurntId(long managerId) {
-		// TODO Auto-generated method stub
-		return map.searchRestaurntId(managerId);
+	public List<RestaurantVO> searchRestaurantId(long managerId) {
+		return map.searchRestaurantId(managerId);
 	}
 
 	@Override

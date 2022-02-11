@@ -21,7 +21,9 @@
 	</environments>
 	<mappers>
 		<mapper resource="domain/manager/service/manager-map.xml" />
-		<mapper resource="domain/manager/service/restaurant-map.xml" />
+		<mapper resource="domain/restaurant/service/restaurant-map.xml" />
 		<mapper resource="domain/member/service/member-map.xml" />
+		<mapper resource="domain/reservation/service/reservation-mapper.xml" />
+		<mapper resource="domain/review/service/review-mapper.xml" />
 	</mappers>
 </configuration>
