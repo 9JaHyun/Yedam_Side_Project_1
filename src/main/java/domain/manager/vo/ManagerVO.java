@@ -6,6 +6,7 @@ import lombok.Data;
 
 public class ManagerVO {
 	private long managerId;
+	private String name;
 	private String loginId;
 	private String password;
 	private String email;
