@@ -17,4 +17,5 @@ public class RestaurantVO {
 	private Time operationTimeEnd;
 	private Time breakTimeStart;
 	private Time breakTimeEnd;
+	private int rnum;
 }

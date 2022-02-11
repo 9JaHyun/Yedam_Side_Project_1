@@ -262,6 +262,7 @@ map mark
   display: inline-flex;
   background-color: #6877ff;
   bottom: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
 }
 .map-mark:after {
   bottom: -8px;
