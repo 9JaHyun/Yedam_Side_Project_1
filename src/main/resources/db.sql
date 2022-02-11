@@ -54,7 +54,6 @@ CREATE TABLE Reservation(
 CREATE TABLE MENU(
     menu_id NUMBER PRIMARY KEY,
     restaurant_id NUMBER,
-    manager_id NUMBER,
     name VARCHAR2(200),
     cost NUMBER,
     picture VARCHAR2(2000),
@@ -68,7 +67,6 @@ CREATE TABLE MENU(
 
 CREATE table REVIEW(
     review_id NUMBER PRIMARY KEY,
-    member_id NUMBER,
     restaurant_id NUMBER,
     manager_id NUMBER,
     content VARCHAR2(2000),
