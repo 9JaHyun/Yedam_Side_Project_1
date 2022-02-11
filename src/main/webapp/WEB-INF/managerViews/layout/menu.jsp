@@ -18,7 +18,7 @@
                     <div class="ms-3">
 
                         <h6 class="mb-0">${loginManager.loginId}</h6>
-                        <span>관리자</span>
+                        <span>${loginManager.name }</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">

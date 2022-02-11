@@ -30,59 +30,53 @@
 						aria-selected="false">비밀번호 변경</button>
 				</li>
 			</ul>
-			
+
 			<div class="tab-content" id="pills-tabContent">
 				<div class="tab-pane fade show active" id="pills-home"
 					role="tabpanel" aria-labelledby="pills-home-tab">
 					<div class="bg-light rounded h-100 p-4">
-                            <dl class="row mb-0">
-                                <dt class="col-sm-4">ID</dt>
-                                <dd class="col-sm-8">${loginManager.loginId }</dd>
+						<dl class="row mb-0">
+							<dt class="col-sm-4">Name</dt>
+							<dd class="col-sm-8">${loginManager.name }</dd>
 
-                                <dt class="col-sm-4">Email</dt>
-                                <dd class="col-sm-8">${loginManager.email }</dd>
+							<dt class="col-sm-4">ID</dt>
+							<dd class="col-sm-8">${loginManager.loginId }</dd>
 
-                                <dt class="col-sm-4">Tel</dt>
-                                <dd class="col-sm-8">${loginManager.tel }</dd>
-                            </dl>
-                        </div>
+							<dt class="col-sm-4">Email</dt>
+							<dd class="col-sm-8">${loginManager.email }</dd>
+
+							<dt class="col-sm-4">Tel</dt>
+							<dd class="col-sm-8">${loginManager.tel }</dd>
+						</dl>
+					</div>
 				</div>
 				<div class="tab-pane fade" id="pills-profile" role="tabpanel"
 					aria-labelledby="pills-profile-tab">
 					<form action="managerUpdate.do" method="post"
 						id="updateManagerForm" name="updateManagerForm">
 						<div class="bg-light rounded h-100 p-4">
-							<h6 class="mb-4">수정정보</h6>
-
 							<div class="form-floating mb-3">
-								<input type="test" class="form-control" id="floatingInput"
+								<input type="text" class="form-control" id="floatingInput"
 									readonly="readonly" value="${loginManager.loginId }"> <label
 									for="floatingInput">id</label>
 							</div>
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="name" name="name"
+									 value="${loginManager.name }"> <label
+									for="floatingInput">Name</label>
+							</div>
 
-							<div class="form-floating mb-3">
-								<input type="password" class="form-control" id="password"
-									name="password" placeholder="Password"
-									value="${loginManager.password }"> <label
-									for="floatingPassword">password</label>
-							</div>
-							<div class="form-floating mb-3">
-								<input type="password" class="form-control" id="password1"
-									name="password1" placeholder="Password"> <label
-									for="floatingPassword">Refeat password</label>
-							</div>
-							<!-- floating password -->
-							<!-- floating input -->
 							<div class="form-floating mb-3">
 								<input type="email" class="form-control" id="email" name="email"
 									placeholder="name@example.com" value="${loginManager.email }">
 								<label for="floatingInput">Email address</label>
 							</div>
 							<div class="form-floating mb-3">
-								<input type="test" class="form-control" id="tel" name="tel"
+								<input type="text" class="form-control" id="tel" name="tel"
 									placeholder="010-0000-0000" value="${loginManager.tel }">
 								<label for="floatingInput">Tel</label>
 							</div>
+
 							<div class="form-floating mb-3">
 								<button type="submit" class="btn btn-outline-primary m-2">정보수정완료</button>
 								<button onclick="location.href='main.do'" type="button"
@@ -91,8 +85,21 @@
 						</div>
 					</form>
 				</div>
-				<div class="tab-pane fade" id="pills-contact" role="tabpanel"
-					aria-labelledby="pills-contact-tab">비밀번호 변경</div>
+				
+				<div class="tab-pane fade" id="list-update-pw" role="tabpanel" aria-labelledby="list-update-pw">
+					<form>
+					<div class="form-floating mb-3">
+						<input type="password" class="form-control" id="password" name="password" placeholder="Password"
+							value="${loginManager.password }"> 
+							<label for="floatingPassword">password</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="password" class="form-control" id="password1" name="password1" placeholder="Password"> 
+						<label for="floatingPassword">Refeat password</label>
+					</div>
+					<button type="submit" class="btn btn-outline-primary m-2" onclick="handleUpdatePassword()" >비밀번호 변경</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
