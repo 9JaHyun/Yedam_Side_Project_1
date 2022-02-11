@@ -34,8 +34,8 @@ text-decoration: none;
 					id='password' name='password' placeholder='Password'>
 			</div>
 			<div>
-				<label><input type='radio' name='author' value='customer' checked>일반고객</label>
-				<label><input type='radio' name='author' value='manager'>점주</label>
+				<label><input type='radio' name='author' value='customer'>일반고객</label>
+				<label><input type='radio' name='author' value='manager' checked="checked">점주</label>
 			</div>
 			<div>
 				<input class='btn btn-primary' type='submit' value='로그인'>

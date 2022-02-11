@@ -19,4 +19,5 @@ public interface ManagerService {
 	int managerDelete(ManagerVO vo);
 
 	boolean isIdCheck(String id);
+	
 }

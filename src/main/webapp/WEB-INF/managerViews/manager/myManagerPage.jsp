@@ -32,6 +32,7 @@
 			</ul>
 
 			<div class="tab-content" id="pills-tabContent">
+
 				<div class="tab-pane fade show active" id="pills-home"
 					role="tabpanel" aria-labelledby="pills-home-tab">
 					<div class="bg-light rounded h-100 p-4">
@@ -50,10 +51,14 @@
 						</dl>
 					</div>
 				</div>
+
 				<div class="tab-pane fade" id="pills-profile" role="tabpanel"
 					aria-labelledby="pills-profile-tab">
+
 					<form action="managerUpdate.do" method="post"
 						id="updateManagerForm" name="updateManagerForm">
+						<input type="text" name="managerId"
+							value="${loginManager.managerId }" hidden>
 						<div class="bg-light rounded h-100 p-4">
 							<div class="form-floating mb-3">
 								<input type="text" class="form-control" id="floatingInput"
@@ -62,7 +67,7 @@
 							</div>
 							<div class="form-floating mb-3">
 								<input type="text" class="form-control" id="name" name="name"
-									 value="${loginManager.name }"> <label
+									value="${loginManager.name }"> <label
 									for="floatingInput">Name</label>
 							</div>
 
@@ -85,33 +90,35 @@
 						</div>
 					</form>
 				</div>
-				
-				<div class="tab-pane fade" id="list-update-pw" role="tabpanel" aria-labelledby="list-update-pw">
+
+				<div class="tab-pane fade" id="pills-contact" role="tabpanel"
+					aria-labelledby="pills-content-tab">
 					<form>
-					<div class="form-floating mb-3">
-						<input type="password" class="form-control" id="password" name="password" placeholder="Password"
-							value="${loginManager.password }"> 
-							<label for="floatingPassword">password</label>
-					</div>
-					<div class="form-floating mb-3">
-						<input type="password" class="form-control" id="password1" name="password1" placeholder="Password"> 
-						<label for="floatingPassword">Refeat password</label>
-					</div>
-					<button type="submit" class="btn btn-outline-primary m-2" onclick="handleUpdatePassword()" >비밀번호 변경</button>
+						<div class="form-floating mb-3">
+							<input type="password" class="form-control" id="newPassword1">
+							<label for="floatingInput">Password</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="password" class="form-control" id="newPassword2">
+							<label for="floatingInput">Refeat Password</label>
+						</div>
+						<button type="submit" class="btn btn-outline-primary m-2"
+							onclick="handleUpdatePassword()">비밀번호 변경</button>
 					</form>
 				</div>
+
 			</div>
 		</div>
-	</div>
-	</div>
 	</div>
 
 
 
 	<script>
 		function handleUpdatePassword() {
-			let pw1 = $("#password").val();
-			let pw2 = $("#password1").val();
+			let pw1 = $("#newPassword1").val();
+			let pw2 = $("#newPassword2").val();
+			
+			console.log(pw1)
 			if (pw1 === pw2) {
 				$.ajax({
 					url : "managerUpdate.do",

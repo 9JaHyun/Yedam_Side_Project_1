@@ -14,21 +14,21 @@ public class MyManagerPageController implements Controller {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		ManagerService managerDao = new ManagerServiceImpl();
-		ManagerVO vo = new ManagerVO();
 		
 		HttpSession session = request.getSession();
+		System.out.println("getsession");
+		System.out.println(session);
 		
-		ManagerVO result = (ManagerVO)session.getAttribute(SessionConst.LOGIN_MANAGER);
+		ManagerVO result = (ManagerVO) session.getAttribute(SessionConst.LOGIN_MANAGER);
+		System.out.println(result);
 		
-		if(result != null) {
+		if (result != null) {
 			request.setAttribute("member", result);
-		}else {
+		} else {
 			request.setAttribute("message", "조회된 데이터가 없습니다.");
+			System.out.println(result);
 		}
-		
-		return "manager/myManagerPage";
-		
-	}
 
+		return "manager/myManagerPage";
+	}
 }

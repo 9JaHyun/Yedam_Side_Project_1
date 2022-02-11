@@ -48,4 +48,5 @@ public class ManagerServiceImpl implements ManagerService {
 	public boolean isIdCheck(String id) {
 		return map.isIdCheck(id);
 	}
+	
 }

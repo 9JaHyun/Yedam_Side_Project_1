@@ -27,7 +27,7 @@
 					class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
 					<a href="myManagerPage.do" class="dropdown-item">내 정보 보기</a> 
 					<a href="#" class="dropdown-item">설정</a> 
-					<a href="#" class="dropdown-item">로그아웃</a>
+					<a href="logout.do" class="dropdown-item">로그아웃</a>
 				</div>
 			</div>
 		</div>

@@ -14,6 +14,6 @@ public class LogoutController implements Controller {
             session.invalidate();
         }
 
-        return "cMain.do";
+        return "loginForm.do";
     }
 }
