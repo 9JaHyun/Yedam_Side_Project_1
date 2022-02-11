@@ -20,7 +20,7 @@ public class ManagerSignupController implements Controller {
 		ManagerService managerDAO = new ManagerServiceImpl();
 		RestaurantService restaurantDAO = new RestaurantServiceImpl();
 		
-		String coordinates = "("+request.getParameter("y-coordinates")+","+request.getParameter("x-coordinates")+")";
+		String coordinates = request.getParameter("y-coordinates")+","+request.getParameter("x-coordinates");
 		
 		// manager 계정 db 추가
 		mvo.setLoginId(request.getParameter("login_id"));

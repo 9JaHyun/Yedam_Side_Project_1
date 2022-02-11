@@ -27,7 +27,7 @@ public class AddRestaurantController implements Controller {
 		vo.setName(request.getParameter("shop"));
 		vo.setTel(request.getParameter("tel"));
 		vo.setContent(request.getParameter("content"));
-		vo.setLocation("("+request.getParameter("y-coordinates")+","+request.getParameter("x-coordinates")+")");
+		vo.setLocation(request.getParameter("y-coordinates")+","+request.getParameter("x-coordinates"));
 		System.out.println(request.getParameter("startTime"));
 		vo.setOperationTimeStart(Time.valueOf(request.getParameter("startTime")+":00"));
 		vo.setOperationTimeEnd(Time.valueOf(request.getParameter("endTime")+":00"));

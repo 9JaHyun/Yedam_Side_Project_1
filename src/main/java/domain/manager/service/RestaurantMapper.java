@@ -12,4 +12,5 @@ public interface RestaurantMapper {
 	int deleteRestaurant(RestaurantVO vo);
 	
 	List<RestaurantVO> searchRestaurntId(long managerId);
+	List<RestaurantVO> searchRestaurantName(String name);
 }
