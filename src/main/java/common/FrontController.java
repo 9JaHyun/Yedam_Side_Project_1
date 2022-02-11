@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import web.controller.MainController;
-import web.controller.RestaurantDetail;
-import web.controller.SearchRestaurantController;
+import web.controller.restaurant.RestaurantDetail;
+import web.controller.restaurant.SearchRestaurantController;
 import web.controller.login.LoginCheckController;
 import web.controller.login.LoginController;
 import web.controller.login.LoginFormController;

@@ -5,8 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import common.Controller;
-import domain.manager.service.RestaurantService;
-import domain.manager.serviceImpl.RestaurantServiceImpl;
+import domain.restaurant.service.RestaurantService;
+import domain.restaurant.serviceImpl.RestaurantServiceImpl;
 import domain.manager.vo.ManagerVO;
 import web.SessionConst;
 

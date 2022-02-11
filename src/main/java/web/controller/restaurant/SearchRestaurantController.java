@@ -1,12 +1,12 @@
-package web.controller;
+package web.controller.restaurant;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.Controller;
-import domain.manager.service.RestaurantService;
-import domain.manager.serviceImpl.RestaurantServiceImpl;
-import domain.manager.vo.RestaurantVO;
+import domain.restaurant.service.RestaurantService;
+import domain.restaurant.serviceImpl.RestaurantServiceImpl;
+import domain.restaurant.vo.RestaurantVO;
 
 import java.util.List;
 

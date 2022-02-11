@@ -1,4 +1,4 @@
-package domain.manager.vo;
+package domain.restaurant.vo;
 
 import java.sql.Time;
 

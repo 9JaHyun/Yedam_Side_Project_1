@@ -1,8 +1,8 @@
-package domain.manager.service;
+package domain.restaurant.service;
 
 import java.util.List;
 
-import domain.manager.vo.RestaurantVO;
+import domain.restaurant.vo.RestaurantVO;
 
 public interface RestaurantService {
 	List<RestaurantVO> restaurantList();

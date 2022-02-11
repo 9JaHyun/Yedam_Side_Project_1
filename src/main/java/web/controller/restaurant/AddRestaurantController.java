@@ -1,6 +1,5 @@
 package web.controller.restaurant;
 
-import java.sql.Date;
 import java.sql.Time;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,10 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import common.Controller;
-import domain.manager.service.RestaurantService;
-import domain.manager.serviceImpl.RestaurantServiceImpl;
+import domain.restaurant.service.RestaurantService;
+import domain.restaurant.serviceImpl.RestaurantServiceImpl;
 import domain.manager.vo.ManagerVO;
-import domain.manager.vo.RestaurantVO;
+import domain.restaurant.vo.RestaurantVO;
 import web.SessionConst;
 
 public class AddRestaurantController implements Controller {

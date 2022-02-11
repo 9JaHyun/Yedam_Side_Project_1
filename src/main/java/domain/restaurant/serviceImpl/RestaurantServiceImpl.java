@@ -1,13 +1,13 @@
-package domain.manager.serviceImpl;
+package domain.restaurant.serviceImpl;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import common.DataSource;
-import domain.manager.service.RestaurantMapper;
-import domain.manager.service.RestaurantService;
-import domain.manager.vo.RestaurantVO;
+import domain.restaurant.service.RestaurantMapper;
+import domain.restaurant.service.RestaurantService;
+import domain.restaurant.vo.RestaurantVO;
 
 public class RestaurantServiceImpl implements RestaurantService {
 	
