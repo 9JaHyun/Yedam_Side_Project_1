@@ -1,18 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.manager.service.RestaurantMapper">
-<select id="restaurantList"></select>
-<select id="selectRestaurant"></select>
-<insert id="insertRestaurant" parameterType="domain.manager.vo.RestaurantVO">
-<selectKey keyProperty="restaurantId" resultType="long" order="BEFORE">
-			SELECT restaurant_id_seq.nextval AS manager_id FROM DUAL
-</selectKey>
-insert into restaurant(restaurant_id,manager_id,name,location)
-values (#{restaurantId},#{managerId},#{name},#{location})
-</insert>
-<update id="updateRestaurant"></update>
-<delete id="deleteRestaurant"></delete>
-<select id="searchRestaurntId" parameterType="String">
-select restaurant_id from restaurant where name = #{name}
+
+<resultMap type="domain.manager.vo.RestaurantVO" id="restaurantMap">
+	<id property="restaurantId" column="restaurant_id" />
+	<result property="managerId" column="manager_id" />
+	<result property="operationTimeStart" column="operation_time_start" />
+	<result property="operationTimeEnd" column="operation_time_end" />
+	<result property="breakTimeStart" column="break_time_start" />
+	<result property="breakTimeEnd" column="break_time_end" />
+</resultMap>
+
+<select id="restaurantList" resultMap="restaurantMap" resultType="domain.manager.vo.RestaurantVO">
+	select * from restaurant
 </select>
+<select id="selectRestaurant"></select>
+
+<insert id="insertRestaurant" parameterType="domain.manager.vo.RestaurantVO">
+	<selectKey keyProperty="restaurantId" resultType="long" order="BEFORE">
+		SELECT restaurant_id_seq.nextval AS manager_id FROM DUAL
+	</selectKey>
+	insert into restaurant(restaurant_id,manager_id,name,location,reserve_count
+	<if test="tel != null"> ,tel </if>
+	<if test="content != null"> ,content</if>
+	<if test="operationTimeStart != null"> ,operation_time_start</if>
+	<if test="operationTimeEnd != null"> ,operation_time_end</if>
+	<if test="breakTimeStart != null"> ,break_time_start</if>
+	<if test="breakTimeEnd != null"> ,break_time_end</if>
+	)
+	values (#{restaurantId},#{managerId},#{name},#{location},0
+	<if test="tel != null"> ,#{tel} </if>
+	<if test="content != null"> ,#{content}</if>
+	<if test="operationTimeStart != null"> ,#{operationTimeStart}</if>
+	<if test="operationTimeEnd != null"> ,#{operationTimeEnd}</if>
+	<if test="breakTimeStart != null"> ,#{breakTimeStart}</if>
+	<if test="breakTimeEnd != null"> ,#{breakTimeEnd}</if>
+	)
+</insert>
+
+<update id="updateRestaurant" parameterType="domain.manager.vo.RestaurantVO">
+	update restaurant
+	<set>
+	<if test="name != null"> name = #{name} </if>
+	<if test="tel != null"> tel = #{tel} </if>
+	<if test="reserve_count != null"> reserve_count = #{reserve_count} </if>
+	<if test="location != null"> location = #{location} </if>
+	<if test="content != null"> content = #{content} </if>
+	<if test="operationTimeStart != null"> operation_time_start = #{operationTimeStart} </if>
+	<if test="operationTimeEnd != null"> operation_time_end = #{operationTimeEnd} </if>
+	<if test="breakTimeStart != null"> break_time_start = #{breakTimeStart} </if>
+	<if test="breakTimeEnd != null"> break_time_end = #{breakTimeEnd} </if>
+	</set>
+	where restaurant_id = #{restaurantId}
+</update>
+
+<delete id="deleteRestaurant" parameterType="domain.manager.vo.RestaurantVO">
+	delete from restaurant
+	where restaurant_id = #{restaurantId}
+</delete>
+
+<select id="searchRestaurntId" resultMap="restaurantMap" resultType="domain.manager.vo.RestaurantVO" parameterType="long">
+	select * from restaurant where manager_id = #{managerId}
+</select>
+
+<select id="searchRestaurantName" resultMap="restaurantMap" resultType="domain.manager.vo.RestaurantVO" parameterType="String" >
+	-- todo 모든 정보 들어있는 음식점 검색
+	SELECT a.*, ROWNUM as rnum
+	FROM ( SELECT rs.* FROM  restaurant rs ORDER BY UTL_MATCH.edit_distance_similarity(#{name}, name) desc ) a
+	WHERE ROWNUM <![CDATA[ >= ]]> 1 AND ROWNUM <![CDATA[ <= ]]> 10
+</select>
+
 </mapper>

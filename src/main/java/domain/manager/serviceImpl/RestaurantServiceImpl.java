@@ -45,9 +45,14 @@ public class RestaurantServiceImpl implements RestaurantService {
 	}
 
 	@Override
-	public long searchRestaurntId(String name) {
+	public List<RestaurantVO> searchRestaurntId(long managerId) {
 		// TODO Auto-generated method stub
-		return map.searchRestaurntId(name);
+		return map.searchRestaurntId(managerId);
+	}
+
+	@Override
+	public List<RestaurantVO> searchRestaurantName(String name) {
+		return map.searchRestaurantName(name);
 	}
 
 }

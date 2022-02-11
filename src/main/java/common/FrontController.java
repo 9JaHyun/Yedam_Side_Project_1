@@ -12,22 +12,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import web.controller.MainController;
+import web.controller.RestaurantDetail;
+import web.controller.SearchRestaurantController;
 import web.controller.login.LoginCheckController;
 import web.controller.login.LoginController;
 import web.controller.login.LoginFormController;
-import web.controller.MainController;
-import web.controller.signup.ManagerIdCheckController;
+import web.controller.login.LogoutController;
 import web.controller.manager.ManagerIndexController;
 import web.controller.manager.ManagerSignupController;
-import web.controller.RestaurantDetail;
-import web.controller.SearchRestaurantController;
-import web.controller.signup.SignupController;
 import web.controller.manager.ManagerSignupFormController;
 import web.controller.member.MemberDeleteController;
-import web.controller.signup.MemberIdCheckController;
 import web.controller.reservation.ReserveFormController;
+import web.controller.restaurant.AddRestaurantController;
+import web.controller.restaurant.AddRestaurantFormController;
+import web.controller.restaurant.UpdateRestaurantFormController;
+import web.controller.signup.ManagerIdCheckController;
+import web.controller.signup.MemberIdCheckController;
+import web.controller.signup.SignupController;
 import web.controller.signup.SignupFormController;
-import web.controller.login.LogoutController;
 import web.controller.member.MemberUpdateController;
 import web.controller.member.MyPageController;
 
@@ -59,9 +62,15 @@ public class FrontController extends HttpServlet {
 
         // Manager
         commandMap.put("/main.do", new ManagerIndexController());
+
         commandMap.put("/managerIdCheck.do", new ManagerIdCheckController()); // 멤버 아이디 중복여부 확인
         commandMap.put("/managerSignupForm.do", new ManagerSignupFormController()); // manager 회원가입 페이지
         commandMap.put("/managerSignup.do", new ManagerSignupController()); // 매니저 회원가입 요청
+
+        commandMap.put("/addRestaurantForm.do", new AddRestaurantFormController()); // 가게 추가 페이지
+        commandMap.put("/addRestaurant.do", new AddRestaurantController()); // 가게 추가기능
+        commandMap.put("/updateRestaurantForm.do", new UpdateRestaurantFormController());
+
     }
 
     @Override

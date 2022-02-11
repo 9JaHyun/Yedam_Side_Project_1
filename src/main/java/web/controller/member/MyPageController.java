@@ -14,9 +14,6 @@ public class MyPageController implements Controller {
 
     @Override
     public String exec(HttpServletRequest request, HttpServletResponse response) {
-        MemberService memberDao = new MemberServiceImpl();
-        MemberVO vo = new MemberVO();
-
         HttpSession session = request.getSession();
 
         MemberVO result = (MemberVO) session.getAttribute(SessionConst.LOGIN_MEMBER);

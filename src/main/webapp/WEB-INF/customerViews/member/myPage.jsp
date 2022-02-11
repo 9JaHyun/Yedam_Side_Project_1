@@ -69,6 +69,8 @@
                     <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
                         <form action="memberUpdate.do" method="post" id="updateMemberForm" name="updateMemberForm">
                             <input type="text" value="${member.memberId}" name="memberId" id="memberId" hidden>
+                            <input type="text" value="${member.loginId}" name="loginId" id="loginId" hidden>
+
                             <div class="d-flex align-items-center" style="margin-bottom: 20px;">
                                 <div class="profile_img"></div>
                                 <div class="col-sm-4">

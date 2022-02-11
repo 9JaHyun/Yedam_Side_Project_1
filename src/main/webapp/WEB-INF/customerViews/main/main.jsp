@@ -5,7 +5,7 @@
 
         <!-- 검색화면 -->
         <div class="main__search">
-            <form action="searchRestaurant.do" method="post" class="search__form">
+            <form action="searchRestaurant.do" method="get" class="search__form">
 
                 <div class="input-group">
                     <div class="input-group-text">식당명</div>
@@ -20,7 +20,7 @@
                 <div class="input-group">
                     <div class="input-group-text">인원</div>
                     <select name="personnel" id="personnel" class="form-select">
-                        <option value="all">-</option>
+                        <option value="">-</option>
                         <option value="2">2명</option>
                         <option value="3">3명</option>
                         <option value="4">4명</option>
