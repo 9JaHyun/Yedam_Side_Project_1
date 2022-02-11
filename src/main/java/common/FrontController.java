@@ -21,9 +21,15 @@ import web.controller.login.LoginFormController;
 import web.controller.manager.ManagerIndexController;
 import web.controller.manager.ManagerSignupController;
 import web.controller.manager.ManagerSignupFormController;
+import web.controller.menu.AddMenuController;
+import web.controller.menu.AddMenuFormController;
+import web.controller.menu.MenuListController;
+import web.controller.menu.MyMenuListController;
 import web.controller.reservation.ReserveFormController;
 import web.controller.restaurant.AddRestaurantController;
 import web.controller.restaurant.AddRestaurantFormController;
+import web.controller.restaurant.SelectRestaurantInfoController;
+import web.controller.restaurant.UpdateRestaurantController;
 import web.controller.restaurant.UpdateRestaurantFormController;
 import web.controller.signup.ManagerIdCheckController;
 import web.controller.signup.MemberIdCheckController;
@@ -59,13 +65,20 @@ public class FrontController extends HttpServlet {
         commandMap.put("/main.do", new ManagerIndexController());
         commandMap.put("/addRestaurantForm.do", new AddRestaurantFormController()); // 가게 추가 페이지
         commandMap.put("/addRestaurant.do", new AddRestaurantController()); // 가게 추가기능
-        commandMap.put("/updateRestaurantForm.do", new UpdateRestaurantFormController());
+        commandMap.put("/updateRestaurantForm.do", new UpdateRestaurantFormController()); // 가게 정보 수정 페이지
+        commandMap.put("/selectRestaurantInfo.do", new SelectRestaurantInfoController()); // 가게 정보 가져오기
+        commandMap.put("/updateRestaurant.do", new UpdateRestaurantController()); // 가게 정보 수정기능
+        commandMap.put("/addMenuForm.do", new AddMenuFormController()); // 메뉴추가페이지로 이동
+        commandMap.put("/addMenu.do", new AddMenuController()); // 메뉴 추가 기능
+        commandMap.put("/menuList.do", new MenuListController()); // 메뉴목록 보여주는 기능
+        commandMap.put("/myMenuList.do", new MyMenuListController()); // 내 가게의 메뉴 목록 보여줌
     }
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
         String requestURI = request.getRequestURI();
         String contextPath = request.getContextPath();
         String commandPath = requestURI.substring(contextPath.length());

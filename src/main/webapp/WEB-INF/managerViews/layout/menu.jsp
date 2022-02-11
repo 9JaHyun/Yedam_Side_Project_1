@@ -35,8 +35,8 @@
                             <a href="updateRestaurantForm.do" class="dropdown-item">식당 수정</a>
                         </div>
                     </div>
-                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+                    <a href="addMenuForm.do" class="nav-item nav-link"><i class="fa fa-th me-2"></i>메뉴 추가</a>
+                    <a href="menuList.do" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>메뉴 목록</a>
                     <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <div class="nav-item dropdown">

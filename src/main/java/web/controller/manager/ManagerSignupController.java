@@ -5,11 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.Controller;
 import domain.manager.service.ManagerService;
-import domain.manager.service.RestaurantService;
 import domain.manager.serviceImpl.ManagerServiceImpl;
-import domain.manager.serviceImpl.RestaurantServiceImpl;
 import domain.manager.vo.ManagerVO;
-import domain.manager.vo.RestaurantVO;
+import domain.restaurant.service.RestaurantService;
+import domain.restaurant.serviceImpl.RestaurantServiceImpl;
+import domain.restaurant.vo.RestaurantVO;
 
 public class ManagerSignupController implements Controller {
 
@@ -20,7 +20,7 @@ public class ManagerSignupController implements Controller {
 		ManagerService managerDAO = new ManagerServiceImpl();
 		RestaurantService restaurantDAO = new RestaurantServiceImpl();
 		
-		String coordinates = "("+request.getParameter("y-coordinates")+","+request.getParameter("x-coordinates")+")";
+		String coordinates = request.getParameter("y-coordinates")+","+request.getParameter("x-coordinates");
 		
 		// manager 계정 db 추가
 		mvo.setLoginId(request.getParameter("login_id"));

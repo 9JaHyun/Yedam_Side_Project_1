@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.menu.service.MenuMapper">
+
+<resultMap type="domain.menu.vo.MenuVO" id="menuMap">
+	<id property="menuId" column="menu_id" />
+	<result property="restaurantId" column="restaurant_id" />
+	<result property="managerId" column="manager_id"/>
+</resultMap>
+
+<select id="menuAll" resultMap="menuMap" resultType="domain.menu.vo.MenuVO">
+	select * from menu
+</select>
+
+<select id="menuSelectList" resultMap="menuMap" resultType="domain.menu.vo.MenuVO" parameterType="long">
+	select * from menu where restaurant_id = #{restaurantId}
+</select>
+
+<insert id="menuInsert" parameterType="domain.menu.vo.MenuVO">
+	<selectKey keyProperty="menuId" resultType="long" order="BEFORE">
+			SELECT order_id_seq.nextval AS manager_id FROM DUAL
+		</selectKey>
+	insert into menu (menu_id,restaurant_id,manager_id,name,cost
+	<if test='picture != null'>, picture</if>
+	)
+	values(#{menuId},#{restaurantId},#{managerId},#{name},#{cost}
+	<if test='picture != null'>, #{picture}</if>
+	)
+</insert>
+
+<update id="menuUpdate" parameterType="domain.menu.vo.MenuVO">
+	update menu
+	<set>
+		<if test='name != null'> name = #{name}, </if>
+		<if test='cost != null'> cost = #{cost}, </if>
+		<if test='picture != null'> picture = #{picture}, </if>
+	</set>
+	where menu_id = #{menuId}
+</update>
+
+</mapper>

@@ -1,10 +1,10 @@
-package domain.manager.service;
+package domain.restaurant.service;
 
 import java.util.List;
 
-import domain.manager.vo.RestaurantVO;
+import domain.restaurant.vo.RestaurantVO;
 
-public interface RestaurantService {
+public interface RestaurantMapper {
 	List<RestaurantVO> restaurantList();
 	RestaurantVO selectRestaurant(RestaurantVO vo);
 	int insertRestaurant(RestaurantVO vo);

@@ -1,4 +1,4 @@
-package domain.manager.vo;
+package domain.menu.vo;
 
 import lombok.Data;
 
