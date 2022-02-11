@@ -29,6 +29,11 @@
 						type="button" role="tab" aria-controls="pills-contact"
 						aria-selected="false">비밀번호 변경</button>
 				</li>
+				<li class="nav-item" role="presentation">
+					<button class="nav-link" id="pills-delete-tab"
+						data-bs-toggle="pill" data-bs-target="#pills-delete" type="button"
+						role="tab" aria-controls="pills-delete" aria-selected="false">회원탈퇴</button>
+				</li>
 			</ul>
 
 			<div class="tab-content" id="pills-tabContent">
@@ -107,6 +112,12 @@
 					</form>
 				</div>
 
+				<div class="tab-pane fade" id="pills-delete" role="tabpanel"
+					aria-labelledby="pills-content-tab">
+					<button type="button" class="btn btn-danger"
+						onclick="handleWithdrawal()">회원탈퇴</button>
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -114,10 +125,16 @@
 
 
 	<script>
+		function handleWithdrawal(memberId) {
+			if (confirm("정말 회원탈퇴 하시겠습니까?")) {
+				location.href = "managerDelete.do?managerId=" + ${loginManager.managerId}
+			}
+		}
+
 		function handleUpdatePassword() {
 			let pw1 = $("#newPassword1").val();
 			let pw2 = $("#newPassword2").val();
-			
+
 			console.log(pw1)
 			if (pw1 === pw2) {
 				$.ajax({

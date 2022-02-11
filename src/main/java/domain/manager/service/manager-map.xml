@@ -81,8 +81,10 @@
 		WHERE manager_ID = #{managerId}
 	</update>
  
-	<delete id="managerDelete" />
-
+	<delete id="managerDelete" parameterType="domain.manager.vo.ManagerVO">
+	DELETE FROM MANAGER WHERE manager_id = #{managerId}
+	</delete>
+	
 	<select id="isIdCheck" />
 	
 </mapper>
