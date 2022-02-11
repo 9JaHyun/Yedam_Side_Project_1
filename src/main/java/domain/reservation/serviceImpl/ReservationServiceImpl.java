@@ -22,7 +22,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public List<ReservationVO> findByMemberId(Long memberId) {
+    public List<ReservationVO> findByMemberId(long memberId) {
         return map.findByMemberId(memberId);
     }
 
@@ -34,6 +34,11 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public int reservationDelete(ReservationVO vo) {
         return map.reservationDelete(vo);
+    }
+
+    @Override
+    public List<ReservationVO> findNotApprovedByRestaurantId(long restaurantId) {
+        return map.findNotApprovedByRestaurantId(restaurantId);
     }
 
     @Override

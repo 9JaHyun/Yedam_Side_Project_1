@@ -2,6 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="domain.reservation.service.ReservationMapper">
+  <resultMap type="domain.reservation.vo.ReservationVO" id="reservationMap">
+    <id property="reservationId" column="reservation_id"/>
+    <result property="restaurantId" column="restaurant_id"/>
+    <result property="memberId" column="member_id"/>
+    <result property="reservationTime" column="reservation_time"/>
+    <result property="personnel" column="personnel"/>
+    <result property="requestContent" column="request_content"/>
+    <result property="alterName" column="name"/>
+    <result property="alterTel" column="tel"/>
+    <result property="status" column="status"/>
+  </resultMap>
+
   <insert id="reservationInsert" parameterType="domain.reservation.vo.ReservationVO">
     <selectKey keyProperty="reservationId" resultType="long" order="BEFORE">
       SELECT reservation_id_seq.nextval AS reservation_id FROM DUAL
@@ -20,19 +32,35 @@
   </update>
 
   <delete id="reservationDelete" parameterType="domain.reservation.vo.ReservationVO">
-    delete from reservation
+    delete
+    from reservation
     where reservation_id = #{reservationId}
   </delete>
 
-  <select id="findByMemberId" parameterType="domain.reservation.vo.ReservationVO" resultType="domain.reservation.vo.ReservationVO">
-    select * from reservation where member_id = #{managerId}
+  <select id="findByMemberId" parameterType="domain.reservation.vo.ReservationVO"
+    resultType="domain.reservation.vo.ReservationVO">
+    select *
+    from reservation
+    where member_id = #{managerId}
   </select>
 
-  <select id="reservationSelect" parameterType="domain.reservation.vo.ReservationVO" resultType="domain.reservation.vo.ReservationVO">
-    select * from reservation where reservation_Id = #{reservationId}
+  <select id="reservationSelect" resultMap="reservationMap"
+    resultType="domain.reservation.vo.ReservationVO">
+    select *
+    from reservation
+    where reservation_Id = #{reservationId}
   </select>
 
-  <select id="reservationList" resultType="domain.reservation.vo.ReservationVO">
-    select * from reservation
+  <select id="reservationList" resultMap="reservationMap">
+    select *
+    from reservation
+  </select>
+  <select id="findNotApprovedByRestaurantId"
+    parameterType="long" resultMap="reservationMap">
+    select *
+    from (select *
+          from reservation
+          where RESTAURANT_ID = ${restaurantId})
+    where STATUS = 'WAITING_FOR_ACCEPT'
   </select>
 </mapper>

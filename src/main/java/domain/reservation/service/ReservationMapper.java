@@ -7,6 +7,7 @@ public interface ReservationMapper {
     List<ReservationVO> reservationList();
     ReservationVO reservationSelect(ReservationVO vo);
     List<ReservationVO> findByMemberId(Long memberId);
+    List<ReservationVO> findNotApprovedByRestaurantId(long restaurantId);
 
     int reservationInsert(ReservationVO vo);
     int reservationDelete(ReservationVO vo);

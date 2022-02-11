@@ -6,10 +6,12 @@ import java.util.List;
 public interface ReservationService {
     List<ReservationVO> reservationList();
     ReservationVO reservationSelect(ReservationVO vo);
-    List<ReservationVO> findByMemberId(Long memberId);
+    List<ReservationVO> findByMemberId(long memberId);
 
     int reservationInsert(ReservationVO vo);
     int reservationDelete(ReservationVO vo);
 
+    List<ReservationVO> findNotApprovedByRestaurantId(long restaurantId);
     int acceptReservation(ReservationVO vo);
+
 }

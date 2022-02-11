@@ -19,7 +19,7 @@ public class SearchRestaurantController implements Controller {
 
 		String name = request.getParameter("name");
 		if (!name.isEmpty()) {
-			List<RestaurantVO> result = restaurantDao.searchRestaurantName(name);
+			List<RestaurantVO> result = restaurantDao.searchRestaurantByName(name);
 			if (!result.isEmpty()) {
 				request.setAttribute("list", result);
 			} else {

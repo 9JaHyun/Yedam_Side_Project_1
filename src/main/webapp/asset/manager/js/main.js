@@ -11,7 +11,6 @@
     };
     spinner();
     
-    
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -39,15 +38,6 @@
             $(this).css("width", $(this).attr("aria-valuenow") + '%');
         });
     }, {offset: '80%'});
-
-
-    // Calender
-    $('#reservationCalendar').datetimepicker({
-        format: 'L',
-        minDate: today
-    })
-
-
     // Testimonials carousel
     $(".testimonial-carousel").owlCarousel({
         autoplay: true,
@@ -57,7 +47,6 @@
         loop: true,
         nav : false
     });
-
 
     // Worldwide Sales Chart
     var ctx1 = $("#worldwide-sales").get(0).getContext("2d");
@@ -86,7 +75,6 @@
             responsive: true
         }
     });
-
 
     // Salse & Revenue Chart
     var ctx2 = $("#salse-revenue").get(0).getContext("2d");

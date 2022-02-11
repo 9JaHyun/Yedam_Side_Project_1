@@ -62,11 +62,11 @@
 	where restaurant_id = #{restaurantId}
 </delete>
 
-<select id="searchRestaurantId" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="long">
+<select id="searchRestaurantByManagerId" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="long">
 	select * from restaurant where manager_id = #{managerId}
 </select>
 
-<select id="searchRestaurantName" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="String" >
+<select id="searchRestaurantByName" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="String" >
 	-- todo 모든 정보 들어있는 음식점 검색
 	SELECT a.*, ROWNUM as rnum
 	FROM ( SELECT rs.* FROM  restaurant rs ORDER BY UTL_MATCH.edit_distance_similarity(#{name}, name) desc ) a

@@ -27,9 +27,9 @@
 	          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
 	        </a>
 	        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-	          <li><a class="dropdown-item" href="myPage.do">My Page</a></li>
+	          <li><a class="dropdown-item" href="myPage.do">마이 페이지</a></li>
 	          <li><hr class="dropdown-divider"></li>
-	          <li><a class="dropdown-item" href="logout.do">Sign out</a></li>
+	          <li><a class="dropdown-item" href="logout.do">로그 아웃</a></li>
 	        </ul>
         </div>
         </c:if>

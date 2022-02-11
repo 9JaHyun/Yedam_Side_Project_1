@@ -19,7 +19,7 @@ public class UpdateRestaurantFormController implements Controller {
 		HttpSession session = request.getSession();
 		ManagerVO vo = (ManagerVO) session.getAttribute(SessionConst.LOGIN_MANAGER);
 		long managerId = vo.getManagerId();
-		request.setAttribute("restaurants", restaurantDAO.searchRestaurantId(managerId));
+		request.setAttribute("restaurants", restaurantDAO.searchRestaurantByManagerId(managerId));
 		return "restaurant/updateRestaurantForm";
 	}
 

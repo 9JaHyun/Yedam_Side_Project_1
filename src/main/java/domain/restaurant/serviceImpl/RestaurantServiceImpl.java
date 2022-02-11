@@ -40,13 +40,13 @@ public class RestaurantServiceImpl implements RestaurantService {
 	}
 
 	@Override
-	public List<RestaurantVO> searchRestaurantId(long managerId) {
-		return map.searchRestaurantId(managerId);
+	public List<RestaurantVO> searchRestaurantByManagerId(long managerId) {
+		return map.searchRestaurantByManagerId(managerId);
 	}
 
 	@Override
-	public List<RestaurantVO> searchRestaurantName(String name) {
-		return map.searchRestaurantName(name);
+	public List<RestaurantVO> searchRestaurantByName(String name) {
+		return map.searchRestaurantByName(name);
 	}
 
 }

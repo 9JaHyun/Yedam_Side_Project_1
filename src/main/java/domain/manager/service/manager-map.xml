@@ -27,8 +27,8 @@
 			order="BEFORE">
 			SELECT manager_id_seq.nextval AS manager_id FROM DUAL
 		</selectKey>
-		insert into manager (manager_id,login_id,password,email,tel)
-		values (#{managerId},#{loginId},#{password},#{email},#{tel})
+		insert into manager (manager_id,login_id,password,email,tel, name)
+		values (#{managerId},#{loginId},#{password},#{email},#{tel}, #{name})
 	</insert>
 
 	<update id="managerUpdate">
