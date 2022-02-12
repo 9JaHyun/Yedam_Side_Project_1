@@ -14,16 +14,9 @@
 <select id="restaurantList" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO">
 	select * from restaurant
 </select>
-
-<<<<<<< HEAD
-	<select id="selectRestaurant" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="domain.restaurant.vo.RestaurantVO">
-		select * from restaurant where restaurant_id = #{restaurantId}
-	</select>
-=======
 <select id="selectRestaurant" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="domain.restaurant.vo.RestaurantVO">
 	select * from restaurant where restaurant_id = #{restaurantId}
 </select>
->>>>>>> ec56c41ff268fe5cccdd26668493e43511588f29
 
 <insert id="insertRestaurant" parameterType="domain.restaurant.vo.RestaurantVO">
 	<selectKey keyProperty="restaurantId" resultType="long" order="BEFORE">

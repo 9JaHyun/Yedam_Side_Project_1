@@ -16,19 +16,11 @@ public class RestaurantServiceImpl implements RestaurantService {
 	
 	@Override
 	public List<RestaurantVO> restaurantList() {
-<<<<<<< HEAD
-=======
-		// TODO Auto-generated method stub
->>>>>>> ec56c41ff268fe5cccdd26668493e43511588f29
 		return map.restaurantList();
 	}
 
 	@Override
 	public RestaurantVO selectRestaurant(RestaurantVO vo) {
-<<<<<<< HEAD
-=======
-		// TODO Auto-generated method stub
->>>>>>> ec56c41ff268fe5cccdd26668493e43511588f29
 		return map.selectRestaurant(vo);
 	}
 
@@ -39,30 +31,18 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Override
 	public int updateRestaurant(RestaurantVO vo) {
-<<<<<<< HEAD
-=======
-		// TODO Auto-generated method stub
->>>>>>> ec56c41ff268fe5cccdd26668493e43511588f29
 		return map.updateRestaurant(vo);
 	}
 
 	@Override
 	public int deleteRestaurant(RestaurantVO vo) {
-<<<<<<< HEAD
-=======
-		// TODO Auto-generated method stub
->>>>>>> ec56c41ff268fe5cccdd26668493e43511588f29
 		return map.deleteRestaurant(vo);
 	}
 
 	@Override
-<<<<<<< HEAD
 	public List<RestaurantVO> searchRestaurantByManagerId(long managerId) {
 		return map.searchRestaurantByManagerId(managerId);
 	}
-=======
-	public List<RestaurantVO> searchRestaurantByManagerId(long managerId) { return map.searchRestaurantByManagerId(managerId); }
->>>>>>> ec56c41ff268fe5cccdd26668493e43511588f29
 
 	@Override
 	public List<RestaurantVO> searchRestaurantByName(String name) {

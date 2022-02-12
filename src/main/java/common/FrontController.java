@@ -67,7 +67,6 @@ public class FrontController extends HttpServlet {
         commandMap.put("/memberDelete.do", new MemberDeleteController()); // 회원탈퇴
         commandMap.put("/memberIdCheck.do", new MemberIdCheckController()); // 멤버 아이디 중복여부 확인
 
-        commandMap.put("/reserveForm.do", new ReserveFormController()); // 예약화면 페이지
         commandMap.put("/searchRestaurant.do", new SearchRestaurantController());
         commandMap.put("/restaurantDetail.do", new RestaurantDetailController());
 
@@ -78,7 +77,6 @@ public class FrontController extends HttpServlet {
         commandMap.put("/managerSignup.do", new ManagerSignupController()); // 매니저 회원가입 요청
         commandMap.put("/addRestaurantForm.do", new AddRestaurantFormController()); // 가게 추가 페이지
         commandMap.put("/addRestaurant.do", new AddRestaurantController()); // 가게 추가기능
-        commandMap.put("/updateRestaurantForm.do", new UpdateRestaurantFormController());
 
         commandMap.put("/acceptReservation.do", new AcceptReservationController());
         commandMap.put("/rejectReservation.do", new RejectReservationController());
