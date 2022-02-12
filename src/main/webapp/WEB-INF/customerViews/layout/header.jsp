@@ -29,8 +29,10 @@
 	        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
 	          <li><a class="dropdown-item" href="myPage.do">마이 페이지</a></li>
 	          <li><hr class="dropdown-divider"></li>
-	          <li><a class="dropdown-item" href="logout.do">로그 아웃</a></li>
-	        </ul>
+	          <li><a class="dropdown-item" href="logout.do">Sign out</a></li>
+	          <li><a class="dropdown-item" href="main.do">관리자페이지로</a></li>
+	          <li><hr class="dropdown-divider"></li>
+			</ul>
         </div>
         </c:if>
     </div>

@@ -1,7 +1,7 @@
 package web.filter;
 
-import common.PatternMatchUtils;
 import java.io.IOException;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -10,6 +10,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import common.PatternMatchUtils;
 import web.SessionConst;
 
 public class LoginCheckFilter implements Filter {
@@ -27,6 +29,7 @@ public class LoginCheckFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         try {
+        	System.out.println(requestURI);
             if (!isLoginCheckPath(requestURI)) {
                 HttpSession session = request.getSession(false);
                 if (isMember(session) && isManager(session)) {
@@ -44,11 +47,11 @@ public class LoginCheckFilter implements Filter {
         return PatternMatchUtils.simpleMatch(whiteList, requestURI);
     }
 
-    private boolean isMember(HttpSession session) {
-        return session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null;
-    }
-
     private boolean isManager(HttpSession session) {
-        return session == null || session.getAttribute(SessionConst.LOGIN_MANAGER) == null;
+    	return session == null || session.getAttribute(SessionConst.LOGIN_MANAGER) == null;
+    }
+    
+    private boolean isMember(HttpSession session) {
+    	return session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null;
     }
 }

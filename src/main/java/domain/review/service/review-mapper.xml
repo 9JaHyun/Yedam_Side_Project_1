@@ -6,7 +6,11 @@
     <selectKey keyProperty="reviewId" resultType="long" order="BEFORE">
       SELECT review_id_seq.nextval AS review_id FROM DUAL
     </selectKey>
+<<<<<<< HEAD
     insert into review(review_id, member_id, restaurant_id, review_content, rating, image, createdAt)
+=======
+    insert into review(review_id, member_id, restaurant_id, content, rating, image, createdAt)
+>>>>>>> ec56c41ff268fe5cccdd26668493e43511588f29
     values (#{reviewId},#{memberId},#{reservationId},#{content},#{rating}, #{image}, sysdate)
   </insert>
 

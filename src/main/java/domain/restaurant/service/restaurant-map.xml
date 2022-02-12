@@ -15,9 +15,15 @@
 	select * from restaurant
 </select>
 
+<<<<<<< HEAD
 	<select id="selectRestaurant" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="domain.restaurant.vo.RestaurantVO">
 		select * from restaurant where restaurant_id = #{restaurantId}
 	</select>
+=======
+<select id="selectRestaurant" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="domain.restaurant.vo.RestaurantVO">
+	select * from restaurant where restaurant_id = #{restaurantId}
+</select>
+>>>>>>> ec56c41ff268fe5cccdd26668493e43511588f29
 
 <insert id="insertRestaurant" parameterType="domain.restaurant.vo.RestaurantVO">
 	<selectKey keyProperty="restaurantId" resultType="long" order="BEFORE">
@@ -30,6 +36,7 @@
 	<if test="operationTimeEnd != null"> ,operation_time_end</if>
 	<if test="breakTimeStart != null"> ,break_time_start</if>
 	<if test="breakTimeEnd != null"> ,break_time_end</if>
+	<if test="maxPersonnel != null"> ,max_personnel</if>
 	)
 	values (#{restaurantId},#{managerId},#{name},#{location},0
 	<if test="tel != null"> ,#{tel} </if>
@@ -38,21 +45,23 @@
 	<if test="operationTimeEnd != null"> ,#{operationTimeEnd}</if>
 	<if test="breakTimeStart != null"> ,#{breakTimeStart}</if>
 	<if test="breakTimeEnd != null"> ,#{breakTimeEnd}</if>
+	<if test="maxPersonnel != null"> ,#{maxPersonnel}</if>
 	)
 </insert>
 
 <update id="updateRestaurant" parameterType="domain.restaurant.vo.RestaurantVO">
 	update restaurant
 	<set>
-	<if test="name != null"> name = #{name} </if>
-	<if test="tel != null"> tel = #{tel} </if>
-	<if test="reserve_count != null"> reserve_count = #{reserve_count} </if>
-	<if test="location != null"> location = #{location} </if>
-	<if test="content != null"> content = #{content} </if>
-	<if test="operationTimeStart != null"> operation_time_start = #{operationTimeStart} </if>
-	<if test="operationTimeEnd != null"> operation_time_end = #{operationTimeEnd} </if>
-	<if test="breakTimeStart != null"> break_time_start = #{breakTimeStart} </if>
-	<if test="breakTimeEnd != null"> break_time_end = #{breakTimeEnd} </if>
+	<if test="name != null"> name = #{name} ,</if>
+	<if test="tel != null"> tel = #{tel} ,</if>
+	<if test="reserve_count != null"> reserve_count = #{reserve_count} ,</if>
+	<if test="location != null"> location = #{location} ,</if>
+	<if test="content != null"> content = #{content} ,</if>
+	<if test="operationTimeStart != null"> operation_time_start = #{operationTimeStart} ,</if>
+	<if test="operationTimeEnd != null"> operation_time_end = #{operationTimeEnd} ,</if>
+	<if test="breakTimeStart != null"> break_time_start = #{breakTimeStart} ,</if>
+	<if test="breakTimeEnd != null"> break_time_end = #{breakTimeEnd} ,</if>
+	<if test="maxPersonnel != null"> max_personnel = #{maxPersonnel}</if>
 	</set>
 	where restaurant_id = #{restaurantId}
 </update>
@@ -71,6 +80,12 @@
 	SELECT a.*, ROWNUM as rnum
 	FROM ( SELECT rs.* FROM  restaurant rs ORDER BY UTL_MATCH.edit_distance_similarity(#{name}, name) desc ) a
 	WHERE ROWNUM <![CDATA[ >= ]]> 1 AND ROWNUM <![CDATA[ <= ]]> 10
+</select>
+
+<select id="searchRestaurantRanking" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO">
+	SELECT restaurant_id, name, tel reserve_count, content
+	FROM restaurant
+	ORDER BY reserve_count
 </select>
 
 </mapper>

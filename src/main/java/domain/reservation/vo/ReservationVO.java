@@ -17,6 +17,11 @@ public class ReservationVO {
 	private String alterTel;
 	private ReservationStatus status;
 
+<<<<<<< HEAD
+=======
+	private String restaurantName;
+
+>>>>>>> ec56c41ff268fe5cccdd26668493e43511588f29
 	public ReservationVO() {
 		this.status = ReservationStatus.WAITING_FOR_ACCEPT;
 	}

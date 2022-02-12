@@ -12,6 +12,7 @@
     <result property="alterName" column="name"/>
     <result property="alterTel" column="tel"/>
     <result property="status" column="status"/>
+    <result property="restaurantName" column="restaurant_name"/>
   </resultMap>
 
   <insert id="reservationInsert" parameterType="domain.reservation.vo.ReservationVO">
@@ -38,9 +39,10 @@
   </delete>
 
   <select id="findByMemberId" parameterType="domain.reservation.vo.ReservationVO"
-    resultType="domain.reservation.vo.ReservationVO">
-    select *
-    from reservation
+    resultMap="reservationMap">
+    select a.*, r.name as restaurant_name
+    from reservation a join restaurant r
+    on (a.restaurant_id = r.restaurant_id)
     where member_id = #{managerId}
   </select>
 

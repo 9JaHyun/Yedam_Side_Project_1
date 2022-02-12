@@ -11,8 +11,8 @@ public class MemberIdCheckController implements Controller {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println(request.getParameter("id"));
 		String id = request.getParameter("id");
-
 		MemberService memberDAO = new MemberServiceImpl();
 		boolean result = memberDAO.isMemberIdcheck(id);
 		if(!result) {

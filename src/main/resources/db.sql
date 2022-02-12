@@ -13,6 +13,7 @@ CREATE TABLE MEMBER(
 
 CREATE TABLE MANAGER(
     manager_id NUMBER PRIMARY KEY,
+    name VARCHAR2(100),
     login_id VARCHAR2(100),
     password VARCHAR2(100),
     name varchar2(20),
@@ -64,10 +65,7 @@ CREATE TABLE MENU(
     picture VARCHAR2(2000),
     CONSTRAINT fk_menu_restaurant_id
     FOREIGN KEY(restaurant_id)
-    REFERENCES restaurant(restaurant_id),
-    CONSTRAINT fk_menu_manager_id
-    FOREIGN KEY(manager_id)
-    REFERENCES manager(manager_id)
+    REFERENCES restaurant(restaurant_id)
 );
 
 CREATE table REVIEW(
