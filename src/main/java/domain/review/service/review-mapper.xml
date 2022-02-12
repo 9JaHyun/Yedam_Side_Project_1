@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="domain.review.service.ReviewMapper">
+  <insert id="insertReview" parameterType="domain.review.vo.ReviewVO">
+    <selectKey keyProperty="reviewId" resultType="long" order="BEFORE">
+      SELECT review_id_seq.nextval AS review_id FROM DUAL
+    </selectKey>
+    insert into review(review_id, member_id, restaurant_id, review_content, rating, image, createdAt)
+    values (#{reviewId},#{memberId},#{reservationId},#{content},#{rating}, #{image}, sysdate)
+  </insert>
+
+  <update id="updateReview" parameterType="domain.review.vo.ReviewVO">
+    update REVIEW
+    <set>
+      <if test="content != null"> content = #{content} </if>
+      <if test="rating != null"> rating = #{rating} </if>
+      <if test="image != null"> image = #{image} </if>
+    </set>
+    where restaurant_id = #{restaurantId}
+  </update>
+
+  <delete id="deleteReview" parameterType="domain.review.vo.ReviewVO">
+    delete from REVIEW
+    where REVIEW_ID = #{reviewId}
+  </delete>
+
+  <select id="reviewList" resultType="domain.review.vo.ReviewVO">
+    select *
+    from REVIEW
+  </select>
+
+  <select id="selectReview" parameterType="domain.review.vo.ReviewVO" resultType="domain.review.vo.ReviewVO">
+    select *
+    from REVIEW
+    where REVIEW_ID = #{reviewId}
+  </select>
+
+  <select id="searchReviewByMemberId" parameterType="long" resultType="domain.review.vo.ReviewVO">
+    select *
+    from REVIEW
+    where MEMBER_ID = #{memberId}
+  </select>
+
+  <select id="searchReviewByRestaurantId" parameterType="long" resultType="domain.review.vo.ReviewVO">
+    select *
+    from REVIEW
+    where RESTAURANT_ID = #{restaurantId}
+  </select>
+
+  <select id="getReviewCount" parameterType="domain.review.vo.ReviewVO" resultType="java.lang.Integer">
+    select count(*)
+    from REVIEW
+    where RESTAURANT_ID = #{reservationId}
+  </select>
+</mapper>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.member.service.MemberMapper">
+
+	<resultMap type="domain.member.vo.MemberVO" id="memberMap">
+		<id property="memberId" column="member_id"/>
+		<result property="loginId" column="login_id"/>
+	</resultMap>
+
+	<select id="memberSelectList" resultType="domain.member.vo.MemberVO" resultMap="memberMap">
+		SELECT * FROM MEMBER
+	</select>
+	
+	<select id="memberSelect" parameterType="domain.member.vo.MemberVO" 
+			resultType="domain.member.vo.MemberVO" resultMap="memberMap">
+		SELECT * FROM MEMBER
+		WHERE LOGIN_ID = #{loginId}
+		<if test="password != null">
+			AND PASSWORD = #{password}
+		</if>
+	</select>
+	
+	<insert id="memberInsert" parameterType="domain.member.vo.MemberVO">
+		INSERT INTO MEMBER (MEMBER_ID, LOGIN_ID, PASSWORD, NAME, EMAIL, TEL, CREATEDAT, UPDATEDAT)
+		VALUES(member_id_seq.nextval,#{loginId},#{password},#{name},#{email},#{tel},sysdate,sysdate)
+	</insert>
+
+	<delete id="memberDelete"
+		parameterType="domain.member.vo.MemberVO">
+		DELETE FROM MEMBER WHERE MEMBER_ID = #{memberId}
+	</delete>
+	
+	<update id="memberUpdate" parameterType="domain.member.vo.MemberVO">
+		UPDATE MEMBER
+		<set>
+			UPDATEDAT = sysdate,
+			<if test="password != null">PASSWORD = #{password},</if>
+			<if test="name != null">NAME = #{name},</if>
+			<if test="tel != null">TEL = #{tel},</if>
+			<if test="email != null">EMAIL = #{email},</if>
+		</set>
+		WHERE MEMBER_ID = #{memberId}
+	</update>
+
+    <select id="isMemberIdcheck" parameterType="String" resultType="boolean">
+		SELECT CASE WHEN COUNT(*) = 1 THEN 0 ELSE 1 END AS T
+		FROM
+		MEMBER WHERE LOGIN_ID = #{loginId}
+	</select>
+    
+</mapper>
