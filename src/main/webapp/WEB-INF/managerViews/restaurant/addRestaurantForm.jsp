@@ -7,48 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD
-
-		<form action='addRestaurant.do' method='post'>
-			<br>
-			<div class='form-group' style='width:300px; margin:auto'>
-				<label for='name' class='from-label'>식당이름</label>
-				<div class='input-group'>
-				<input class='form-control' type='text' id='shop' name='shop' placeholder='상점 이름 입력'>
-				<button type="button" class="btn btn-primary" id='search' onclick='findRestaurant()'>검색</button>
-				<input type='hidden' id='x-coordinates' name='x-coordinates'>
-				<input type='hidden' id='y-coordinates' name='y-coordinates'>
-			</div>
-			</div>
-			<br>
-			<div class='form-group' style='width:300px; margin:auto'>
-				<label for='tel' class='form-label'>식당전화번호</label>
-				<input class='form-control' id='tel' name='tel1' >
-			</div>
-			<br>
-			<div class='form-group' style='width:300px; margin:auto'>
-				<label for='content' class='form-label'>매장소개</label>
-				<textarea class='form-control' rows='5' id='content' name='content'></textarea>
-			</div>			
-			<br>
-			<div class='d-flex align-items-center justify-content-center'>
-				<div style="margin: 12px;">
-					<label for="start-time" class="form-label">영업시간</label>
-					<div class="d-flex">
-					  	<input class='form-control timepicker' style='width:135px' type='time' id='start-time' name='startTime'>&nbsp;-&nbsp; 
-						<input class='form-control timepicker' style='width:135px' type='time' id='end-time' name='endTime'>
-					</div>
-				</div>
-				<div>
-					<label for='break-start-time' class='form-label'>휴식시간</label>
-					<div class="d-flex">
-						<input class='form-control timepicker' style='width:135px'  type='time' id='break-start-time' name='breakStartTime'>&nbsp;-&nbsp;
-						<input class='form-control timepicker' style='width:135px'  type='time' id='break-end-time' name='breakEndTime'>
-					</div>
-				</div>
-			</div>
-			
-=======
 			<div class="bg-light rounded h-100 p-4">
 				<form action='addRestaurant.do' method='post'>
 				<div class="row mb-3">
@@ -101,7 +59,7 @@
 				<button type='submit' class='btn btn-primary' style='width:150px'>수정</button>
 				</form>
 			</div>
->>>>>>> restaurant_and_reserve
+
 			<!-- Modal -->
 			<div class="modal fade" id="exampleModal" tabindex="-1"
 				aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -124,14 +82,7 @@
 					</div>
 				</div>
 			</div>
-<<<<<<< HEAD
-			<br>
-			<div align='center'>
-				<button type='submit' class='btn btn-primary' style='width:300px; margin:auto'>추가</button>
-			</div>
-			</form>
-=======
->>>>>>> restaurant_and_reserve
+
 		<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=18c56f99b45857f82b08e8f126a259f7"></script>
 		<script>
 			// modal에 지도 그리는 기능

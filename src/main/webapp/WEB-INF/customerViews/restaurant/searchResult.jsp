@@ -72,7 +72,6 @@
             <p>${message}</p>
           </c:if>
 
-<<<<<<< HEAD
           <c:if test="${not empty list}">
 
             <c:forEach items="${list}" var="restaurant">
@@ -92,20 +91,6 @@
                   <div>
                     <button class="btn btn-primary" onclick="handleSearchParameterLink('reserveForm.do' ,${restaurant.restaurantId})">예약하기</button>
                   </div>
-=======
-          <a href="restaurantDetail.html" style="color: black; text-decoration: none;">
-            <div class="list-card">
-              <div class="img-container">
-                image
-              </div>
-              <div class="list-card-body">
-                <div>
-                  <h5>한옥집</h5>
-                  <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <div>
-                  <a href="reserveForm.do" class="btn btn-primary">예약하기</a>
->>>>>>> restaurant_and_reserve
                 </div>
               </div>
             </c:forEach>
