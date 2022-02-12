@@ -30,7 +30,6 @@ select option[value=""][disabled] {
 			<table class='table'>
 				<thead>
 					<tr>
-						<th><input type='checkbox'></th>
 						<th>사진</th>
 						<th>이름</th>
 						<th>가격</th>
@@ -64,26 +63,57 @@ select option[value=""][disabled] {
 		}
 		
 		function makeTr(data){
-			var box = $('<input>').attr({'type':'checkbox','id':data.menuId})
 			var img = $('<img>').attr({'src':'asset/img/'+data.picture,'alt':'...'}).css({'width':'100%','height':'100%','object-fit':'cover'})
-			var updB = $('<button>').on('click',updateFnc(data.menuId)).text('수정').addClass('btn btn-primary')
-			var delB = $('<button>').on('click',deleteFnc(data.menuId)).text('삭제').addClass('btn btn-danger')
+			var updB = $('<button>').text('수정').addClass('btn btn-primary').attr('onclick','updateFnc('+data.menuId+')')
+			var delB = $('<button>').text('삭제').addClass('btn btn-danger').attr('onclick','deleteFnc('+data.menuId+')')
+			var name = $('<input>').attr({'type':'text','id':data.menuId+'name'}).val(data.name).addClass('form-control')
+			var cost = $('<input>').attr({'type':'number','id':data.menuId+'cost'}).val(data.cost).addClass('form-control')
 			
-			
-			var td1 = $('<td>').append(box)
-			var td2 = $('<td>').css({'width':'100px','height':'100px'}).append(img)
-			var td3 = $('<td>').text(data.name)
-			var td4 = $('<td>').text(data.cost)
-			var td5 = $('<td>').append(updB,' / ',delB)
-			return $('<tr>').append(td1,td2,td3,td4,td5) 
+			var td1 = $('<td>').css({'width':'100px','height':'100px'}).append(img)
+			var td2 = $('<td>').append(name)
+			var td3 = $('<td>').append(cost)
+			var td4 = $('<td>').append(updB,' / ',delB)
+			return $('<tr>').append(td1,td2,td3,td4).attr('id',data.menuId)
 		}
 		
 		function updateFnc(data) {
-			console.log(data)
+			$.ajax({
+				url:'menuUpdate.do',
+				data:{
+					'id':data,
+					'name':$('#'+data+'name').val(),
+					'cost':$('#'+data+'cost').val()
+				},
+				type:'post',
+				success:function(data){
+					if(data == 1){
+						alert('수정되었습니다.')						
+					} else {
+						alert('수정에 실패했습니다.')
+					}
+				},
+				error:function(data){
+					console.log(data)
+				}
+			})
 		}
 		
 		function deleteFnc(data) {
-			console.log($(this).parent())
+			$.ajax({
+				url:'menuDelete.do',
+				data:{'id':data},
+				type:'post',
+				success:function(data){
+					if(data != 0){	
+						$('tr#'+data).remove()					
+					} else {
+						alert('삭제에 실패했습니다.')
+					}
+				},
+				error:function(data){
+					console.log(data)
+				}
+			})
 		}
 	</script>
 </body>

@@ -23,7 +23,9 @@ import web.controller.manager.ManagerSignupController;
 import web.controller.manager.ManagerSignupFormController;
 import web.controller.menu.AddMenuController;
 import web.controller.menu.AddMenuFormController;
+import web.controller.menu.MenuDeleteController;
 import web.controller.menu.MenuListController;
+import web.controller.menu.MenuUpdateController;
 import web.controller.menu.MyMenuListController;
 import web.controller.reservation.ReserveFormController;
 import web.controller.restaurant.AddRestaurantController;
@@ -72,6 +74,8 @@ public class FrontController extends HttpServlet {
         commandMap.put("/addMenu.do", new AddMenuController()); // 메뉴 추가 기능
         commandMap.put("/menuList.do", new MenuListController()); // 메뉴목록 보여주는 기능
         commandMap.put("/myMenuList.do", new MyMenuListController()); // 내 가게의 메뉴 목록 보여줌
+        commandMap.put("/menuUpdate.do", new MenuUpdateController()); // 메뉴 정보 수정기능
+        commandMap.put("/menuDelete.do", new MenuDeleteController()); // 메뉴 삭제 기능
     }
 
     @Override
