@@ -1,5 +1,6 @@
 package web.controller.restaurant;
 
+import common.RatingCalcUtils;
 import domain.restaurant.service.RestaurantService;
 import domain.restaurant.serviceImpl.RestaurantServiceImpl;
 import domain.restaurant.vo.RestaurantVO;
@@ -17,6 +18,7 @@ import common.Controller;
 public class RestaurantDetailController implements Controller {
 	RestaurantService restaurantDao = new RestaurantServiceImpl();
 	ReviewService reviewDao = new ReviewServiceImpl();
+	RatingCalcUtils ratingCalcUtils = new RatingCalcUtils();
 
 
 	@Override
@@ -32,34 +34,8 @@ public class RestaurantDetailController implements Controller {
 		request.setAttribute("restaurant", restaurantVO);
 		request.setAttribute("reviews", reviewList);
 		request.setAttribute("reviewCount", reviewList.size());
-		request.setAttribute("reviewStatus", distributeRating(reviewList));
-		request.setAttribute("averageRating", calculateAverage(reviewList));
+		request.setAttribute("reviewStatus", ratingCalcUtils.distributeRating(reviewList));
+		request.setAttribute("averageRating", ratingCalcUtils.calculateAverage(reviewList));
 		return "customerViews/restaurant/restaurantDetail";
-	}
-
-	private int[] distributeRating(List<ReviewVO> list) {
-		int[] result = new int[5];
-		for (ReviewVO reviewVO : list) {
-			switch (reviewVO.getRating()) {
-				case 1:
-					result[0]++;
-				case 2:
-					result[1]++;
-				case 3:
-					result[2]++;
-				case 4:
-					result[3]++;
-				case 5:
-					result[4]++;
-			}
-		}
-		return result;
-	}
-
-	private double calculateAverage(List<ReviewVO> list) {
-		return Math.round(list.stream().mapToInt(ReviewVO::getRating)
-			.average().orElseGet(() -> {
-				return 0;
-			}) * 10) / 10.0;
 	}
 }

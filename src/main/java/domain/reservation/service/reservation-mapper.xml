@@ -58,9 +58,7 @@
   <select id="findNotApprovedByRestaurantId"
     parameterType="long" resultMap="reservationMap">
     select *
-    from (select *
-          from reservation
-          where RESTAURANT_ID = ${restaurantId})
-    where STATUS = 'WAITING_FOR_ACCEPT'
+    from reservation
+    where STATUS = 'WAITING_FOR_ACCEPT' AND RESTAURANT_ID = ${restaurantId}
   </select>
 </mapper>

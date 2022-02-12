@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import web.controller.MainController;
+import web.controller.reservation.AcceptReservationController;
 import web.controller.reservation.CheckAvailableListController;
+import web.controller.reservation.RejectReservationController;
 import web.controller.reservation.ReserveController;
 import web.controller.restaurant.RestaurantDetailController;
 import web.controller.restaurant.SearchRestaurantController;
@@ -71,6 +73,9 @@ public class FrontController extends HttpServlet {
         commandMap.put("/addRestaurantForm.do", new AddRestaurantFormController()); // 가게 추가 페이지
         commandMap.put("/addRestaurant.do", new AddRestaurantController()); // 가게 추가기능
         commandMap.put("/updateRestaurantForm.do", new UpdateRestaurantFormController());
+
+        commandMap.put("/acceptReservation.do", new AcceptReservationController());
+        commandMap.put("/rejectReservation.do", new RejectReservationController());
 
         // Reservation
         commandMap.put("/reserveForm.do", new ReserveFormController()); // 예약화면 페이지
