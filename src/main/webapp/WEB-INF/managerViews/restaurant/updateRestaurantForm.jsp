@@ -65,7 +65,6 @@
 	</form>
 </div>
 
-<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=18c56f99b45857f82b08e8f126a259f7"></script>
 <script>
 	// 레스토랑 값 가져오는 기능
 	function selectRestaurantInfo(){
