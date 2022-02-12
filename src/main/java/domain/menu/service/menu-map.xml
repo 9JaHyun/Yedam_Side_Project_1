@@ -5,6 +5,7 @@
 <resultMap type="domain.menu.vo.MenuVO" id="menuMap">
 	<id property="menuId" column="menu_id" />
 	<result property="restaurantId" column="restaurant_id" />
+	<result property="managerId" column="manager_id"/>
 </resultMap>
 
 <select id="menuAll" resultMap="menuMap" resultType="domain.menu.vo.MenuVO">

@@ -19,7 +19,7 @@ public class MenuListController implements Controller {
 		HttpSession session = request.getSession();
 		ManagerVO vo = (ManagerVO) session.getAttribute(SessionConst.LOGIN_MANAGER);
 		long managerId = vo.getManagerId();
-		request.setAttribute("list", restaurantDAO.searchRestaurntId(managerId));
+		request.setAttribute("list", restaurantDAO.searchRestaurantByManagerId(managerId));
 		return "menu/menuList";
 	}
 
