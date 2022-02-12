@@ -1,5 +1,6 @@
 package web.controller.restaurant;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -29,13 +30,18 @@ public class AddRestaurantController implements Controller {
 		vo.setOperationTimeEnd(request.getParameter("endTime"));
 		vo.setBreakTimeStart(request.getParameter("breakStartTime"));
 		vo.setBreakTimeEnd(request.getParameter("breakEndTime"));
-		String path = "";		
-		int r = restaurantDAO.insertRestaurant(vo);	
+		vo.setMaxPersonnel(Integer.parseInt(request.getParameter("maxPersonnel")));
+		
+		String path = "";
+		
+		int r = restaurantDAO.insertRestaurant(vo);
+
 		if(r == 1) {
 			path = "main.do";
 		} else {
 			path = "cMain.do";
-		}		
+		}
+		
 		return path;
 	}
 

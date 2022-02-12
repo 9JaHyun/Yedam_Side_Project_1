@@ -30,6 +30,7 @@
 	<if test="operationTimeEnd != null"> ,operation_time_end</if>
 	<if test="breakTimeStart != null"> ,break_time_start</if>
 	<if test="breakTimeEnd != null"> ,break_time_end</if>
+	<if test="maxPersonnel != null"> ,max_personnel</if>
 	)
 	values (#{restaurantId},#{managerId},#{name},#{location},0
 	<if test="tel != null"> ,#{tel} </if>
@@ -38,6 +39,7 @@
 	<if test="operationTimeEnd != null"> ,#{operationTimeEnd}</if>
 	<if test="breakTimeStart != null"> ,#{breakTimeStart}</if>
 	<if test="breakTimeEnd != null"> ,#{breakTimeEnd}</if>
+	<if test="maxPersonnel != null"> ,#{maxPersonnel}</if>
 	)
 </insert>
 
@@ -53,6 +55,7 @@
 	<if test="operationTimeEnd != null"> operation_time_end = #{operationTimeEnd} ,</if>
 	<if test="breakTimeStart != null"> break_time_start = #{breakTimeStart} ,</if>
 	<if test="breakTimeEnd != null"> break_time_end = #{breakTimeEnd} ,</if>
+	<if test="maxPersonnel != null"> max_personnel = #{maxPersonnel}</if>
 	</set>
 	where restaurant_id = #{restaurantId}
 </update>
@@ -65,4 +68,18 @@
 <select id="searchRestaurntId" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="long">
 	select * from restaurant where manager_id = #{managerId}
 </select>
+
+<select id="searchRestaurantName" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="String" >
+	-- todo 모든 정보 들어있는 음식점 검색
+	SELECT a.*, ROWNUM as rnum
+	FROM ( SELECT rs.* FROM  restaurant rs ORDER BY UTL_MATCH.edit_distance_similarity(#{name}, name) desc ) a
+	WHERE ROWNUM <![CDATA[ >= ]]> 1 AND ROWNUM <![CDATA[ <= ]]> 10
+</select>
+
+<select id="searchRestaurantRanking" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO">
+	SELECT restaurant_id, name, tel reserve_count, content
+	FROM restaurant
+	ORDER BY reserve_count
+</select>
+
 </mapper>

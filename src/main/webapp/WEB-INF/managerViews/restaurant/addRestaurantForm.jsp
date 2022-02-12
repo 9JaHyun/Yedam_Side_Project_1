@@ -64,6 +64,7 @@ select option[value=""][disabled] {
 				<button type='submit' class='btn btn-primary' style='width:150px'>수정</button>
 				</form>
 			</div>
+
 			<!-- Modal -->
 			<div class="modal fade" id="exampleModal" tabindex="-1"
 				aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -86,6 +87,7 @@ select option[value=""][disabled] {
 					</div>
 				</div>
 			</div>
+
 		<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=18c56f99b45857f82b08e8f126a259f7"></script>
 		<script>
 			// modal에 지도 그리는 기능

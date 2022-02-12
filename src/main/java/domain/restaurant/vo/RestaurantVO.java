@@ -1,7 +1,5 @@
 package domain.restaurant.vo;
 
-import java.sql.Time;
-
 import lombok.Data;
 
 @Data
@@ -17,4 +15,7 @@ public class RestaurantVO {
 	private String operationTimeEnd;
 	private String breakTimeStart;
 	private String breakTimeEnd;
+	private int maxPersonnel;
+	private int rnum;
+
 }

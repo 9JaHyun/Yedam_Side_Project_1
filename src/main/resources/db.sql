@@ -13,6 +13,7 @@ CREATE TABLE MEMBER(
 
 CREATE TABLE MANAGER(
     manager_id NUMBER PRIMARY KEY,
+    name VARCHAR2(100),
     login_id VARCHAR2(100),
     password VARCHAR2(100),
     email VARCHAR2(100),
@@ -27,10 +28,10 @@ CREATE TABLE RESTAURANT(
     reserve_count NUMBER,
     location VARCHAR2(1000),
     content VARCHAR2(2000),
-    operation_time_start DATE,
-    operation_time_end DATE,
-    break_time_start DATE,
-    break_time_end DATE,
+    operation_time_start VARCHAR2(20),
+    operation_time_end VARCHAR2(20),
+    break_time_start VARCHAR2(20),
+    break_time_end VARCHAR2(20),
     CONSTRAINT fk_restaurant_manager_id
     FOREIGN KEY(manager_id)
     REFERENCES manager(manager_id)
@@ -41,8 +42,8 @@ CREATE TABLE Reservation(
     member_id NUMBER,
     restaurant_id NUMBER,
     reservation_time DATE,
-    reservation_count NUMBER,
-    reservation_content VARCHAR2(1000),
+    personnel NUMBER,
+    request_content VARCHAR2(1000),
     CONSTRAINT fk_reservation_member_id
     FOREIGN KEY(member_id)
     REFERENCES member(member_id),
@@ -53,34 +54,23 @@ CREATE TABLE Reservation(
 CREATE TABLE MENU(
     menu_id NUMBER PRIMARY KEY,
     restaurant_id NUMBER,
-    manager_id NUMBER,
     name VARCHAR2(200),
     cost NUMBER,
     picture VARCHAR2(2000),
     CONSTRAINT fk_menu_restaurant_id
     FOREIGN KEY(restaurant_id)
-    REFERENCES restaurant(restaurant_id),
-    CONSTRAINT fk_menu_manager_id
-    FOREIGN KEY(manager_id)
-    REFERENCES manager(manager_id)
+    REFERENCES restaurant(restaurant_id)
 );
 
-CREATE table REVIEW(
-    review_id NUMBER PRIMARY KEY,
-    member_id NUMBER,
-    restaurant_id NUMBER,
-    manager_id NUMBER,
-    content VARCHAR2(2000),
-    rating NUMBER,
-    constraint fk_review_member_id
-    foreign key(member_id)
-    REFERENCES member(member_id),
-    constraint fk_review_restaurant_id
-    foreign key(restaurant_id)
-    REFERENCES restaurant(restaurant_id),
-    constraint fk_review_manager_id
-    foreign key(manager_id)
-    REFERENCES manager(manager_id)
+create table REVIEW
+(
+	REVIEW_ID NUMBER not null primary key,
+    MEMBER_ID NUMBER constraint FK_REVIEW_MEMBER_ID references MEMBER,
+    RESTAURANT_ID NUMBER constraint FK_REVIEW_RESTAURANT_ID references RESTAURANT,
+    RATING NUMBER,
+    IMAGE VARCHAR2(2000),
+    CONTENT VARCHAR2(2000),
+    CREATEDAT DATE
 );
 
 CREATE SEQUENCE member_id_seq
@@ -104,6 +94,11 @@ START WITH 1
 MAXVALUE 9999999;
 
 CREATE SEQUENCE manager_id_seq
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999999;
+
+CREATE SEQUENCE reservation_id_seq
 INCREMENT BY 1
 START WITH 1
 MAXVALUE 9999999;

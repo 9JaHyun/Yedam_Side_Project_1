@@ -1,4 +1,4 @@
-package domain.manager.vo;
+package domain.reservation.vo;
 
 import java.sql.Date;
 

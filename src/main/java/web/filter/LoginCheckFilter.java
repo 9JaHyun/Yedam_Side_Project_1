@@ -46,6 +46,7 @@ public class LoginCheckFilter implements Filter {
     public boolean isLoginCheckPath(String requestURI) {
         return PatternMatchUtils.simpleMatch(whiteList, requestURI);
     }
+
     private boolean isManager(HttpSession session) {
     	return session == null || session.getAttribute(SessionConst.LOGIN_MANAGER) == null;
     }
