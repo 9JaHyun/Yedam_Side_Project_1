@@ -6,6 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+select option[value=""][disabled] {
+	display: none;
+}
+</style>
 </head>
 <body>
 	<div class="bg-light rounded h-100 p-4">
