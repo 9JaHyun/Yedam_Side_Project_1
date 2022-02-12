@@ -37,4 +37,9 @@
 	where menu_id = #{menuId}
 </update>
 
+<delete id="menuDelete" parameterType="domain.menu.vo.MenuVO">
+	delete from menu
+	where menu_id = #{menuId}
+</delete>
+
 </mapper>
