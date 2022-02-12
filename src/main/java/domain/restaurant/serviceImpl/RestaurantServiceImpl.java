@@ -55,4 +55,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return map.searchRestaurantName(name);
 	}
 
+	@Override
+	public List<RestaurantVO> searchRestaurantRanking() { return map.searchRestaurantRanking(); }
+
 }

@@ -13,4 +13,5 @@ public interface RestaurantMapper {
 	
 	List<RestaurantVO> searchRestaurntId(long managerId);
 	List<RestaurantVO> searchRestaurantName(String name);
+	List<RestaurantVO> searchRestaurantRanking();
 }
