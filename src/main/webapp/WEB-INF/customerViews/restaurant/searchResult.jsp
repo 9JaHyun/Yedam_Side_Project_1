@@ -78,7 +78,7 @@
               <div class="list-card">
                 <a href="#" style="color: black; text-decoration: none;" onclick="handleSearchParameterLink('restaurantDetail.do', ${restaurant.restaurantId})">
                   <div class="img-container">
-                    image
+                      <img src="asset/customer/img/2021100816141547448_l.jpg" alt="${restaurant.name}">
                   </div>
                 </a>
                 <div class="list-card-body">

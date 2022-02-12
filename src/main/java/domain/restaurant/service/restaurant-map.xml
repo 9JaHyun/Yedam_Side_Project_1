@@ -70,4 +70,10 @@
 	WHERE ROWNUM <![CDATA[ >= ]]> 1 AND ROWNUM <![CDATA[ <= ]]> 10
 </select>
 
+<select id="searchRestaurantRanking" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO">
+	SELECT restaurant_id, name, tel reserve_count, content
+	FROM restaurant
+	ORDER BY reserve_count
+</select>
+
 </mapper>
