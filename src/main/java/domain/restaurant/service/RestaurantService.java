@@ -12,6 +12,9 @@ public interface RestaurantService {
 	int deleteRestaurant(RestaurantVO vo);
 	
 	List<RestaurantVO> searchRestaurntId(long managerId);
+<<<<<<< HEAD
 	List<RestaurantVO> searchRestaurantName(String name);
 	List<RestaurantVO> searchRestaurantRanking();
+=======
+>>>>>>> restaurant_and_reserve
 }

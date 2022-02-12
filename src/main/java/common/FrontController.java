@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import web.controller.MainController;
+<<<<<<< HEAD
 import web.controller.restaurant.RestaurantDetail;
 import web.controller.restaurant.SearchRestaurantController;
 import web.controller.login.LoginCheckController;
@@ -26,13 +27,36 @@ import web.controller.member.MemberDeleteController;
 import web.controller.reservation.ReserveFormController;
 import web.controller.restaurant.AddRestaurantController;
 import web.controller.restaurant.AddRestaurantFormController;
+=======
+import web.controller.RestaurantDetail;
+import web.controller.SearchRestaurantController;
+import web.controller.login.LoginCheckController;
+import web.controller.login.LoginController;
+import web.controller.login.LoginFormController;
+import web.controller.manager.ManagerIndexController;
+import web.controller.manager.ManagerSignupController;
+import web.controller.manager.ManagerSignupFormController;
+import web.controller.menu.AddMenuController;
+import web.controller.menu.AddMenuFormController;
+import web.controller.menu.MenuListController;
+import web.controller.menu.MyMenuListController;
+import web.controller.reservation.ReserveFormController;
+import web.controller.restaurant.AddRestaurantController;
+import web.controller.restaurant.AddRestaurantFormController;
+import web.controller.restaurant.SelectRestaurantInfoController;
+import web.controller.restaurant.UpdateRestaurantController;
+>>>>>>> restaurant_and_reserve
 import web.controller.restaurant.UpdateRestaurantFormController;
 import web.controller.signup.ManagerIdCheckController;
 import web.controller.signup.MemberIdCheckController;
 import web.controller.signup.SignupController;
 import web.controller.signup.SignupFormController;
+<<<<<<< HEAD
 import web.controller.member.MemberUpdateController;
 import web.controller.member.MyPageController;
+=======
+
+>>>>>>> restaurant_and_reserve
 
 @WebServlet(urlPatterns = "*.do")
 public class FrontController extends HttpServlet {
@@ -62,6 +86,7 @@ public class FrontController extends HttpServlet {
 
         // Manager
         commandMap.put("/main.do", new ManagerIndexController());
+<<<<<<< HEAD
 
         commandMap.put("/managerIdCheck.do", new ManagerIdCheckController()); // 멤버 아이디 중복여부 확인
         commandMap.put("/managerSignupForm.do", new ManagerSignupFormController()); // manager 회원가입 페이지
@@ -71,12 +96,24 @@ public class FrontController extends HttpServlet {
         commandMap.put("/addRestaurant.do", new AddRestaurantController()); // 가게 추가기능
         commandMap.put("/updateRestaurantForm.do", new UpdateRestaurantFormController());
 
+=======
+        commandMap.put("/addRestaurantForm.do", new AddRestaurantFormController()); // 가게 추가 페이지
+        commandMap.put("/addRestaurant.do", new AddRestaurantController()); // 가게 추가기능
+        commandMap.put("/updateRestaurantForm.do", new UpdateRestaurantFormController()); // 가게 정보 수정 페이지
+        commandMap.put("/selectRestaurantInfo.do", new SelectRestaurantInfoController()); // 가게 정보 가져오기
+        commandMap.put("/updateRestaurant.do", new UpdateRestaurantController()); // 가게 정보 수정기능
+        commandMap.put("/addMenuForm.do", new AddMenuFormController()); // 메뉴추가페이지로 이동
+        commandMap.put("/addMenu.do", new AddMenuController()); // 메뉴 추가 기능
+        commandMap.put("/menuList.do", new MenuListController()); // 메뉴목록 보여주는 기능
+        commandMap.put("/myMenuList.do", new MyMenuListController()); // 내 가게의 메뉴 목록 보여줌
+>>>>>>> restaurant_and_reserve
     }
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
         String requestURI = request.getRequestURI();
         String contextPath = request.getContextPath();
         String commandPath = requestURI.substring(contextPath.length());
@@ -84,7 +121,10 @@ public class FrontController extends HttpServlet {
         if (commandMap.get(commandPath) == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> restaurant_and_reserve
         String filePath = commandMap.get(commandPath).exec(request, response);
         
         if (isRedirect(filePath)) {
@@ -102,6 +142,7 @@ public class FrontController extends HttpServlet {
 				filePath = filePath + ".tiles";
 			}
 		}
+        System.out.println(filePath);
         request.getRequestDispatcher(filePath).forward(request, response);
     }
 

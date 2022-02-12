@@ -18,7 +18,7 @@ text-decoration: none;
 		<form id='frm' action='login.do' method='post' onsubmit='return loginCheck()'>
 			</c:if>
 			<c:if test="${!empty redirectURL}">
-			<form id="frm" action="login.do?redirectURL=${redirectURL}" method="post">
+			<form id="frm" action="login.do?redirectURL=${redirectURL}" method="post" onsubmit='return loginCheck()'>
 				</c:if>
 			<div>
 				<h1>로그인</h1>
@@ -59,12 +59,13 @@ text-decoration: none;
 			var flag=true;
 			$.ajax({
 				url:'loginCheck.do',
-				type:'post',
+				type:'get',
 				data:{
 					'id':$('#id').val(),
 					'password':$('#password').val(),
 					'author':$('input[type="radio"]:checked').val()	
 				},
+				contentType:'x-www-urlencoded; charset=utf-8',
 				async:false,
 				success:function(data){
 					if(data == 0){

@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<<<<<<< HEAD
 
 		<form action='addRestaurant.do' method='post'>
 			<br>
@@ -47,6 +48,60 @@
 				</div>
 			</div>
 			
+=======
+			<div class="bg-light rounded h-100 p-4">
+				<form action='addRestaurant.do' method='post'>
+				<div class="row mb-3">
+					<label for="shop" class="col-sm-2 col-form-label">가게 이름</label>
+					<div class='col-sm-10'>
+						<div class='input-group'>
+							<input type="text" class="form-control" id="shop" name='shop'>
+							<button type="button" class="btn btn-primary" id='search' onclick='findRestaurant()'>검색</button>
+							<input type='hidden' id='x-coordinates' name='x-coordinates'>
+							<input type='hidden' id='y-coordinates' name='y-coordinates'>
+						</div>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label for="tel" class="col-sm-2 col-form-label">가게 전화번호</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="tel" name='tel'>
+					</div>
+				</div>
+				<div class='row mb-3'>
+					<label for='content' class='col-sm-2 col-form-label'>가게 정보</label>
+					<div class='col-sm-10'>
+						<textarea class='form-control' id='content' name='content' rows="5"></textarea>
+					</div>	
+				</div>
+				<fieldset class="row mb-3">
+					<legend class="col-form-label col-sm-2 pt-0">영업시간</legend>
+					<div class="col-sm-10">
+						<div class='row mb-3'>
+							<label for='start-time' class='col-sm-2 col-form-label'>오픈시간</label>
+							<input style="width:150px;" class="form-control" type="time" id='start-time' name="startTime">
+							&nbsp;
+							<label for='end-time' class='col-sm-2 col-form-label'>마감시간</label>
+							<input style="width:150px;" class="form-control" type="time" name="endTime" id="end-time">
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="row mb-3">
+					<legend class="col-form-label col-sm-2 pt-0">휴식시간</legend>
+					<div class="col-sm-10">
+						<div class='row mb-3'>
+							<label for='break-start-time' class='col-sm-2 col-form-label'>시작</label>
+							<input style="width:150px;" class="form-control" type="time" id='break-start-time' name="breakStartTime">
+							&nbsp;
+							<label for='break-end-time' class='col-sm-2 col-form-label'>종료</label>
+							<input style="width:150px;" class="form-control" type="time" id="break-end-time" name="breakEndTime" >
+						</div>
+					</div>
+				</fieldset>
+				<button type='submit' class='btn btn-primary' style='width:150px'>수정</button>
+				</form>
+			</div>
+>>>>>>> restaurant_and_reserve
 			<!-- Modal -->
 			<div class="modal fade" id="exampleModal" tabindex="-1"
 				aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -69,11 +124,14 @@
 					</div>
 				</div>
 			</div>
+<<<<<<< HEAD
 			<br>
 			<div align='center'>
 				<button type='submit' class='btn btn-primary' style='width:300px; margin:auto'>추가</button>
 			</div>
 			</form>
+=======
+>>>>>>> restaurant_and_reserve
 		<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=18c56f99b45857f82b08e8f126a259f7"></script>
 		<script>
 			// modal에 지도 그리는 기능

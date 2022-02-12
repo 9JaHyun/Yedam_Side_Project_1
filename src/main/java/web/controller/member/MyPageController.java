@@ -14,6 +14,12 @@ public class MyPageController implements Controller {
 
     @Override
     public String exec(HttpServletRequest request, HttpServletResponse response) {
+<<<<<<< HEAD
+=======
+        MemberService memberDao = new MemberServiceImpl();
+        MemberVO vo = new MemberVO();
+
+>>>>>>> restaurant_and_reserve
         HttpSession session = request.getSession();
 
         MemberVO result = (MemberVO) session.getAttribute(SessionConst.LOGIN_MEMBER);

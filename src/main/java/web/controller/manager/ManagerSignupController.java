@@ -5,10 +5,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.Controller;
 import domain.manager.service.ManagerService;
+<<<<<<< HEAD
 import domain.restaurant.service.RestaurantService;
 import domain.manager.serviceImpl.ManagerServiceImpl;
 import domain.restaurant.serviceImpl.RestaurantServiceImpl;
 import domain.manager.vo.ManagerVO;
+=======
+import domain.manager.serviceImpl.ManagerServiceImpl;
+import domain.manager.vo.ManagerVO;
+import domain.restaurant.service.RestaurantService;
+import domain.restaurant.serviceImpl.RestaurantServiceImpl;
+>>>>>>> restaurant_and_reserve
 import domain.restaurant.vo.RestaurantVO;
 
 public class ManagerSignupController implements Controller {

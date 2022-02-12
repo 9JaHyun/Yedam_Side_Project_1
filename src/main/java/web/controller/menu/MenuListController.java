@@ -1,22 +1,16 @@
-package web.controller.restaurant;
+package web.controller.menu;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import common.Controller;
-<<<<<<< HEAD
-import domain.restaurant.service.RestaurantService;
-import domain.restaurant.serviceImpl.RestaurantServiceImpl;
-import domain.manager.vo.ManagerVO;
-=======
 import domain.manager.vo.ManagerVO;
 import domain.restaurant.service.RestaurantService;
 import domain.restaurant.serviceImpl.RestaurantServiceImpl;
->>>>>>> restaurant_and_reserve
 import web.SessionConst;
 
-public class UpdateRestaurantFormController implements Controller {
+public class MenuListController implements Controller {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
@@ -25,8 +19,8 @@ public class UpdateRestaurantFormController implements Controller {
 		HttpSession session = request.getSession();
 		ManagerVO vo = (ManagerVO) session.getAttribute(SessionConst.LOGIN_MANAGER);
 		long managerId = vo.getManagerId();
-		request.setAttribute("restaurants", restaurantDAO.searchRestaurntId(managerId));
-		return "restaurant/updateRestaurantForm";
+		request.setAttribute("list", restaurantDAO.searchRestaurntId(managerId));
+		return "menu/menuList";
 	}
 
 }

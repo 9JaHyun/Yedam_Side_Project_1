@@ -70,10 +70,10 @@
 	}
 	// 아이디 중복체크
 	function idCheck(){
+			console.log($('#loginId').val())
 		$.ajax({
-			url:'memberIdCheck.do',
-			data:{'id':$('#loginId').val()},
-			type:'post',
+			url:'memberIdCheck.do?id=' + $('#loginId').val(),
+			type:'get',
 			success:function(data){
 				if(data == 1){
 					alert($('#loginId').val()+' 사용 가능한 아이디입니다.');
@@ -83,6 +83,9 @@
 					$('#loginId').val('');
 					$('#loginId').focus();
 				}
+			},
+			error:function(data){
+				console.log(data)
 			}
 		})
 	}

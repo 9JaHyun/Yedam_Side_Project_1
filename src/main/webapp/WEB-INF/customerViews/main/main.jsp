@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+=======
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+>>>>>>> restaurant_and_reserve
 	<!-- main -->
     <div class="main">
+
 
         <!-- 검색화면 -->
         <div class="main__search">
@@ -28,11 +33,10 @@
                         <option value="4">4명</option>
                     </select>
                 </div>
-
+                
                 <input type="submit" value="검색" class="btn btn-primary btn-lg"/>
             </form>
         </div>
-
         <!-- 인기 리스트 -->
         <div class="list-container">
             <h4 class="fw-bold">인기 음식점</h4>
@@ -51,7 +55,18 @@
                             <a href="reserveForm.do?restaurantId=${restaurant.restaurantId}" class="btn btn-primary">예약하기</a>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </c:forEach>
+=======
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">
+                          <a href="restaurantDetail.do" style="color:black; text-decoration: none; outline: none;">한옥집</a>
+                        </h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="reserveForm.do" class="btn btn-primary">예약하기</a>
+                    </div>
+                </div>
+>>>>>>> restaurant_and_reserve
                 
             </div>
         </div>
