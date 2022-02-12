@@ -6,7 +6,7 @@
   // 파라미터 값 불러오기
   var name = getParameter("name");
   var date = getParameter("date");
-  var personnel = getParameter("personnal");
+  var personnel = getParameter("personnel");
 
   // input에 파라미터 값 적용
   (function () {

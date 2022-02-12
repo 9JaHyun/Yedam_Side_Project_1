@@ -10,7 +10,7 @@ public interface RestaurantService {
 	int insertRestaurant(RestaurantVO vo);
 	int updateRestaurant(RestaurantVO vo);
 	int deleteRestaurant(RestaurantVO vo);
-	List<RestaurantVO> searchRestaurntId(long managerId);
+	List<RestaurantVO> searchRestaurantByManagerId(long managerId);
 	List<RestaurantVO> searchRestaurantName(String name);
 	List<RestaurantVO> searchRestaurantRanking();
 
