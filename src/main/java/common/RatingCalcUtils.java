@@ -10,14 +10,19 @@ public class RatingCalcUtils {
             switch (reviewVO.getRating()) {
                 case 1:
                     result[0]++;
+                    break;
                 case 2:
                     result[1]++;
+                    break;
                 case 3:
                     result[2]++;
+                    break;
                 case 4:
                     result[3]++;
+                    break;
                 case 5:
                     result[4]++;
+                    break;
             }
         }
         return result;

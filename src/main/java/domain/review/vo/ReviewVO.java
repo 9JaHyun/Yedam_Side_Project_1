@@ -9,6 +9,8 @@ public class ReviewVO {
     private long memberId;
     private long restaurantId;
     private long content;
+    private String alterName;
+    private String alterTel;
     private String image;
     private int rating;
     private Date createdAt;

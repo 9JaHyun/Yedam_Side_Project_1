@@ -19,9 +19,9 @@
       SELECT reservation_id_seq.nextval AS reservation_id FROM DUAL
     </selectKey>
     insert into reservation(reservation_id, member_id, restaurant_id, reservation_time, personnel,
-    request_content, status)
+    request_content, name, tel, status)
     values (#{reservationId}, #{memberId}, #{restaurantId}, #{reservationTime}, #{personnel},
-    #{requestContent}, 'WAITING_FOR_ACCEPT')
+    #{requestContent}, #{alterName}, #{alterTel}, 'WAITING_FOR_ACCEPT')
 
   </insert>
 

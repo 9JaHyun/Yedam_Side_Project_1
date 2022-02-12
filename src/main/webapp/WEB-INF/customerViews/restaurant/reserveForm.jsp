@@ -51,12 +51,12 @@
 							<div class="mb-3">
 								<label for="name" class="form-label">방문자</label>
 								<input type="text" class="form-control" id="name" name="name"
-									   placeholder="방문자 이름">
+								value="${name}">
 							</div>
 							<div class="mb-3">
 								<label for="tel" class="form-label">방문자 연락처</label>
 								<input type="text" class="form-control" id="tel" name="tel"
-									   placeholder="숫자만 입력하세요">
+									   ${tel}>
 							</div>
 						</div>
 					</div>

@@ -43,6 +43,8 @@ CREATE TABLE Reservation(
     restaurant_id NUMBER,
     reservation_time DATE,
     personnel NUMBER,
+    name varchar2(20),
+    tel varchar2(30),
     request_content VARCHAR2(1000),
     status varchar2(50),
     CONSTRAINT fk_reservation_member_id
@@ -72,17 +74,15 @@ CREATE table REVIEW(
     review_id NUMBER PRIMARY KEY,
     member_id NUMBER,
     restaurant_id NUMBER,
-    content VARCHAR2(2000),
+    review_content VARCHAR2(2000),
     rating NUMBER,
+    image varchar2(200),
     constraint fk_review_member_id
     foreign key(member_id)
     REFERENCES member(member_id),
     constraint fk_review_restaurant_id
     foreign key(restaurant_id)
-    REFERENCES restaurant(restaurant_id),
-    constraint fk_review_manager_id
-    foreign key(manager_id)
-    REFERENCES manager(manager_id)
+    REFERENCES restaurant(restaurant_id)
 );
 
 CREATE SEQUENCE member_id_seq
@@ -111,6 +111,11 @@ START WITH 1
 MAXVALUE 9999999;
 
 CREATE SEQUENCE reservation_id_seq
+    INCREMENT BY 1
+    START WITH 1
+    MAXVALUE 9999999;
+
+CREATE SEQUENCE review_id_seq
     INCREMENT BY 1
     START WITH 1
     MAXVALUE 9999999;
