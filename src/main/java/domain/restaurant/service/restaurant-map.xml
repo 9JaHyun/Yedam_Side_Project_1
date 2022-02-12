@@ -65,7 +65,7 @@
 	where restaurant_id = #{restaurantId}
 </delete>
 
-<select id="searchRestaurntId" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="long">
+<select id="searchRestaurantByManagerId" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="long">
 	select * from restaurant where manager_id = #{managerId}
 </select>
 

@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!-- main -->
 <div class="main">
     <div class="mypage">
@@ -35,34 +37,60 @@
                             <p>${member.tel}</p>
                             <p>가입일자 : ${member.createdAt}</p>
                         </div>
-                        <div>
-                            <h4 class="fs-4 fw-bold" style="margin-bottom: 30px;">예약 현황</h4>
-                            <ul style="padding: 0; display: none;">
-                                <li class="reserve-status-list">
-                                    sdas
-                                </li>
-                                <li class="reserve-status-list">
-                                    asd
-                                </li>
-                            </ul>
-                            <p class="">예약 내역이 없습니다.</p>
-                        </div>
                     </div>
 
                     <!-- 기록 -->
                     <div class="tab-pane fade" id="list-history" role="tabpanel" aria-labelledby="list-history-list">
                         <div>
-                            <h4 class="fs-4 fw-bold" style="margin-bottom: 30px;">예약 히스토리</h4>
-                            <ul style="padding: 0; display: none;">
-                                <li class="reserve-status-list">
-                                    sdas
-                                </li>
-                                <li class="reserve-status-list">
-                                    asd
-                                </li>
-                            </ul>
-                            <p class="">예약 내역이 없습니다.</p>
+                            <h4 class="fs-4 fw-bold" style="margin-bottom: 30px;">예약 기록</h4>
+                            <c:if test="${empty reservationList}">
+                                <p>${message}</p>
+                            </c:if>
+
+                            <c:if test="${not empty reservationList}">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">예약자</th>
+                                        <th scope="col">음식점</th>
+                                        <th scope="col">예약인원</th>
+                                        <th scope="col">예약일자</th>
+                                        <th scope="col">상태</th>
+                                        <th scope="col">리뷰작성</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach items="${reservationList}" var="reservation">
+                                    <tr>
+                                        <th scope="row">${member.name}</th>
+                                        <td>${reservation.restaurantName}</td>
+                                        <td>${reservation.personnel}</td>
+                                        <td>${reservation.reservationTime}</td>
+                                        <c:if test='${reservation.status == "WAITING_FOR_ACCEPT"}'>
+                                            <td><span class="badge bg-light text-dark">대기</span></td>
+                                        </c:if>
+                                        <c:if test='${reservation.status == "ACCEPT"}'>
+                                            <td><span class="badge bg-success">승인</span></td>
+                                        </c:if>
+                                        <c:if test='${reservation.status == "REJECT"}'>
+                                            <td><span class="badge bg-danger">거절</span></td>
+                                        </c:if>
+                                        <td><button class="btn btn-primary btn-sm">리뷰작성</button></td>
+                                    </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
+                            </c:if>
                         </div>
+                        <%--      리뷰 등록--%>
+                        <form action="writeReview.do" method="post" style="display: none;">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                <label for="floatingTextarea">Review</label>
+                                <button type="submit">리뷰 작성하기</button>
+                            </div>
+                        </form>
+
                     </div>
 
                     <!-- 정보수정 -->
