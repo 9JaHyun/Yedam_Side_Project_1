@@ -1,19 +1,13 @@
-<<<<<<<< HEAD:src/main/java/web/controller/restaurant/AddRestaurantFormController.java
 package web.controller.restaurant;
-========
-package web.controller;
->>>>>>>> restaurant_and_reserve:src/main/java/web/controller/MainController.java
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.Controller;
 
-<<<<<<<< HEAD:src/main/java/web/controller/restaurant/AddRestaurantFormController.java
+
 public class AddRestaurantFormController implements Controller {
-========
-public class MainController implements Controller {
->>>>>>>> restaurant_and_reserve:src/main/java/web/controller/MainController.java
+
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {

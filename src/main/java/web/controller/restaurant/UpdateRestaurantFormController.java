@@ -5,15 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import common.Controller;
-<<<<<<< HEAD
-import domain.restaurant.service.RestaurantService;
-import domain.restaurant.serviceImpl.RestaurantServiceImpl;
-import domain.manager.vo.ManagerVO;
-=======
 import domain.manager.vo.ManagerVO;
 import domain.restaurant.service.RestaurantService;
 import domain.restaurant.serviceImpl.RestaurantServiceImpl;
->>>>>>> restaurant_and_reserve
 import web.SessionConst;
 
 public class UpdateRestaurantFormController implements Controller {

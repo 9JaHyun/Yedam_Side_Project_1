@@ -14,14 +14,10 @@
 <select id="restaurantList" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO">
 	select * from restaurant
 </select>
-<<<<<<< HEAD
-<select id="selectRestaurant"></select>
-=======
 
 <select id="selectRestaurant" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="domain.restaurant.vo.RestaurantVO">
 	select * from restaurant where restaurant_id = #{restaurantId}
 </select>
->>>>>>> restaurant_and_reserve
 
 <insert id="insertRestaurant" parameterType="domain.restaurant.vo.RestaurantVO">
 	<selectKey keyProperty="restaurantId" resultType="long" order="BEFORE">
@@ -34,6 +30,7 @@
 	<if test="operationTimeEnd != null"> ,operation_time_end</if>
 	<if test="breakTimeStart != null"> ,break_time_start</if>
 	<if test="breakTimeEnd != null"> ,break_time_end</if>
+	<if test="maxPersonnel != null"> ,max_personnel</if>
 	)
 	values (#{restaurantId},#{managerId},#{name},#{location},0
 	<if test="tel != null"> ,#{tel} </if>
@@ -42,23 +39,13 @@
 	<if test="operationTimeEnd != null"> ,#{operationTimeEnd}</if>
 	<if test="breakTimeStart != null"> ,#{breakTimeStart}</if>
 	<if test="breakTimeEnd != null"> ,#{breakTimeEnd}</if>
+	<if test="maxPersonnel != null"> ,#{maxPersonnel}</if>
 	)
 </insert>
 
 <update id="updateRestaurant" parameterType="domain.restaurant.vo.RestaurantVO">
 	update restaurant
 	<set>
-<<<<<<< HEAD
-	<if test="name != null"> name = #{name} </if>
-	<if test="tel != null"> tel = #{tel} </if>
-	<if test="reserve_count != null"> reserve_count = #{reserve_count} </if>
-	<if test="location != null"> location = #{location} </if>
-	<if test="content != null"> content = #{content} </if>
-	<if test="operationTimeStart != null"> operation_time_start = #{operationTimeStart} </if>
-	<if test="operationTimeEnd != null"> operation_time_end = #{operationTimeEnd} </if>
-	<if test="breakTimeStart != null"> break_time_start = #{breakTimeStart} </if>
-	<if test="breakTimeEnd != null"> break_time_end = #{breakTimeEnd} </if>
-=======
 	<if test="name != null"> name = #{name} ,</if>
 	<if test="tel != null"> tel = #{tel} ,</if>
 	<if test="reserve_count != null"> reserve_count = #{reserve_count} ,</if>
@@ -68,7 +55,7 @@
 	<if test="operationTimeEnd != null"> operation_time_end = #{operationTimeEnd} ,</if>
 	<if test="breakTimeStart != null"> break_time_start = #{breakTimeStart} ,</if>
 	<if test="breakTimeEnd != null"> break_time_end = #{breakTimeEnd} ,</if>
->>>>>>> restaurant_and_reserve
+	<if test="maxPersonnel != null"> max_personnel = #{maxPersonnel}</if>
 	</set>
 	where restaurant_id = #{restaurantId}
 </update>
@@ -81,7 +68,6 @@
 <select id="searchRestaurntId" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="long">
 	select * from restaurant where manager_id = #{managerId}
 </select>
-<<<<<<< HEAD
 
 <select id="searchRestaurantName" resultMap="restaurantMap" resultType="domain.restaurant.vo.RestaurantVO" parameterType="String" >
 	-- todo 모든 정보 들어있는 음식점 검색
@@ -96,6 +82,4 @@
 	ORDER BY reserve_count
 </select>
 
-=======
->>>>>>> restaurant_and_reserve
 </mapper>

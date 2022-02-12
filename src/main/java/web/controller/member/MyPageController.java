@@ -1,25 +1,17 @@
 package web.controller.member;
 
-import common.Controller;
-import domain.member.service.MemberService;
-import domain.member.serviceImpl.MemberServiceImpl;
-import domain.member.vo.MemberVO;
-import web.SessionConst;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import common.Controller;
+import domain.member.vo.MemberVO;
+import web.SessionConst;
 
 public class MyPageController implements Controller {
 
     @Override
     public String exec(HttpServletRequest request, HttpServletResponse response) {
-<<<<<<< HEAD
-=======
-        MemberService memberDao = new MemberServiceImpl();
-        MemberVO vo = new MemberVO();
-
->>>>>>> restaurant_and_reserve
         HttpSession session = request.getSession();
 
         MemberVO result = (MemberVO) session.getAttribute(SessionConst.LOGIN_MEMBER);

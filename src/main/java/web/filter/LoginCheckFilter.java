@@ -46,21 +46,12 @@ public class LoginCheckFilter implements Filter {
     public boolean isLoginCheckPath(String requestURI) {
         return PatternMatchUtils.simpleMatch(whiteList, requestURI);
     }
-<<<<<<< HEAD
 
-    private boolean isMember(HttpSession session) {
-        return session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null;
-    }
-
-    private boolean isManager(HttpSession session) {
-        return session == null || session.getAttribute(SessionConst.LOGIN_MANAGER) == null;
-=======
     private boolean isManager(HttpSession session) {
     	return session == null || session.getAttribute(SessionConst.LOGIN_MANAGER) == null;
     }
     
     private boolean isMember(HttpSession session) {
     	return session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null;
->>>>>>> restaurant_and_reserve
     }
 }
