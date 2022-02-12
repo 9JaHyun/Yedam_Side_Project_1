@@ -28,15 +28,11 @@ public class AddRestaurantController implements Controller {
 		vo.setContent(request.getParameter("content"));
 		vo.setLocation(request.getParameter("y-coordinates")+","+request.getParameter("x-coordinates"));
 		System.out.println(request.getParameter("startTime"));
-		vo.setOperationTimeStart(Time.valueOf(request.getParameter("startTime")+":00"));
-		vo.setOperationTimeEnd(Time.valueOf(request.getParameter("endTime")+":00"));
+		vo.setOperationTimeStart(request.getParameter("startTime"));
+		vo.setOperationTimeEnd(request.getParameter("endTime"));
 		System.out.println(request.getParameter("breakStartTime"));
-		if(!request.getParameter("breakStartTime").equals("")) {
-			vo.setBreakTimeStart(Time.valueOf(request.getParameter("breakStartTime")+":00"));
-		}
-		if(!request.getParameter("breakEndTime").equals("")) {
-			vo.setBreakTimeEnd(Time.valueOf(request.getParameter("breakEndTime")+":00"));
-		}
+		vo.setBreakTimeStart(request.getParameter("breakStartTime"));
+		vo.setBreakTimeEnd(request.getParameter("breakEndTime"));
 		
 		String path = "";
 		
